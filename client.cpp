@@ -11,9 +11,11 @@ int main() {
     Strategy *strategy;
     int choice{0};
 
+    // TODO: Call to initialize StockMarket
+
     std::cout << "Welcome to the stock market!" << std::endl;
     std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;
-    std::cout << "Please enter the amount of funds you would like to start with: ";
+    std::cout << std::endl << "Please enter the amount of funds you would like to start with: ";
     std::cin >> funds;
 
     while (choice != 1 and choice != 2) {

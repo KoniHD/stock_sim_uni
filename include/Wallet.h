@@ -15,7 +15,7 @@ public:
     Wallet(double funds, Strategy *strategy);
     ~Wallet() = default;
 
-    void composeWallet(Strategy *strategy);
+    void composeWallet();
 };
 
 
