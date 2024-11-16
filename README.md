@@ -1,5 +1,8 @@
 # Group-07
 
+## Helpful links
+
+* Programm structure in UML: https://apollon.ase.in.tum.de/0jLG82ogcQSyIC1RF9FA?view=COLLABORATE
 
 
 ## Getting started
