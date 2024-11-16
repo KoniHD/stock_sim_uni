@@ -1,19 +1,21 @@
 #ifndef WALLET_H
 #define WALLET_H
 
+#include "Strategy.h"
+
 #include <vector>
 
 class Wallet {
+
+    double funds;
+    Strategy strategy;
+    std::vector<int> stockVolumes;
+
 public:
-    Wallet(int funds, Stragey strategy);
-    ~Wallet();
+    Wallet(int funds, Strategy strategy);
+    ~Wallet() = default;
 
     void composeWallet(Strategy strategy);
-
-private:
-    double fund;
-    Strategy strategy;
-    std::vector<int> stockVolumes; // specify the size of the array
 }
 
 
