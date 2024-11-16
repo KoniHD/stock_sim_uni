@@ -4,4 +4,4 @@
 Wallet::Wallet(double funds, Strategy *strategy) : funds{funds}, strategy{strategy} {}
 
 
-void Wallet::composeWallet(Strategy *strategy) { strategy->pickStocks(); }
+void Wallet::composeWallet() { strategy->pickStocks(); }
