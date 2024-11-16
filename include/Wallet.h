@@ -8,15 +8,15 @@
 class Wallet {
 
     double funds;
-    Strategy strategy;
+    Strategy *strategy;
     std::vector<int> stockVolumes;
 
 public:
-    Wallet(int funds, Strategy strategy);
+    Wallet(double funds, Strategy *strategy);
     ~Wallet() = default;
 
-    void composeWallet(Strategy strategy);
-}
+    void composeWallet(Strategy *strategy);
+};
 
 
 #endif // WALLET_H

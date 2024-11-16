@@ -1,10 +1,10 @@
 #include "include/Wallet.h"
 
 
-Wallet::Wallet(int funds, Strategy strategy) {
+Wallet::Wallet(double funds, Strategy *strategy) {
     this->funds = funds;
     this->strategy = strategy;
 }
 
 
-void Wallet::composeWallet(Strategy strategy) { strategy.pickStocks(); }
+void Wallet::composeWallet(Strategy *strategy) { strategy->pickStocks(); }
