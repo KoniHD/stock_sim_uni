@@ -3,9 +3,12 @@
 
 #include <unordered_map>
 
+#include "Stock.h"
+
 class Strategy {
 
-    virtual std::unordered_map<Stock, int>() pickStocks() = 0;
+public:
+    virtual std::unordered_map<Stock, int> pickStocks() = 0;
 };
 
 #endif // STRATEGY_H
