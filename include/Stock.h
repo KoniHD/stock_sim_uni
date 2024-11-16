@@ -8,17 +8,18 @@
 
 
 class Stock {
-public:
-    Stock(double initialPrice, double expectedReturn, double variance, double priceChange);
-    ~Stock();
 
-    // here: simulate Behavior method
-
-private:
     double initialPrice;
     double expectedReturn;
     double variance;
     double priceChange;
+
+public:
+    Stock(double initialPrice, double expectedReturn, double variance, double priceChange);
+    ~Stock();
+
+    // arguments and returntype might still need to be changed
+    double simulateBehavior();
 };
 
 #endif //STOCK_H
