@@ -2,8 +2,7 @@
 
 ## Helpful links
 
-* Programm structure in UML: https://apollon.ase.in.tum.de/0jLG82ogcQSyIC1RF9FA?view=COLLABORATE
-
+* Programm structure in UML: https://apollon.ase.in.tum.de/9WJykdePRkab77YN5YeJ?view=COLLABORATE
 
 ## Getting started
 
