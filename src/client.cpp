@@ -1,7 +1,7 @@
-#include "include/HighRiskStrategy.h"
-#include "include/LowRiskStrategy.h"
-#include "include/Strategy.h"
-#include "include/Wallet.h"
+#include "../include/HighRiskStrategy.h"
+#include "../include/LowRiskStrategy.h"
+#include "../include/Strategy.h"
+#include "../include/Wallet.h"
 
 #include <iostream>
 
@@ -11,7 +11,7 @@ int main() {
     Strategy *strategy;
     int choice{0};
 
-    // TODO: Call to initialize StockMarket
+    // TODO: Call StockMarket() constructor
 
     std::cout << "Welcome to the stock market!" << std::endl;
     std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;
@@ -37,4 +37,9 @@ int main() {
     }
 
     Wallet wallet{funds, strategy};
+    // TODO Call compose wallet!
+
+    // TODO Call market.simulateMarket()
+
+    // TODO Call wallet.evaluateResults()
 }
