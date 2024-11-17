@@ -8,7 +8,7 @@
 int main() {
 
     double funds{0.0f};
-    Strategy *strategy;
+    Strategy *strategy; // TODO Use std::unique_prt<Strategy> instead
     int choice{0};
 
     // TODO: Call StockMarket() constructor
