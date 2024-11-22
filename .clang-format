@@ -3,7 +3,18 @@
 Language: Cpp
 BasedOnStyle: LLVM
 AccessModifierOffset: -4
-AlignConsecutiveAssignments: false
+AlignConsecutiveAssignments: AcrossComments
+AlignConsecutiveShortCaseStatements:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+  AlignCaseColons: true
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: false
+  AcrossComments: true
+  AlignCompound: true
+  PadOperators: true
 AlignConsecutiveDeclarations: false
 AlignOperands: true
 AlignTrailingComments: false
