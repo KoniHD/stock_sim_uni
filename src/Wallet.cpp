@@ -5,8 +5,8 @@
 /**
  * @brief Construct a new Wallet object and initialize the funds, strategy and market.
  */
-Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, StockMarket &market) : funds{funds}, market{market} {
-    strategy  = std::move(strategy);
+Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, StockMarket &market) :
+    funds{funds}, strategy{std::move(strategy)}, market{market} {
     portfolio = strategy->pickStocks(funds, market);
 }
 

@@ -5,10 +5,8 @@
 #include "StockMarket.h"
 #include "Strategy.h"
 
-
 #include <string>
 #include <unordered_map>
-
 
 class LowRiskStrategy : public Strategy {
 

@@ -1,12 +1,11 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
-#include <string>
-#include <unordered_map>
-
-
 #include "Stock.h"
 #include "StockMarket.h"
+
+#include <string>
+#include <unordered_map>
 
 enum StockRisk { LOW_RISK_STOCK, MID_RISK_STOCK, HIGH_RISK_STOCK };
 

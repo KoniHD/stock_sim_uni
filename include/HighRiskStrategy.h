@@ -8,7 +8,6 @@
 #include <string>
 #include <unordered_map>
 
-
 class HighRiskStrategy : public Strategy {
 
 public:

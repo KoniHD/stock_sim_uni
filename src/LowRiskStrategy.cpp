@@ -22,7 +22,7 @@ std::unordered_map<std::string, int> LowRiskStrategy::pickStocks(double totalFun
     std::vector<Stock> lowRiskStocks;
     std::vector<Stock> midRiskStocks;
     std::vector<Stock> highRiskStocks;
-    for (const Stock stock: stocks) {
+    for (const Stock &stock: stocks) {
         switch (assessStockRisk(stock)) {
             case StockRisk::LOW_RISK_STOCK:
                 lowRiskStocks.push_back(stock);
@@ -41,13 +41,13 @@ std::unordered_map<std::string, int> LowRiskStrategy::pickStocks(double totalFun
     double highRiskFundsPerShare = (totalFunds * HIGH_RISK_PERCENTAGE) / static_cast<double>(highRiskStocks.size());
 
     for (const Stock &stock: lowRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(lowRiskFundsPerShare / stock.getInitialPrice()));
+        portfolio.emplace(stock.getName(), static_cast<int>(lowRiskFundsPerShare / stock.getPrice()));
     }
     for (const Stock &stock: midRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(midRiskFundsPerShare / stock.getInitialPrice()));
+        portfolio.emplace(stock.getName(), static_cast<int>(midRiskFundsPerShare / stock.getPrice()));
     }
     for (const Stock &stock: highRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(highRiskFundsPerShare / stock.getInitialPrice()));
+        portfolio.emplace(stock.getName(), static_cast<int>(highRiskFundsPerShare / stock.getPrice()));
     }
 
     return portfolio;

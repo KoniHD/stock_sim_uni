@@ -5,11 +5,12 @@
 #include "StockMarket.h"
 #include "Strategy.h"
 
+#include <functional>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
-
 
 class Wallet {
 
