@@ -1,7 +1,30 @@
 #include "../include/Wallet.h"
 
+#include <memory>
 
-Wallet::Wallet(double funds, Strategy *strategy) : funds{funds}, strategy{strategy} {}
+/**
+ * @brief Construct a new Wallet object and initialize the funds, strategy and market.
+ */
+Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, StockMarket &market) : funds{funds}, market{market} {
+    strategy  = std::move(strategy);
+    portfolio = strategy->pickStocks(funds, market);
+}
 
+/**
+ * @brief Get the funds of the wallet.
+ * @return double The funds of the wallet.
+ */
+double Wallet::getFunds() const { return funds; }
 
-void Wallet::composeWallet() { strategy->pickStocks(); }
+/**
+ * @brief Calculate the total value of the portfolio.
+ *
+ * This function adds together the value of each stock contained in the portfolio times its current price.
+ */
+void Wallet::evaluateResults() {
+    double total{0.0f};
+    for (const auto &stock: portfolio) {
+        total += stock.second * market.getStockPrice(stock.first);
+    }
+    funds = total;
+}

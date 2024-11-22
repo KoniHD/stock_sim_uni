@@ -128,7 +128,9 @@ readability-*,
 -readability-uppercase-literal-suffix'
 
 CheckOptions:
-  cppcoreguidelines-avoid-magic-numbers.IgnoredIntegerValues: '0;1;42'
-  readability-magic-numbers.IgnoredIntegerValues: '0;1;42'
+  cppcoreguidelines-avoid-magic-numbers.IgnoredIntegerValues: '0;1;2;42;365'
+  cppcoreguidelines-avoid-magic-numbers.IgnoredFloatingPointValues: '0.0;1.0;365.0'
+  readability-magic-numbers.IgnoredIntegerValues: '0;1;2;42;365'
+  readability-magic-numbers.IgnoredFloatingPointValues: '0.0;1.0;365.0'
   readability-identifier-length.IgnoredParameterNames: 'c'
   readability-identifier-length.IgnoredVariableNames: 'c;i;j'

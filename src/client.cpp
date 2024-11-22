@@ -1,17 +1,19 @@
 #include "../include/HighRiskStrategy.h"
 #include "../include/LowRiskStrategy.h"
+#include "../include/StockMarket.h"
 #include "../include/Strategy.h"
 #include "../include/Wallet.h"
 
 #include <iostream>
+#include <memory>
 
 int main() {
 
     double funds{0.0f};
-    Strategy *strategy; // TODO Use std::unique_prt<Strategy> instead
+    std::unique_ptr<Strategy> strategy;
     int choice{0};
 
-    // TODO: Call StockMarket() constructor
+    StockMarket market = StockMarket{1.0f / 365.0f, 1};
 
     std::cout << "Welcome to the stock market!" << std::endl;
     std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;
@@ -23,12 +25,12 @@ int main() {
         std::cin >> choice;
         switch (choice) {
             case 1:
-                strategy = new LowRiskStrategy();
+                strategy = std::make_unique<LowRiskStrategy>();
                 std::cout << "Congratulations, you chose the save path and opted for the low risk strategy."
                           << std::endl;
                 break;
             case 2:
-                strategy = new HighRiskStrategy();
+                strategy = std::make_unique<HighRiskStrategy>();
                 std::cout << "You were a bit braver and decided for the high risk strategy." << std::endl;
                 break;
             default:
@@ -36,10 +38,16 @@ int main() {
         }
     }
 
-    Wallet wallet{funds, strategy};
-    // TODO Call compose wallet!
+    Wallet wallet{funds, std::move(strategy), market};
 
-    // TODO Call market.simulateMarket()
+    market.simulateMarket();
 
-    // TODO Call wallet.evaluateResults()
+    wallet.evaluateResults();
+
+    std::cout << "---" << std::endl << "Simulation finished." << std::endl;
+    std::cout << "You started the simulation with: " << funds << std::endl;
+    std::cout << "After the simulation you have: " << wallet.getFunds() << std::endl;
+    std::cout << "You made a profit / loss of: " << wallet.getFunds() - funds << std::endl;
+
+    return 0;
 }
