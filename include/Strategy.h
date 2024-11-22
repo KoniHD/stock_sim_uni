@@ -15,6 +15,7 @@ StockRisk assessStockRisk(Stock stock);
 class Strategy {
 
 public:
+    Strategy()                                    = default;
     virtual ~Strategy()                           = default;
     Strategy(const Strategy &other)               = default;
     Strategy &operator=(const Strategy &other)    = default;

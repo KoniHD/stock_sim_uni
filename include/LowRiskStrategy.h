@@ -12,6 +12,7 @@
 
 class LowRiskStrategy : public Strategy {
 
+public:
     [[nodiscard]] std::unordered_map<std::string, int> pickStocks(double funds,
                                                                   const StockMarket &stockMarket) override;
 };
