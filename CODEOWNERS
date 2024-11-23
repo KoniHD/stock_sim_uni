@@ -3,9 +3,9 @@
 [Developers][2] @KoniHD @Edem @00000000014B9757
 *.cpp
 *.h
-/include/
-/res/
-/src/           
+/include
+/res
+/src           
 *.md
 
 [Documentation][1]  @KoniHD
@@ -20,7 +20,7 @@ CMakeLists.txt
 CODEOWNERS
 
 [Testing]          @KoniHD
-/tests/
+/tests
 
 # Missing reviewers
 [Reviewer]
