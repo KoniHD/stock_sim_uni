@@ -1,0 +1,60 @@
+\hypertarget{classLowRiskStrategy}{}\doxysection{Low\+Risk\+Strategy Class Reference}
+\label{classLowRiskStrategy}\index{LowRiskStrategy@{LowRiskStrategy}}
+
+
+{\ttfamily \#include $<$Low\+Risk\+Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Low\+Risk\+Strategy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classLowRiskStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Low\+Risk\+Strategy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{classLowRiskStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classLowRiskStrategy_a731211c68d32d93899f87dc75a1e3060}{pick\+Stocks}} (double funds, const \mbox{\hyperlink{classStockMarket}{Stock\+Market}} \&stock\+Market) override
+\begin{DoxyCompactList}\small\item\em Composes a low-\/risk portfolio of stocks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLowRiskStrategy_a731211c68d32d93899f87dc75a1e3060}\label{classLowRiskStrategy_a731211c68d32d93899f87dc75a1e3060}} 
+\index{LowRiskStrategy@{LowRiskStrategy}!pickStocks@{pickStocks}}
+\index{pickStocks@{pickStocks}!LowRiskStrategy@{LowRiskStrategy}}
+\doxysubsubsection{\texorpdfstring{pickStocks()}{pickStocks()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Low\+Risk\+Strategy\+::pick\+Stocks (\begin{DoxyParamCaption}\item[{double}]{total\+Funds,  }\item[{const \mbox{\hyperlink{classStockMarket}{Stock\+Market}} \&}]{stock\+Market }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Composes a low-\/risk portfolio of stocks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock\+Market} & The stock market to pick stocks from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The stock portfolio.
+\end{DoxyReturn}
+This strategy picks 50\% low-\/risk stocks, 30\% mid-\/risk stocks and 20\% high-\/risk stocks. This share is based on the total available funds. Per risk category, the value is distributed equally among the stocks. By this the number of stocks in the portoflio is dericed. 
+
+Implements \mbox{\hyperlink{classStrategy_a70c7e96def94a90d4186a95899322676}{Strategy}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{LowRiskStrategy_8h}{Low\+Risk\+Strategy.\+h}}\item 
+\mbox{\hyperlink{LowRiskStrategy_8cpp}{Low\+Risk\+Strategy.\+cpp}}\end{DoxyCompactItemize}

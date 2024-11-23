@@ -1,12 +1,3 @@
-# Project: Simulate trading in a stock market
-
-Idea contributed by Andrea De Girolamo <andrea.de-girolamo@tum.de> and Michael Pio Basile <michael.basile@tum.de>.
-
-## Remarks for implementation of Sprint 1
-- if you run the program --> client starts running
-  - 1atstock market 
-- 
-
 ## General project description
 
 The goal of this project is to simulate the performance of certain portfolios in a simulated stock market. The whole project is divided into 2 simulations: the market simulation and the investor simulation. Later, it will be possible to create interactions between the simulations of the investors and the simulations of the market, therefore creating cause and effect relationships.

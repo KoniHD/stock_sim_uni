@@ -1,0 +1,98 @@
+\hypertarget{classStrategy}{}\doxysection{Strategy Class Reference}
+\label{classStrategy}\index{Strategy@{Strategy}}
+
+
+{\ttfamily \#include $<$Strategy.\+h$>$}
+
+
+
+Inheritance diagram for Strategy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classStrategy__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Strategy\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{classStrategy__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classStrategy_a4c952e0ccc5f3359d01fcceee3b9e967}{Strategy}} ()=default
+\item 
+virtual \mbox{\hyperlink{classStrategy_a4762a086f587ed294ca7178e396f142f}{$\sim$\+Strategy}} ()=default
+\item 
+\mbox{\hyperlink{classStrategy_ae24b059ec6257fed7cc3adb5751e1415}{Strategy}} (const \mbox{\hyperlink{classStrategy}{Strategy}} \&other)=default
+\item 
+\mbox{\hyperlink{classStrategy}{Strategy}} \& \mbox{\hyperlink{classStrategy_ab3261137d82ffea3614af2172dd3f91b}{operator=}} (const \mbox{\hyperlink{classStrategy}{Strategy}} \&other)=default
+\item 
+\mbox{\hyperlink{classStrategy_a9092ff54b5dbe89814e8ad779d22fe59}{Strategy}} (\mbox{\hyperlink{classStrategy}{Strategy}} \&\&move) noexcept=default
+\item 
+\mbox{\hyperlink{classStrategy}{Strategy}} \& \mbox{\hyperlink{classStrategy_af63c9d0d5cf225c708deab895f91f695}{operator=}} (\mbox{\hyperlink{classStrategy}{Strategy}} \&\&move) noexcept=default
+\item 
+virtual std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classStrategy_a70c7e96def94a90d4186a95899322676}{pick\+Stocks}} (double funds, const \mbox{\hyperlink{classStockMarket}{Stock\+Market}} \&stock\+Market)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classStrategy_a4c952e0ccc5f3359d01fcceee3b9e967}\label{classStrategy_a4c952e0ccc5f3359d01fcceee3b9e967}} 
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{Strategy()}{Strategy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Strategy\+::\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classStrategy_a4762a086f587ed294ca7178e396f142f}\label{classStrategy_a4762a086f587ed294ca7178e396f142f}} 
+\index{Strategy@{Strategy}!````~Strategy@{$\sim$Strategy}}
+\index{````~Strategy@{$\sim$Strategy}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{$\sim$Strategy()}{~Strategy()}}
+{\footnotesize\ttfamily virtual Strategy\+::$\sim$\+Strategy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+\mbox{\Hypertarget{classStrategy_ae24b059ec6257fed7cc3adb5751e1415}\label{classStrategy_ae24b059ec6257fed7cc3adb5751e1415}} 
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{Strategy()}{Strategy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Strategy\+::\+Strategy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStrategy}{Strategy}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classStrategy_a9092ff54b5dbe89814e8ad779d22fe59}\label{classStrategy_a9092ff54b5dbe89814e8ad779d22fe59}} 
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\index{Strategy@{Strategy}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{Strategy()}{Strategy()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Strategy\+::\+Strategy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStrategy}{Strategy}} \&\&}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classStrategy_ab3261137d82ffea3614af2172dd3f91b}\label{classStrategy_ab3261137d82ffea3614af2172dd3f91b}} 
+\index{Strategy@{Strategy}!operator=@{operator=}}
+\index{operator=@{operator=}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStrategy}{Strategy}}\& Strategy\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classStrategy}{Strategy}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classStrategy_af63c9d0d5cf225c708deab895f91f695}\label{classStrategy_af63c9d0d5cf225c708deab895f91f695}} 
+\index{Strategy@{Strategy}!operator=@{operator=}}
+\index{operator=@{operator=}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStrategy}{Strategy}}\& Strategy\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStrategy}{Strategy}} \&\&}]{move }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classStrategy_a70c7e96def94a90d4186a95899322676}\label{classStrategy_a70c7e96def94a90d4186a95899322676}} 
+\index{Strategy@{Strategy}!pickStocks@{pickStocks}}
+\index{pickStocks@{pickStocks}!Strategy@{Strategy}}
+\doxysubsubsection{\texorpdfstring{pickStocks()}{pickStocks()}}
+{\footnotesize\ttfamily virtual std\+::unordered\+\_\+map$<$std\+::string, int$>$ Strategy\+::pick\+Stocks (\begin{DoxyParamCaption}\item[{double}]{funds,  }\item[{const \mbox{\hyperlink{classStockMarket}{Stock\+Market}} \&}]{stock\+Market }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classLowRiskStrategy_a731211c68d32d93899f87dc75a1e3060}{Low\+Risk\+Strategy}}, and \mbox{\hyperlink{classHighRiskStrategy_aa502a2502f46085f89c3d57b9389c6ae}{High\+Risk\+Strategy}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Strategy_8h}{Strategy.\+h}}\end{DoxyCompactItemize}

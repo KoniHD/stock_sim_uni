@@ -1,0 +1,63 @@
+\hypertarget{Strategy_8cpp}{}\doxysection{Strategy.\+cpp File Reference}
+\label{Strategy_8cpp}\index{Strategy.cpp@{Strategy.cpp}}
+{\ttfamily \#include \char`\"{}../include/\+Strategy.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for Strategy.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Strategy_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Strategy_8cpp_a9e3f9ac18f0e0d22c5ab9e0e05b4d6c8}{LOW\+\_\+\+RISK\+\_\+\+BOUND}}~0.\+1
+\item 
+\#define \mbox{\hyperlink{Strategy_8cpp_a79964595da41ef05f00c6c531a01e3b4}{MID\+\_\+\+RISK\+\_\+\+BOUND}}~0.\+14
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Strategy_8h_a20547a588ff38b7e9ef38f2a4f2fd52c}{Stock\+Risk}} \mbox{\hyperlink{Strategy_8cpp_a698c7ada01380cefc347d368dfaa90b7}{assess\+Stock\+Risk}} (\mbox{\hyperlink{classStock}{Stock}} stock)
+\begin{DoxyCompactList}\small\item\em Assesses the risk of a stock based on its variance and its price. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Strategy_8cpp_a9e3f9ac18f0e0d22c5ab9e0e05b4d6c8}\label{Strategy_8cpp_a9e3f9ac18f0e0d22c5ab9e0e05b4d6c8}} 
+\index{Strategy.cpp@{Strategy.cpp}!LOW\_RISK\_BOUND@{LOW\_RISK\_BOUND}}
+\index{LOW\_RISK\_BOUND@{LOW\_RISK\_BOUND}!Strategy.cpp@{Strategy.cpp}}
+\doxysubsubsection{\texorpdfstring{LOW\_RISK\_BOUND}{LOW\_RISK\_BOUND}}
+{\footnotesize\ttfamily \#define LOW\+\_\+\+RISK\+\_\+\+BOUND~0.\+1}
+
+\mbox{\Hypertarget{Strategy_8cpp_a79964595da41ef05f00c6c531a01e3b4}\label{Strategy_8cpp_a79964595da41ef05f00c6c531a01e3b4}} 
+\index{Strategy.cpp@{Strategy.cpp}!MID\_RISK\_BOUND@{MID\_RISK\_BOUND}}
+\index{MID\_RISK\_BOUND@{MID\_RISK\_BOUND}!Strategy.cpp@{Strategy.cpp}}
+\doxysubsubsection{\texorpdfstring{MID\_RISK\_BOUND}{MID\_RISK\_BOUND}}
+{\footnotesize\ttfamily \#define MID\+\_\+\+RISK\+\_\+\+BOUND~0.\+14}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Strategy_8cpp_a698c7ada01380cefc347d368dfaa90b7}\label{Strategy_8cpp_a698c7ada01380cefc347d368dfaa90b7}} 
+\index{Strategy.cpp@{Strategy.cpp}!assessStockRisk@{assessStockRisk}}
+\index{assessStockRisk@{assessStockRisk}!Strategy.cpp@{Strategy.cpp}}
+\doxysubsubsection{\texorpdfstring{assessStockRisk()}{assessStockRisk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Strategy_8h_a20547a588ff38b7e9ef38f2a4f2fd52c}{Stock\+Risk}} assess\+Stock\+Risk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStock}{Stock}}}]{stock }\end{DoxyParamCaption})}
+
+
+
+Assesses the risk of a stock based on its variance and its price. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stock} & The stock to assess. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The risk of the stock. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{Strategy_8h_a20547a588ff38b7e9ef38f2a4f2fd52c}{Stock\+Risk}}
+\end{DoxySeeAlso}
+The risk is assessed based on the standard deviation of the stock which is computed by sqrt(variance) / Price. If the standard deviation is below 0.\+1, the stock is considered low risk. If the standard deviation is between 0.\+1 and 0.\+14, the stock is considered mid risk. Everything above is considered to be high risk. 

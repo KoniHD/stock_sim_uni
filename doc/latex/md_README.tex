@@ -1,0 +1,28 @@
+\hypertarget{md_README_autotoc_md12}{}\doxysection{Helpful links}\label{md_README_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Programm structure in UML\+: \href{https://apollon.ase.in.tum.de/9WJykdePRkab77YN5YeJ?view=COLLABORATE}{\texttt{ Apollon}}
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md13}{}\doxysection{Remarks for implementation of Sprint 1}\label{md_README_autotoc_md13}
+
+\begin{DoxyItemize}
+\item if you run the program -\/-\/$>$ client starts running
+\begin{DoxyEnumerate}
+\item stock market constructor called -\/-\/$>$ stocks and statistical values hard coded
+\item Client welcomes you... (already implemnted)
+\item based on inputs, call compose\+Wallet() after initializing \mbox{\hyperlink{classWallet}{Wallet}} with constructor
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classWallet}{Wallet}} calls strategy to compose wallet contents
+\item low\+Risk\+: standarddev $<$ 10\%, mid\+Risk $<$ 14\% otherwise high\+Risk \textbackslash{} value based on \href{https://www.ishares.com/de/privatanleger/de/produkte/251382/ishares-msci-world-minimum-volatility-ucits-etf?switchLocale=y&siteEntryPassthrough=true}{\texttt{ i\+Shares World Minimum Volatility}} and \href{https://www.ishares.com/us/products/239695/ishares-msci-usa-minimum-volatility-etf}{\texttt{ Shares USA Min Vol Factor}} \textbackslash{} Further readings on theory\+: \href{https://www.investopedia.com/ask/answers/021915/how-standard-deviation-used-determine-risk.asp\#toc-how-are-standard-deviation-and-variance-related}{\texttt{ Investopedia -\/ Standard Deviation}} and \href{https://www.investopedia.com/terms/r/riskmeasures.asp}{\texttt{ Investopedia -\/ 5 Principal Risk Measures}}
+\item if low\+Risk -\/-\/$>$ 50\% low-\/risk stocks, 30\% mid-\/risk stocks 20\% high-\/risk stocks
+\item if high\+Risk -\/-\/$>$ 20\% low-\/risk stocks, 40\% mid-\/risk stocks and 30\% high-\/risk stocks
+\item split money to be invested evenly among all stocks in respective category
+\end{DoxyItemize}
+\item client calls simulate\+Market(), time\+Step\+Size and simulation\+Length hard coded
+\begin{DoxyItemize}
+\item simulate\+Market() iteratively calls simulate\+Behavior() for each stock
+\item simulate\+Behvior() implements one time step according to \href{https://www.investopedia.com/articles/07/montecarlo.asp}{\texttt{ Investopedia -\/ Monte Carlo}} for each stock
+\item simualte\+Market() returns stock\+Trend for all stocks
+\end{DoxyItemize}
+\item client calls evaluate\+Results() from \mbox{\hyperlink{classWallet}{Wallet}} 
+\end{DoxyEnumerate}
+\end{DoxyItemize}
