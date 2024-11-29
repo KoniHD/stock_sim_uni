@@ -4,6 +4,9 @@
 
 #include "Stock.h"
 
+
+#include <string>
+#include <unordered_map>
 #include <string_view>
 #include <vector>
 
@@ -11,7 +14,7 @@ class StockMarket {
     // float, since we take timeStep as 1 for a time step of one year
     float timeStep;
     int simulationLength;
-    std::vector<int> simulationData;
+    std::unordered_map<std::string, Stock> stocks; // Map of stock names to Stock objects
 
 public:
     StockMarket(float timeStep, int simulationLength);

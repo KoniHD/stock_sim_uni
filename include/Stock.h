@@ -21,6 +21,9 @@ public:
 
     // arguments and returntype might still need to be changed
     double simulateBehavior();
+    double getExpectedReturn() const;   // I(Sarper) added these to make my part(StockMarket) work.
+    void updatePrice(double newPrice);  // I(Sarper) added these to make my part(StockMarket) work.
+
 };
 
 #endif // STOCK_H
