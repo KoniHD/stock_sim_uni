@@ -66,7 +66,6 @@ void Stock::updatePrice(const double& timestep, std::default_random_engine& gene
 
 
 
-
 double Stock::getExpectedReturn() const { //sarper added this, explaiantion is in Stocks.h file
     return expectedReturn;
 }

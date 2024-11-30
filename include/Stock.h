@@ -11,6 +11,7 @@ class Stock {
     double variance;
     double priceChange;
     std::string name;
+    std::vector<double> priceTimeSeries;
 
 public:
     // constructor
