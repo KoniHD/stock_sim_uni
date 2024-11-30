@@ -2,32 +2,31 @@
 #define STOCK_H
 
 #include <string>
+#include <random>
 
 class Stock {
-
-    double Price;
+    // private since nothing stated here
+    double price;
     double expectedReturn;
     double variance;
     double priceChange;
     std::string name;
 
 public:
-    Stock(double Price, double expectedReturn, double variance, double priceChange);
+    // constructor
+    Stock(double price, double expectedReturn, double variance, double priceChange);
 
-    // TODO add getters
+    // getters
     double getPrice() const;
+    double getExpectedReturn() const;
     double getVariance() const;
     std::string_view getName() const;
 
-    // arguments and returntype might still need to be changed
-    double simulateBehavior();
-    double getExpectedReturn() const;   // I(Sarper) added these to make my part(StockMarket) work.
-    void updatePrice(double newPrice);  // I(Sarper) added these to make my part(StockMarket) work.
-     /*
-     getExpectedReturn() returns the stock's expected return.
-     updatePrice() updates the stock's price.
-     
-     */
+    // TODO add setters
+
+    void updatePrice(const double& timestep, std::default_random_engine& generator); // simulates new price for one timestep
+    //void updatePrice(double newPrice);  // I(Sarper) added these to make my part(StockMarket) work.
+
 };
 
 #endif // STOCK_H
