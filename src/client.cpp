@@ -29,12 +29,12 @@ int main() {
 
             LowRiskStrategy lowRiskStrategy = LowRiskStrategy();
             std::cout << "Congratulations, you chose the save path and opted for the low risk strategy." << std::endl;
-            Wallet wallet = Wallet(funds, lowRiskStrategy, market);
+            wallet = Wallet(funds, lowRiskStrategy, market);
         } else if (choice == 2) {
 
-            // std::unique_ptr<HighRiskStrategy> highRiskStrategy = std::make_unique<HighRiskStrategy>();
-            // std::cout << "You were a bit braver and decided for the high risk strategy." << std::endl;
-            // Wallet wallet = Wallet(funds, std::move(highRiskStrategy), market);
+            HighRiskStrategy highRiskStrategy = HighRiskStrategy();
+            std::cout << "You were a bit braver and decided for the high risk strategy." << std::endl;
+            wallet = Wallet(funds, highRiskStrategy, market);
         } else {
 
             std::cout << "Invalid choice. Try again ..." << std::endl;
