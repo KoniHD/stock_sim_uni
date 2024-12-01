@@ -7,16 +7,17 @@
 
 class Stock {
     // private since nothing stated here
+    std::string name;
     double price;
     double expectedReturn;
     double variance;
     double priceChange;
-    std::string name;
     std::vector<double> priceTimeSeries;
 
 public:
     // constructor
-    Stock(double price, double expectedReturn, double variance, double priceChange);
+    Stock(std::string name, double price, double expectedReturn, double variance, double priceChange);
+    Stock();
 
     // getters
     double getPrice() const;
@@ -25,14 +26,14 @@ public:
     std::string_view getName() const;
     std::vector<double> getPriceTimeSeries() const;
 
+    // setters
     void saveCurrentPrice(double price);
     void setPrice(double price);
     void setExpectedReturn(double expectedReturn);
     void setVariance(double variance);
+    void setName(std::string_view name);
 
     void updatePrice(const double& timeStep, std::default_random_engine& generator); // simulates new price for one timestep
-    //void updatePrice(double newPrice);  // I(Sarper) added these to make my part(StockMarket) work.
-
 };
 
 #endif // STOCK_H

@@ -2,6 +2,7 @@
 #include <string>
 #include <math.h>
 #include <random>
+#include <utility>
 #include <vector>
 
 /* TODO MY QUESTIONS:
@@ -15,8 +16,12 @@
 
 
 // Constructor
-Stock::Stock(double price, double expectedReturn, double variance, double priceChange) :
-    price{price}, expectedReturn{expectedReturn}, variance{variance}, priceChange{priceChange}, priceTimeSeries({price}) {}
+Stock::Stock(std::string name, double price, double expectedReturn, double variance, double priceChange) :
+    name{std::move(name)}, price{price}, expectedReturn{expectedReturn}, variance{variance}, priceChange{priceChange}, priceTimeSeries({price}) {}
+
+Stock::Stock() :
+    price{0.0}, expectedReturn{0.0}, variance{0.0}, priceChange{0.0} {}
+
 
 // Getters
 double Stock::getPrice() const {return price;}
@@ -37,6 +42,8 @@ void Stock::setPrice(double price) {this->price = price;}
 void Stock::setExpectedReturn(double expectedReturn) {this->expectedReturn = expectedReturn;}
 
 void Stock::setVariance(double variance) {this->variance = variance;}
+
+void Stock::setName(std::string_view name) {this->name = name;}
 
 // generates random number from standard normal distribution
 double drawRandomNumber(std::default_random_engine& generator) {
