@@ -29,6 +29,7 @@ public:
     // arguments and returntype might still need to be changed
     void simulateMarket(); // simulateMarket() performs the simulation of stock prices over time using a stochastic
                            // model (like Geometric Brownian Motion).
+    void printPerformance();
 };
 
 

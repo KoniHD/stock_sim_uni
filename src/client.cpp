@@ -51,5 +51,8 @@ int main() {
     std::cout << "After the simulation you have: " << wallet.getFunds() << std::endl;
     std::cout << "You made a profit / loss of: " << wallet.getFunds() - funds << std::endl;
 
+    std::cout << "The following shows the performance of all stocks in the market: " <<  std::endl;
+    market.printPerformance();
+
     return 0;
 }

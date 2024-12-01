@@ -17,7 +17,7 @@
  * Everything above is considered to be high risk.
  */
 StockRisk assessStockRisk(Stock stock) {
-    double standardDeviation = std::sqrt(stock.getVariance()) / stock.getPrice();
+    double standardDeviation = stock.getVariance();
 
     if (standardDeviation < LOW_RISK_BOUND) {
         return LOW_RISK_STOCK;

@@ -1,5 +1,6 @@
 #include "../include/StockMarket.h"
 #include "../include/Stock.h"
+#include <iostream>
 
 #include <cmath>
 #include <random>
@@ -9,9 +10,16 @@
 StockMarket::StockMarket(float timeStep, int simulationLength) : //The constructor initializes the StockMarket with a time step and simulation length.
     timeStep{timeStep}, simulationLength{simulationLength} {
     // Initialize with some sample stocks with initial values for price, expected return, variance, and price change. These are represented by the Stock class objects.
-    stocks["Google"] = Stock("Google", 100.0, 0.1, 0.05, 0.0);
-    stocks["Amazon"] = Stock("Amazon", 200.0, 0.08, 0.07, 0.0);
-    stocks["Tesla"] = Stock("Tesla", 300.0, 0.12, 0.1, 0.0);
+    stocks["Google"] = Stock("Google", 100.0, 0.04, 0.05, 0.0);
+    stocks["Amazon"] = Stock("Amazon", 200.0, 0.045, 0.07, 0.0);
+    stocks["Tesla"] = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
+    stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2, 0.0);
+    stocks["Adidas"] = Stock("Adidas", 40.0, 0.1, 0.25, 0.0);
+    stocks["Apple"] = Stock("Apple", 320.0, 0.03, 0.03, 0.0);
+    stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12, 0.0);
+    stocks["Disney"] = Stock("Disney", 150.0, 0.07, 0.14, 0.0);
+    stocks["Airbus"] = Stock("Airbus", 700.0, 0.075, 0.16, 0.0);
+    stocks["Nestle"] = Stock("Nestle", 290.0, 0.95, 0.22, 0.0);
 }
 
 std::vector<Stock> StockMarket::getStocks() const {  // This method returns all the stocks in the stocks map. It loops through the map and pushes each stock into a vector to return.
@@ -47,5 +55,15 @@ void StockMarket::simulateMarket() {
             stock.updatePrice(timeStep, generator);
             // stock.saveCurrentPrice(getStockPrice(name));
         }
+    }
+}
+
+void StockMarket::printPerformance() {
+    for (auto &[name, stock] : stocks) {
+        std::cout << "trend_" << name << ": [";
+        for (double price: stock.getPriceTimeSeries()) {
+            std::cout << price << ", ";
+        }
+        std::cout << "]" << std::endl;
     }
 }
