@@ -39,22 +39,13 @@ The stock prices are updated after each time step, and the simulation runs for t
 */
 
 void StockMarket::simulateMarket() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::normal_distribution<> d(0, 1); // Standard normal distribution
+    std::default_random_engine generator(std::random_device{}());
 
     for (int t = 0; t < simulationLength; ++t) {
         for (auto &[name, stock] : stocks) {
-            double currentPrice = stock.getPrice();
-            double mu = stock.getExpectedReturn();
-            double sigma = std::sqrt(stock.getVariance());
-            double randomShock = d(gen);
-
             // Update stock price using GBM formula
-            double newPrice = currentPrice * std::exp(
-                (mu - 0.5 * sigma * sigma) * timeStep + sigma * std::sqrt(timeStep) * randomShock
-            );
-            stock.updatePrice(newPrice);
+            stock.updatePrice(timeStep, generator);
+            stock.saveCurrentPrice(getStockPrice(name));
         }
     }
 }

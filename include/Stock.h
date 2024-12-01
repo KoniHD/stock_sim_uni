@@ -3,6 +3,7 @@
 
 #include <string>
 #include <random>
+#include <vector>
 
 class Stock {
     // private since nothing stated here
@@ -11,6 +12,7 @@ class Stock {
     double variance;
     double priceChange;
     std::string name;
+    std::vector<double> priceTimeSeries;
 
 public:
     // constructor
@@ -21,10 +23,14 @@ public:
     double getExpectedReturn() const;
     double getVariance() const;
     std::string_view getName() const;
+    std::vector<double> getPriceTimeSeries() const;
 
-    // TODO add setters
+    void saveCurrentPrice(double price);
+    void setPrice(double price);
+    void setExpectedReturn(double expectedReturn);
+    void setVariance(double variance);
 
-    void updatePrice(const double& timestep, std::default_random_engine& generator); // simulates new price for one timestep
+    void updatePrice(const double& timeStep, std::default_random_engine& generator); // simulates new price for one timestep
     //void updatePrice(double newPrice);  // I(Sarper) added these to make my part(StockMarket) work.
 
 };
