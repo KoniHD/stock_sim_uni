@@ -54,7 +54,7 @@ target_sources(${EXECUTABLE_NAME} PUBLIC
                 src/LowRiskStrategy.cpp
                 src/Stock.cpp
                 src/StockMarket.cpp
-                src/Wallet.cpp
                 src/Strategy.cpp
+                src/Wallet.cpp
                 
 )

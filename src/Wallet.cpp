@@ -1,13 +1,19 @@
 #include "../include/Wallet.h"
 
 #include <memory>
+#include <utility>
 
 /**
  * @brief Construct a new Wallet object and initialize the funds, strategy and market.
  */
-Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, StockMarket &market) :
-    funds{funds}, strategy{std::move(strategy)}, market{market} {
-    portfolio = strategy->pickStocks(funds, market);
+Wallet::Wallet(double funds, LowRiskStrategy lowRiskStrategy, StockMarket &market) :
+    funds{funds}, lowRiskStrategy{lowRiskStrategy}, market{market} {
+    portfolio = lowRiskStrategy.pickStocks(funds, market);
+}
+
+Wallet::Wallet(double funds, HighRiskStrategy highRiskStrategy, StockMarket &market) :
+    funds{funds}, highRiskStrategy{highRiskStrategy}, market{market} {
+    portfolio = highRiskStrategy.pickStocks(funds, market);
 }
 
 /**
