@@ -27,7 +27,7 @@ double Wallet::getFunds() const { return funds; }
  *
  * This function adds together the value of each stock contained in the portfolio times its current price.
  */
-void Wallet::evaluateResults() {
+void Wallet::evaluateResults(StockMarket &market) {
     double total{0.0f};
     for (const auto &stock: portfolio) {
         total += stock.second * market.getStockPrice(stock.first);

@@ -45,7 +45,7 @@ void StockMarket::simulateMarket() {
         for (auto &[name, stock] : stocks) {
             // Update stock price using GBM formula
             stock.updatePrice(timeStep, generator);
-            stock.saveCurrentPrice(getStockPrice(name));
+            // stock.saveCurrentPrice(getStockPrice(name));
         }
     }
 }

@@ -13,7 +13,7 @@ int main() {
     // std::unique_ptr<Strategy> strategy;
     int choice{0};
 
-    StockMarket market = StockMarket{1.0f / 365.0f, 1};
+    StockMarket market = StockMarket{1.0f / 365.0f, 10};
 
     std::cout << "Welcome to the stock market!" << std::endl;
     std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;
@@ -44,7 +44,7 @@ int main() {
 
     market.simulateMarket();
 
-    wallet.evaluateResults();
+    wallet.evaluateResults(market);
 
     std::cout << "---" << std::endl << "Simulation finished." << std::endl;
     std::cout << "You started the simulation with: " << funds << std::endl;

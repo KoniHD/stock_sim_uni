@@ -31,7 +31,7 @@ public:
 
     double getFunds() const;
 
-    void evaluateResults();
+    void evaluateResults(StockMarket &market);
 };
 
 #endif // WALLET_H
