@@ -10,10 +10,10 @@
 int main() {
 
     double funds{0.0f};
-    // std::unique_ptr<Strategy> strategy;
     int choice{0};
 
-    StockMarket market = StockMarket{1.0f / 365.0f, 10};
+    // simulation of 10 years & monthly time steps
+    StockMarket market = StockMarket{1.0f / 12.0f, 120};
 
     std::cout << "Welcome to the stock market!" << std::endl;
     std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;

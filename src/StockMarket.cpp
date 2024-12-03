@@ -15,11 +15,11 @@ StockMarket::StockMarket(float timeStep, int simulationLength) : //The construct
     stocks["Tesla"] = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
     stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2, 0.0);
     stocks["Adidas"] = Stock("Adidas", 40.0, 0.1, 0.25, 0.0);
-    stocks["Apple"] = Stock("Apple", 320.0, 0.03, 0.03, 0.0);
+    stocks["Apple"] = Stock("Apple", 320.0, 0.03, 0.13, 0.0);
     stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12, 0.0);
     stocks["Disney"] = Stock("Disney", 150.0, 0.07, 0.14, 0.0);
     stocks["Airbus"] = Stock("Airbus", 700.0, 0.075, 0.16, 0.0);
-    stocks["Nestle"] = Stock("Nestle", 290.0, 0.95, 0.22, 0.0);
+    stocks["Nestle"] = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
 }
 
 std::vector<Stock> StockMarket::getStocks() const {  // This method returns all the stocks in the stocks map. It loops through the map and pushes each stock into a vector to return.
@@ -53,7 +53,6 @@ void StockMarket::simulateMarket() {
         for (auto &[name, stock] : stocks) {
             // Update stock price using GBM formula
             stock.updatePrice(timeStep, generator);
-            // stock.saveCurrentPrice(getStockPrice(name));
         }
     }
 }

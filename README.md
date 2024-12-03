@@ -51,7 +51,7 @@ Like option 2 you can now run the `./stockmarket` program.
     1. stock market constructor called --> stocks and statistical values hard coded
     2. Client welcomes you...
     3. based on inputs, call composeWallet() after initializing Wallet with constructor
-        - **Important:** Enter sufficient funds for values such that stocks can acutally be bought (one stock is rougly >200)
+        - **Important:** Enter sufficient funds for values (roughly >3000) such that wallet will be properly filled 
         - Wallet calls strategy  to compose wallet contents
         - Stock evaluation: lowRisk: standarddev < 10%, midRisk < 14% otherwise highRisk \
         value based on [iShares World Minimum Volatility](https://www.ishares.com/de/privatanleger/de/produkte/251382/ishares-msci-world-minimum-volatility-ucits-etf?switchLocale=y&siteEntryPassthrough=true) and [Shares USA Min Vol Factor](https://www.ishares.com/us/products/239695/ishares-msci-usa-minimum-volatility-etf) \
@@ -61,7 +61,7 @@ Like option 2 you can now run the `./stockmarket` program.
         - split money to be invested evenly among all stocks in respective category
     4. client calls simulateMarket() automatically, timeStepSize and simulationLength hard coded
         - simulateMarket() iteratively calls Stock.updatePrice() for each stock
-        - Stock.updatePrice() implements one time step according to [Investopedia - Monte Carlo](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
+        - Stock.updatePrice() implements one time step according to [Investopedia - How to Use Monte Carlo Simulation With GBM](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
     5. client calls evaluateResults() from Wallet
     6. printPerformance() returns stck trends for all stocks.
 

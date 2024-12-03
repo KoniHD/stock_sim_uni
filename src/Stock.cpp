@@ -6,15 +6,6 @@
 #include <utility>
 #include <vector>
 
-/* TODO MY QUESTIONS:
- * change timestep do double for consistency
- * initiaize generator in stockmarket
- * updatePrice right now void --> should we instead return to make recording of the time series easier?
- * which statistical values?
- * what about priceChange?
- * Stock's name attribute vs. map?
- */
-
 
 // Constructor
 Stock::Stock(std::string name, double price, double expectedReturn, double variance, double priceChange) :
@@ -56,6 +47,7 @@ double drawRandomNumber(std::default_random_engine &generator) {
 // simulates new price for one timestep with Geometric Brownian Motion (see link in README)
 void Stock::updatePrice(const double &timeStep, std::default_random_engine &generator) {
     double randomNumber = drawRandomNumber(generator);
-    price               = price + price * (expectedReturn * timeStep + randomNumber * sqrt(variance * timeStep));
+    price = price + price * (expectedReturn * timeStep + randomNumber * variance * sqrt(timeStep));
+    price = std::max(price, 0.01);
     priceTimeSeries.push_back(price);
 }
