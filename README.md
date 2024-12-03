@@ -67,5 +67,6 @@ Like option 2 you can now run the `./stockmarket` program.
 
 ## Final remarks
 
+- We used GCC Version 13.2 for successful compilation but any compiler supporting C++20 should work.
 - We haven't had time to implement tests yet hence the empty `test/` directory.
 - The documentation in `doc/html/index.html` is not done as we plan to introduce doxygen style documentation later on in the project so this is also "work-in-progress"
