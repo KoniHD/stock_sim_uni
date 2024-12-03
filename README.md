@@ -4,7 +4,7 @@ Our group project implements the [Stockmarket simulation idea](https://gitlab.lr
 
 ## Helpful resources for the project
 
-* Programm structure and class definitions in UML style is in ˋres/Trading Market Simulation.pdfˋ
+* Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
 
 
 ## Build and run the code
@@ -18,21 +18,21 @@ Use CLion IDE or another IDE the can automatically detect, build and run a CMake
 
 *Note:* Our CMake configuration prevents in-source builds. So be aware of that when building.
 
-**Requirement:** You need ˋCMakeˋ installed and a build system of your choice compatible with it. However we only tested it against ˋMakeˋ so no guarantee for ˋNinjaˋ or other tools. You can the run the following commands (line by line)
+**Requirement:** You need `CMake` installed and a build system of your choice compatible with it. However we only tested it against `Make` so no guarantee for `Ninja` or other tools. You can the run the following commands (line by line)
 
 Create the build directory:
-ˋˋˋbash
+```bash
 mkdir build
 cd build
-ˋˋˋ
+```
 
 Build project:
-ˋˋˋbash
+```bash
 cmake ..
 make
-ˋˋˋ
+```
 
-Now you should be able to run the program ˋ./stockmarketˋ inside the ˋbuildˋ directory
+Now you should be able to run the program `./stockmarket` inside the `build/` directory
 
 ### Option 3 Manual compile command (strongly discuraged)
 
@@ -40,11 +40,11 @@ Now you should be able to run the program ˋ./stockmarketˋ inside the ˋbuildˋ
 
 In the terminal run:
 
-ˋˋˋbash
+```bash
 g++ -o stockmarket -I include src/HighRiskStrategy.cpp src/LowRiskStrategy.cpp src/Stock.cpp src/StockMarket.cpp src/Strategy.cpp src/Wallet.cpp src/client.cpp
-ˋˋˋ
+```
 
-Like option 2 you can now run the ˋ./stockmarketˋ program.
+Like option 2 you can now run the `./stockmarket` program.
 
 ## Remarks for implementation of Sprint 1
 - if you run the program --> client starts running
@@ -60,12 +60,12 @@ Like option 2 you can now run the ˋ./stockmarketˋ program.
         - if highRiskStrategy --> 20% low-risk stocks, 30% mid-risk stocks and 50% high-risk stocks
         - split money to be invested evenly among all stocks in respective category
     4. client calls simulateMarket() automatically, timeStepSize and simulationLength hard coded
-        - simulateMarket() iteratively calls simulateBehavior() for each stock
-        - simulateBehvior() implements one time step according to [Investopedia - Monte Carlo](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
-        - simualteMarket() returns stockTrend for all stocks
+        - simulateMarket() iteratively calls Stock.updatePrice() for each stock
+        - Stock.updatePrice() implements one time step according to [Investopedia - Monte Carlo](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
     5. client calls evaluateResults() from Wallet
+    6. printPerformance() returns stck trends for all stocks.
 
 ## Final remarks
 
-- We haven't had time to implement tests yet hence the empty ˋtestˋ directory.
-- The documentation in ˋdoc/html/index.htmlˋ is not done as we plan to introduce doxygen style documentation later on in the project so this is also "work-in-progress"
+- We haven't had time to implement tests yet hence the empty `test/` directory.
+- The documentation in `doc/html/index.html` is not done as we plan to introduce doxygen style documentation later on in the project so this is also "work-in-progress"
