@@ -1,93 +1,72 @@
 # Group-07
 
+Our group project implements the [Stockmarket simulation idea](https://gitlab.lrz.de/tum-i05/public/advprog-project-ideas/-/tree/master/Trading-stock-market-simulation?ref_type=heads). The description can also be found again in [idea.md](https://gitlab.lrz.de/advprog2024/group-07/-/blob/sprint1/idea.md)
+
+## Helpful resources for the project
+
+* Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
 
 
-## Getting started
+## Build and run the code
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+### Option 1 (strongly recommended)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Use CLion IDE or another IDE the can automatically detect, build and run a CMake Project. If that is the case running the project should be as simple as clicking the run button. \
+(VS Code provides an Extension for CMake that also works).
 
-## Add your files
+### Option 2 Run CMake manually
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+*Note:* Our CMake configuration prevents in-source builds. So be aware of that when building.
 
+**Requirement:** You need `CMake` installed and a build system of your choice compatible with it. However we only tested it against `Make` so no guarantee for `Ninja` or other tools. You can the run the following commands (line by line)
+
+Create the build directory:
+```bash
+mkdir build
+cd build
 ```
-cd existing_repo
-git remote add origin https://gitlab.lrz.de/advprog2024/group-07.git
-git branch -M main
-git push -uf origin main
+
+Build project:
+```bash
+cmake ..
+make
 ```
 
-## Integrate with your tools
+Now you should be able to run the program `./stockmarket` inside the `build/` directory
 
-- [ ] [Set up project integrations](https://gitlab.lrz.de/advprog2024/group-07/-/settings/integrations)
+### Option 3 Manual compile command (strongly discuraged)
 
-## Collaborate with your team
+*Note:* Works but is tedious
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+In the terminal run:
 
-## Test and Deploy
+```bash
+g++ -o stockmarket -I include src/HighRiskStrategy.cpp src/LowRiskStrategy.cpp src/Stock.cpp src/StockMarket.cpp src/Strategy.cpp src/Wallet.cpp src/client.cpp
+```
 
-Use the built-in continuous integration in GitLab.
+Like option 2 you can now run the `./stockmarket` program.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Remarks for implementation of Sprint 1
+- if you run the program --> client starts running
+    1. stock market constructor called --> stocks and statistical values hard coded
+    2. Client welcomes you...
+    3. based on inputs, call composeWallet() after initializing Wallet with constructor
+        - **Important:** Enter sufficient funds for values (roughly >3000) such that wallet will be properly filled 
+        - Wallet calls strategy  to compose wallet contents
+        - Stock evaluation: lowRisk: standarddev < 10%, midRisk < 14% otherwise highRisk \
+        value based on [iShares World Minimum Volatility](https://www.ishares.com/de/privatanleger/de/produkte/251382/ishares-msci-world-minimum-volatility-ucits-etf?switchLocale=y&siteEntryPassthrough=true) and [Shares USA Min Vol Factor](https://www.ishares.com/us/products/239695/ishares-msci-usa-minimum-volatility-etf) \
+        Further readings on theory: [Investopedia - Standard Deviation](https://www.investopedia.com/ask/answers/021915/how-standard-deviation-used-determine-risk.asp#toc-how-are-standard-deviation-and-variance-related) and [Investopedia - 5 Principal Risk Measures](https://www.investopedia.com/terms/r/riskmeasures.asp)
+        - if lowRiskStrategy --> 50% low-risk stocks, 30% mid-risk stocks 20% high-risk stocks
+        - if highRiskStrategy --> 20% low-risk stocks, 30% mid-risk stocks and 50% high-risk stocks
+        - split money to be invested evenly among all stocks in respective category
+    4. client calls simulateMarket() automatically, timeStepSize and simulationLength hard coded
+        - simulateMarket() iteratively calls Stock.updatePrice() for each stock
+        - Stock.updatePrice() implements one time step according to [Investopedia - How to Use Monte Carlo Simulation With GBM](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
+    5. client calls evaluateResults() from Wallet
+    6. printPerformance() returns stck trends for all stocks.
 
-***
+## Final remarks
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+- We used GCC Version 13.2 for successful compilation but any compiler supporting C++20 should work.
+- We haven't had time to implement tests yet hence the empty `test/` directory.
+- The documentation in `doc/html/index.html` is not done as we plan to introduce doxygen style documentation later on in the project so this is also "work-in-progress"

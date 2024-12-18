@@ -1,0 +1,28 @@
+# Defines codeowners for this repo
+
+[Developers][2] @KoniHD @Edem @00000000014B9757
+*.cpp
+*.h
+/include
+/res
+/src           
+*.md
+
+[Documentation][1]  @KoniHD
+/doc/
+
+[DevOps][1]         @KoniHD
+.gitignore
+.clang-tidy
+.clang-format
+.gitlab-ci.yml
+CMakeLists.txt
+CODEOWNERS
+
+[Testing]          @KoniHD
+/tests
+
+# Missing reviewers
+[Reviewer]
+/include/
+/src/
