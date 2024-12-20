@@ -6,6 +6,28 @@ Our group project implements the [Stockmarket simulation idea](https://gitlab.lr
 
 * Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
 
+## Details for Sprint 2
+- User interaction 
+    - Allow user to define simulationlength interacively
+    - After simulationlength is over print Stockmarket info (current stockprices) and print Wallet information (cashPosition, portfolioValue, owned stocks (value in owned stock, number stocks)) two Options: 1. end or 2. define interaction
+    - If interaction: choose wallet to interact with
+    - Next:  (3 Options) 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks
+    - Final: set new simulationlength
+- Wallet-StockMarket interaction
+    - logic behind changes in wallet composition (purchases/sells) maybe research more ? optional: we still have the used parameter price_change -> maybe that's helpful.
+        - which threshold for impact or proportional change ?
+        - How mathematically realize the impact
+
+## Optional ideas:
+
+- Class for sectors
+    - allows to simulate e.g. overperformance of tech stocks while other sectors underperform
+    - statistial values for those sectors could be randomly determined as well
+- Better overview on stock market
+    - Which stocks in which sector?
+    - Which risk catergorization...
+    - performance overview of single stocks
+
 
 ## Build and run the code
 
@@ -64,22 +86,6 @@ Like option 2 you can now run the `./stockmarket` program.
         - Stock.updatePrice() implements one time step according to [Investopedia - How to Use Monte Carlo Simulation With GBM](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
     5. client calls evaluateResults() from Wallet
     6. printPerformance() returns stck trends for all stocks.
-
-## Ideas for Sprint 2
-- User interaction 
-    - Allow user to define hyperparameters of simulation interatively
-    - User descides when to end simulation and for how long to simulate --> you decide to simualte e.g. for 3 years and then you have the possibility to alter your wallet composition and continue the simulation afterwards again
-- Wallet-StockMarket interaction
-    - logic behind changes in wallet composition (purchases/sells)
-        - which threshold for impact?
-        - How mathematically realized the impact
-- Class for sectors
-    - allows to simulate e.g. overperformance of tech stocks while other sectors underperform
-    - statistial values for those sectors could be randomly determined as well
-- Better overview on stock market
-    - Which stocks in which sector?
-    - Which risk catergorization...
-    - performance overview of single stocks
 
 ## Final remarks
 
