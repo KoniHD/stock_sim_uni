@@ -7,6 +7,9 @@ Our group project implements the [Stockmarket simulation idea](https://gitlab.lr
 * Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
 
 ## Details for Sprint 2
+
+**RULE:** Make sure that for every commit the code keeps running!! We do not commit code that breaks the programm in its functionality!
+
 - User interaction 
     - Allow user to define simulationlength interacively
     - After simulationlength is over print Stockmarket info (current stockprices) and print Wallet information (cashPosition, portfolioValue, owned stocks (value in owned stock, number stocks)) two Options: 1. end or 2. define interaction
