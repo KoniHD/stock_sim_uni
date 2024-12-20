@@ -65,6 +65,22 @@ Like option 2 you can now run the `./stockmarket` program.
     5. client calls evaluateResults() from Wallet
     6. printPerformance() returns stck trends for all stocks.
 
+## Ideas for Sprint 2
+- User interaction 
+    - Allow user to define hyperparameters of simulation interatively
+    - User descides when to end simulation and for how long to simulate --> you decide to simualte e.g. for 3 years and then you have the possibility to alter your wallet composition and continue the simulation afterwards again
+- Wallet-StockMarket interaction
+    - logic behind changes in wallet composition (purchases/sells)
+        - which threshold for impact?
+        - How mathematically realized the impact
+- Class for sectors
+    - allows to simulate e.g. overperformance of tech stocks while other sectors underperform
+    - statistial values for those sectors could be randomly determined as well
+- Better overview on stock market
+    - Which stocks in which sector?
+    - Which risk catergorization...
+    - performance overview of single stocks
+
 ## Final remarks
 
 - We used GCC Version 13.2 for successful compilation but any compiler supporting C++20 should work.
