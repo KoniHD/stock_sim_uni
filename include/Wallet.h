@@ -1,37 +1,40 @@
 #ifndef WALLET_H
 #define WALLET_H
 
-#include "HighRiskStrategy.h"
-#include "LowRiskStrategy.h"
-#include "Stock.h"
 #include "StockMarket.h"
 #include "Strategy.h"
 
-#include <functional>
 #include <memory>
 #include <string>
-#include <string_view>
 #include <unordered_map>
-#include <vector>
 
 class Wallet {
 
-    double funds;
-    // std::unique_ptr<Strategy> strategy;
-    LowRiskStrategy lowRiskStrategy;
-    HighRiskStrategy highRiskStrategy;
-    // Strategy strategy;
-    StockMarket market;
-    std::unordered_map<std::string, int> portfolio;
+    double _funds;
+    std::unique_ptr<Strategy> _strategy;
+    std::shared_ptr<StockMarket> _market;
+    std::unordered_map<std::string, int> _portfolio;
 
 public:
-    Wallet() = default;
-    Wallet(double funds, LowRiskStrategy lowRiskStrategy, StockMarket &market);
-    Wallet(double funds, HighRiskStrategy highRiskStrategy, StockMarket &market);
+    Wallet() = delete;
 
+    /**
+     * @brief Construct a new Wallet object and initialize the funds, strategy and market.
+     */
+    Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market);
+
+    /**
+     * @brief Get the funds of the wallet.
+     * @return double The funds of the wallet.
+     */
     double getFunds() const;
 
-    void evaluateResults(StockMarket &market);
+    /**
+     * @brief Calculate the total value of the portfolio.
+     *
+     * This function adds together the value of each stock contained in the portfolio times its current price.
+     */
+    void evaluateResults();
 };
 
 #endif // WALLET_H
