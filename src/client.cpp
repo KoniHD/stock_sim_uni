@@ -44,6 +44,8 @@ int main() {
 
     market->simulateMarket();
 
+    wallet.printWalletInfo();
+
     wallet.evaluateResults();
 
     std::cout << "---" << std::endl << "Simulation finished." << std::endl;
