@@ -9,7 +9,7 @@ var files_dup =
     [ "LowRiskStrategy.h", "LowRiskStrategy_8h.html", [
       [ "LowRiskStrategy", "classLowRiskStrategy.html", "classLowRiskStrategy" ]
     ] ],
-    [ "Stock.cpp", "Stock_8cpp.html", null ],
+    [ "Stock.cpp", "Stock_8cpp.html", "Stock_8cpp" ],
     [ "Stock.h", "Stock_8h.html", [
       [ "Stock", "classStock.html", "classStock" ]
     ] ],

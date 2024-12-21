@@ -1,4 +1,6 @@
 <map id="Stock.h" name="Stock.h">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,76,32"/>
-<area shape="rect" id="node2" title=" " alt="" coords="11,80,70,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="89,5,159,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,64,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="88,80,160,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="185,80,247,107"/>
 </map>

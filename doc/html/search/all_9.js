@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['name_29',['name',['../classStock.html#a8b79c44538a5f8845a17e537798719e4',1,'Stock']]]
+  ['main_30',['main',['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'client.cpp']]],
+  ['mid_5frisk_5fbound_31',['MID_RISK_BOUND',['../Strategy_8cpp.html#a79964595da41ef05f00c6c531a01e3b4',1,'Strategy.cpp']]],
+  ['mid_5frisk_5fpercentage_32',['MID_RISK_PERCENTAGE',['../HighRiskStrategy_8cpp.html#a7f551ca0ffd132fa91898b583827d31a',1,'MID_RISK_PERCENTAGE():&#160;HighRiskStrategy.cpp'],['../LowRiskStrategy_8cpp.html#a7f551ca0ffd132fa91898b583827d31a',1,'MID_RISK_PERCENTAGE():&#160;LowRiskStrategy.cpp']]],
+  ['mid_5frisk_5fstock_33',['MID_RISK_STOCK',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86',1,'Strategy.h']]]
 ];

@@ -88,45 +88,40 @@ $(document).ready(function(){initNavTree('Wallet_8h_source.html',''); initResiza
 <a href="Wallet_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef WALLET_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define WALLET_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Stock_8h.html">Stock.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="StockMarket_8h.html">StockMarket.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Strategy_8h.html">Strategy.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;string_view&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classWallet.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWallet.html">Wallet</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classWallet.html#ac0ba426f2bd10675d9f9e0c298dd70dc">   17</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classWallet.html#ac0ba426f2bd10675d9f9e0c298dd70dc">funds</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classWallet.html#acc2d155f34a15c7279133e533880433b">   18</a></span>&#160;    std::unique_ptr&lt;Strategy&gt; <a class="code" href="classWallet.html#acc2d155f34a15c7279133e533880433b">strategy</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classWallet.html#a89a41a2134cb61046ffae22cf74ff601">   19</a></span>&#160;    <a class="code" href="classStockMarket.html">StockMarket</a> <a class="code" href="classWallet.html#a89a41a2134cb61046ffae22cf74ff601">market</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classWallet.html#a51bdbc1de839bcb7eb2d0263edbfa3bb">   20</a></span>&#160;    std::unordered_map&lt;std::string, int&gt; <a class="code" href="classWallet.html#a51bdbc1de839bcb7eb2d0263edbfa3bb">portfolio</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">   23</a></span>&#160;    <a class="code" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet</a>() = <span class="keyword">delete</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet</a>(<span class="keywordtype">double</span> <a class="code" href="classWallet.html#ac0ba426f2bd10675d9f9e0c298dd70dc">funds</a>, std::unique_ptr&lt;Strategy&gt; <a class="code" href="classWallet.html#acc2d155f34a15c7279133e533880433b">strategy</a>, <a class="code" href="classStockMarket.html">StockMarket</a> &amp;<a class="code" href="classWallet.html#a89a41a2134cb61046ffae22cf74ff601">market</a>);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="StockMarket_8h.html">StockMarket.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Strategy_8h.html">Strategy.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classWallet.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classWallet.html">Wallet</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classWallet.html#a98bef1226d8675828eb232126332fdac">   13</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classWallet.html#a98bef1226d8675828eb232126332fdac">_funds</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classWallet.html#a4190f8f229a47ca0dfa1d8c88770cf4f">   14</a></span>&#160;    std::unique_ptr&lt;Strategy&gt; <a class="code" href="classWallet.html#a4190f8f229a47ca0dfa1d8c88770cf4f">_strategy</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classWallet.html#a39ead46c7a4192414a40ee6d9fc988a7">   15</a></span>&#160;    std::shared_ptr&lt;StockMarket&gt; <a class="code" href="classWallet.html#a39ead46c7a4192414a40ee6d9fc988a7">_market</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classWallet.html#a44692089ecc8f91b42070e9da8e3e5f1">   16</a></span>&#160;    std::unordered_map&lt;std::string, int&gt; <a class="code" href="classWallet.html#a44692089ecc8f91b42070e9da8e3e5f1">_portfolio</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">   19</a></span>&#160;    <a class="code" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet</a>() = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet</a>(<span class="keywordtype">double</span> funds, std::unique_ptr&lt;Strategy&gt; strategy, std::shared_ptr&lt;StockMarket&gt; market);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">getFunds</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">evaluateResults</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// WALLET_H</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">getFunds</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">evaluateResults</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// WALLET_H</span></div>
 <div class="ttc" id="aStockMarket_8h_html"><div class="ttname"><a href="StockMarket_8h.html">StockMarket.h</a></div></div>
-<div class="ttc" id="aStock_8h_html"><div class="ttname"><a href="Stock_8h.html">Stock.h</a></div></div>
 <div class="ttc" id="aStrategy_8h_html"><div class="ttname"><a href="Strategy_8h.html">Strategy.h</a></div></div>
-<div class="ttc" id="aclassStockMarket_html"><div class="ttname"><a href="classStockMarket.html">StockMarket</a></div><div class="ttdef"><b>Definition:</b> StockMarket.h:10</div></div>
-<div class="ttc" id="aclassWallet_html"><div class="ttname"><a href="classWallet.html">Wallet</a></div><div class="ttdef"><b>Definition:</b> Wallet.h:15</div></div>
-<div class="ttc" id="aclassWallet_html_a1143304d4b55e7b9c354a620474bbf0a"><div class="ttname"><a href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">Wallet::evaluateResults</a></div><div class="ttdeci">void evaluateResults()</div><div class="ttdoc">Calculate the total value of the portfolio.</div><div class="ttdef"><b>Definition:</b> Wallet.cpp:24</div></div>
-<div class="ttc" id="aclassWallet_html_a51bdbc1de839bcb7eb2d0263edbfa3bb"><div class="ttname"><a href="classWallet.html#a51bdbc1de839bcb7eb2d0263edbfa3bb">Wallet::portfolio</a></div><div class="ttdeci">std::unordered_map&lt; std::string, int &gt; portfolio</div><div class="ttdef"><b>Definition:</b> Wallet.h:20</div></div>
-<div class="ttc" id="aclassWallet_html_a89a41a2134cb61046ffae22cf74ff601"><div class="ttname"><a href="classWallet.html#a89a41a2134cb61046ffae22cf74ff601">Wallet::market</a></div><div class="ttdeci">StockMarket market</div><div class="ttdef"><b>Definition:</b> Wallet.h:19</div></div>
-<div class="ttc" id="aclassWallet_html_ac0ba426f2bd10675d9f9e0c298dd70dc"><div class="ttname"><a href="classWallet.html#ac0ba426f2bd10675d9f9e0c298dd70dc">Wallet::funds</a></div><div class="ttdeci">double funds</div><div class="ttdef"><b>Definition:</b> Wallet.h:17</div></div>
-<div class="ttc" id="aclassWallet_html_acc07ae31a6812fb9ea8e0936b87f4579"><div class="ttname"><a href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">Wallet::getFunds</a></div><div class="ttdeci">double getFunds() const</div><div class="ttdoc">Get the funds of the wallet.</div><div class="ttdef"><b>Definition:</b> Wallet.cpp:17</div></div>
-<div class="ttc" id="aclassWallet_html_acc2d155f34a15c7279133e533880433b"><div class="ttname"><a href="classWallet.html#acc2d155f34a15c7279133e533880433b">Wallet::strategy</a></div><div class="ttdeci">std::unique_ptr&lt; Strategy &gt; strategy</div><div class="ttdef"><b>Definition:</b> Wallet.h:18</div></div>
+<div class="ttc" id="aclassWallet_html"><div class="ttname"><a href="classWallet.html">Wallet</a></div><div class="ttdef"><b>Definition:</b> Wallet.h:11</div></div>
+<div class="ttc" id="aclassWallet_html_a1143304d4b55e7b9c354a620474bbf0a"><div class="ttname"><a href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">Wallet::evaluateResults</a></div><div class="ttdeci">void evaluateResults()</div><div class="ttdoc">Calculate the total value of the portfolio.</div><div class="ttdef"><b>Definition:</b> Wallet.cpp:13</div></div>
+<div class="ttc" id="aclassWallet_html_a39ead46c7a4192414a40ee6d9fc988a7"><div class="ttname"><a href="classWallet.html#a39ead46c7a4192414a40ee6d9fc988a7">Wallet::_market</a></div><div class="ttdeci">std::shared_ptr&lt; StockMarket &gt; _market</div><div class="ttdef"><b>Definition:</b> Wallet.h:15</div></div>
+<div class="ttc" id="aclassWallet_html_a4190f8f229a47ca0dfa1d8c88770cf4f"><div class="ttname"><a href="classWallet.html#a4190f8f229a47ca0dfa1d8c88770cf4f">Wallet::_strategy</a></div><div class="ttdeci">std::unique_ptr&lt; Strategy &gt; _strategy</div><div class="ttdef"><b>Definition:</b> Wallet.h:14</div></div>
+<div class="ttc" id="aclassWallet_html_a44692089ecc8f91b42070e9da8e3e5f1"><div class="ttname"><a href="classWallet.html#a44692089ecc8f91b42070e9da8e3e5f1">Wallet::_portfolio</a></div><div class="ttdeci">std::unordered_map&lt; std::string, int &gt; _portfolio</div><div class="ttdef"><b>Definition:</b> Wallet.h:16</div></div>
+<div class="ttc" id="aclassWallet_html_a98bef1226d8675828eb232126332fdac"><div class="ttname"><a href="classWallet.html#a98bef1226d8675828eb232126332fdac">Wallet::_funds</a></div><div class="ttdeci">double _funds</div><div class="ttdef"><b>Definition:</b> Wallet.h:13</div></div>
+<div class="ttc" id="aclassWallet_html_acc07ae31a6812fb9ea8e0936b87f4579"><div class="ttname"><a href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">Wallet::getFunds</a></div><div class="ttdeci">double getFunds() const</div><div class="ttdoc">Get the funds of the wallet.</div><div class="ttdef"><b>Definition:</b> Wallet.cpp:11</div></div>
 <div class="ttc" id="aclassWallet_html_af6c8cd5aad02075178572e033f38ffcd"><div class="ttname"><a href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet::Wallet</a></div><div class="ttdeci">Wallet()=delete</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

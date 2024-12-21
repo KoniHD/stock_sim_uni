@@ -1,10 +1,11 @@
 <map id="HighRiskStrategy.h" name="HighRiskStrategy.h">
-<area shape="rect" id="node1" title=" " alt="" coords="249,5,395,32"/>
-<area shape="rect" id="node2" href="$Stock_8h.html" title=" " alt="" coords="220,229,291,256"/>
-<area shape="rect" id="node3" title=" " alt="" coords="303,304,362,331"/>
-<area shape="rect" id="node4" href="$StockMarket_8h.html" title=" " alt="" coords="79,155,194,181"/>
-<area shape="rect" id="node7" href="$Strategy_8h.html" title=" " alt="" coords="279,80,365,107"/>
-<area shape="rect" id="node8" title=" " alt="" coords="371,155,495,181"/>
-<area shape="rect" id="node5" title=" " alt="" coords="92,229,189,256"/>
-<area shape="rect" id="node6" title=" " alt="" coords="5,229,68,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="182,5,327,32"/>
+<area shape="rect" id="node2" href="$StockMarket_8h.html" title=" " alt="" coords="157,155,272,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,304,64,331"/>
+<area shape="rect" id="node8" title=" " alt="" coords="366,229,490,256"/>
+<area shape="rect" id="node9" href="$Strategy_8h.html" title=" " alt="" coords="253,80,339,107"/>
+<area shape="rect" id="node3" href="$Stock_8h.html" title=" " alt="" coords="271,229,342,256"/>
+<area shape="rect" id="node6" title=" " alt="" coords="202,304,265,331"/>
+<area shape="rect" id="node7" title=" " alt="" coords="98,229,195,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="289,304,361,331"/>
 </map>

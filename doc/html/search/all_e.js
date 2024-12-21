@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variance_52',['variance',['../classStock.html#a6355d6afdff0177fee65decea2698b6e',1,'Stock']]]
+  ['timestep_59',['timeStep',['../classStockMarket.html#ac1d5b03546f281d7989f948984399495',1,'StockMarket']]]
 ];

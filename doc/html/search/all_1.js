@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_2ecpp_1',['client.cpp',['../client_8cpp.html',1,'']]]
+  ['assessstockrisk_4',['assessStockRisk',['../Strategy_8cpp.html#a698c7ada01380cefc347d368dfaa90b7',1,'assessStockRisk(Stock stock):&#160;Strategy.cpp'],['../Strategy_8h.html#a698c7ada01380cefc347d368dfaa90b7',1,'assessStockRisk(Stock stock):&#160;Strategy.cpp']]]
 ];

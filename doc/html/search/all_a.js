@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_30',['operator=',['../classStrategy.html#ab3261137d82ffea3614af2172dd3f91b',1,'Strategy::operator=(const Strategy &amp;other)=default'],['../classStrategy.html#af63c9d0d5cf225c708deab895f91f695',1,'Strategy::operator=(Strategy &amp;&amp;move) noexcept=default']]]
+  ['name_34',['name',['../classStock.html#a8b79c44538a5f8845a17e537798719e4',1,'Stock']]]
 ];

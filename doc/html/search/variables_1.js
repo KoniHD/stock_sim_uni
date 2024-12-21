@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['funds_96',['funds',['../classWallet.html#ac0ba426f2bd10675d9f9e0c298dd70dc',1,'Wallet']]]
+  ['expectedreturn_117',['expectedReturn',['../classStock.html#a115170ad5fe62683b079863145f7ab0d',1,'Stock']]]
 ];

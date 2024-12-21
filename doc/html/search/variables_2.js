@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['market_97',['market',['../classWallet.html#a89a41a2134cb61046ffae22cf74ff601',1,'Wallet']]]
+  ['name_118',['name',['../classStock.html#a8b79c44538a5f8845a17e537798719e4',1,'Stock']]]
 ];
