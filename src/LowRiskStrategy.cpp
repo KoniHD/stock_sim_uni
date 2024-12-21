@@ -6,19 +6,11 @@
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.2
 
-/**
- * @brief Composes a low-risk portfolio of stocks.
- * @param stockMarket The stock market to pick stocks from.
- * @return The stock portfolio.
- *
- * This strategy picks 50% low-risk stocks, 30% mid-risk stocks and 20% high-risk stocks. This share is based on the
- * total available funds. Per risk category, the value is distributed equally among the stocks. By this the number of
- * stocks in the portoflio is dericed.
- */
 std::unordered_map<std::string, int> LowRiskStrategy::pickStocks(double totalFunds, const StockMarket &stockMarket) {
     std::unordered_map<std::string, int> portfolio;
 
     // Groups all available stocks from stockmarket into low-risk, mid-risk and high-risk stocks.
+    // FIXME: getStocks should work differently!!
     std::vector<Stock> stocks = stockMarket.getStocks();
     std::vector<Stock> lowRiskStocks;
     std::vector<Stock> midRiskStocks;
@@ -74,6 +66,7 @@ std::unordered_map<std::string, int> LowRiskStrategy::pickStocks(double totalFun
         highRiskFundsPerShare = (totalFunds * HIGH_RISK_PERCENTAGE) / static_cast<double>(highRiskStocks.size());
     }
 
+    // TODO: Consider using std::round instead of static_cast<int>
     for (const Stock &stock: lowRiskStocks) {
         portfolio.emplace(stock.getName(), static_cast<int>(lowRiskFundsPerShare / stock.getPrice()));
     }
