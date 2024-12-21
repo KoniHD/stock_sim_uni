@@ -11,7 +11,7 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 
 # require C++20, don't allow falling back to older version of standard
-set(CXX_STANDARD_REQUIRED OFF)
+set(CXX_STANDARD_REQUIRED ON)
 
 # disable C++ extensions
 set(CMAKE_CXX_EXTENSIONS OFF)
