@@ -8,23 +8,47 @@
 #include <memory>
 #include <utility>
 
+#define MAX_SIM_ITERATIONS 20
+
+unsigned getTerminalInput() {
+    int input{-1};
+    while (true) {
+        std::cin >> input;
+
+        if (std::cin.fail()) { // Check if input failed
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a positive integer: ";
+        } else if (input <= 0) {
+            std::cout << "Input is not positive. Please enter again: ";
+        } else {
+            return static_cast<unsigned>(input);
+        }
+    }
+}
+
 int main() {
-
     double funds{0.0};
+    unsigned choice{0};
+    unsigned simulation_length{0};
     std::unique_ptr<Strategy> strategy;
-    int choice{0};
+    std::shared_ptr<StockMarket> market;
 
-    // simulation of 10 years & monthly time steps
-    std::shared_ptr<StockMarket> market = std::make_shared<StockMarket>(1.0f / 12.0f, 120);
+    // Determine the simulation length
+    std::cout << "---Welcome to the stock market!--" << std::endl;
+    std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
+    std::cout << "First input how long you want the simulation to run (Unit: Years, int): ";
+    simulation_length = getTerminalInput();
+    market            = std::make_shared<StockMarket>(1.0f / 12.0f, simulation_length);
 
-    // TODO: Add input validation: negative or non-numeric inputs for funds might cause issues
-    std::cout << "Welcome to the stock market!" << std::endl;
-    std::cout << "To simulate the stockmarket we will need to create a wallet." << std::endl;
-    std::cout << std::endl << "Please enter the amount of funds you would like to start with: ";
-    std::cin >> funds;
+    // Create Wallets
+    std::cout << std::endl << "---Wallet creation---" << std::endl;
+    std::cout << "Awesome! Now let's create some wallets based on your input!" << std::endl;
+    std::cout << "Please enter the amount of funds you would like to start with: ";
+    funds = getTerminalInput();
 
     while (choice != 1 and choice != 2) {
-        std::cout << std::endl << "Please choose a strategy to compose your wallet (1: low risk, 2: high risk): ";
+        std::cout << "Please choose a strategy to compose your wallet (1: low risk, 2: high risk): ";
         std::cin >> choice;
         if (choice == 1) {
 
@@ -42,9 +66,34 @@ int main() {
 
     Wallet wallet = Wallet(funds, std::move(strategy), market);
 
-    market->simulateMarket();
 
-    wallet.printWalletInfo();
+    // Run simulation as long as user wants max. 20 times
+    for (unsigned i{0}; i < MAX_SIM_ITERATIONS; ++i) {
+        market->simulateMarket();
+        choice = 0;
+
+        std::cout << std::endl
+                  << "---" << std::endl
+                  << "After running the simulation these are the performance metrics:" << std::endl;
+        // TODO market->printCurrentStockPrices();
+        wallet.printWalletInfo();
+        while (choice != 1 and choice != 2) {
+            std::cout << "---" << std::endl
+                      << "Now chose whether you like to (1: end the simulation) or (2: extend the simulation): ";
+            choice = getTerminalInput();
+        }
+
+        // End simulation
+        if (choice == 1) {
+            break;
+        }
+
+        // Extend simulation for new simulation length
+        simulation_length = 0;
+        std::cout << "You chose to extend the simulation. Now please enter the extended simulation length: ";
+        simulation_length = getTerminalInput();
+        // TODO market.setSimulationLength(simulation_length);
+    }
 
     wallet.evaluateResults();
 
