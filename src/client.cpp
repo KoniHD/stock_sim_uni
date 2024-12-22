@@ -6,12 +6,14 @@
 
 #include <algorithm>
 #include <cctype>
+#include <cstddef>
 #include <ios>
 #include <iostream>
 #include <limits>
 #include <memory>
 #include <string>
 #include <utility>
+#include <vector>
 
 #define MAX_SIM_ITERATIONS 20
 
@@ -57,10 +59,10 @@ Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet) {
 
 int main() {
     double funds{0.0};
-    unsigned choice{0};
+    unsigned user_choice{0};
     unsigned simulation_length{0};
-    std::unique_ptr<Strategy> strategy;
     std::shared_ptr<StockMarket> market;
+    std::vector<Wallet> wallets;
 
     // Determine the simulation length
     std::cout << "---Welcome to the stock market!--" << std::endl;
@@ -72,47 +74,64 @@ int main() {
     // Create Wallets
     std::cout << std::endl << "---Wallet creation---" << std::endl;
     std::cout << "Awesome! Now let's create some wallets based on your input!" << std::endl;
-    std::cout << "Please enter the amount of funds you would like to start with: ";
-    funds = getTerminalInput();
-
-    while (choice != 1 and choice != 2) {
-        std::cout << "Please choose a strategy to compose your wallet (1: low risk, 2: high risk): ";
-        std::cin >> choice;
-        if (choice == 1) {
-
-            strategy = std::make_unique<LowRiskStrategy>();
-            std::cout << "Congratulations, you chose the save path and opted for the low risk strategy." << std::endl;
-        } else if (choice == 2) {
-
-            strategy = std::make_unique<HighRiskStrategy>();
-            std::cout << "You were a bit braver and decided for the high risk strategy." << std::endl;
-        } else {
-
-            std::cout << "Invalid choice. Try again ..." << std::endl;
-        }
+    std::cout << "First: Enter the amount of wallets you want to create (max. 4): ";
+    unsigned num_wallets{getTerminalInput()};
+    while (num_wallets > 4) {
+        std::cout << "You are very ambitious. However please enter a lower amount: ";
+        num_wallets = getTerminalInput();
     }
 
-    Wallet wallet = Wallet(funds, std::move(strategy), market);
+    for (unsigned i{0}; i < num_wallets; ++i) {
+        std::unique_ptr<Strategy> strategy;
+
+        std::cout << std::endl
+                  << "---Wallet No." << std::to_string(i + 1) << "---" << std::endl
+                  << "Please enter the amount of funds you would like wallet No." << std::to_string(i + 1)
+                  << " to have: ";
+        funds = getTerminalInput();
+
+        user_choice = 0;
+        while (user_choice != 1 and user_choice != 2) {
+            std::cout << "Please choose a strategy to compose your wallet (1: low risk, 2: high risk): ";
+            std::cin >> user_choice;
+            if (user_choice == 1) {
+                strategy = std::make_unique<LowRiskStrategy>();
+                std::cout << "Congratulations, you chose the save path and opted for the low risk strategy."
+                          << std::endl;
+            } else if (user_choice == 2) {
+                strategy = std::make_unique<HighRiskStrategy>();
+                std::cout << "You were a bit braver and decided for the high risk strategy." << std::endl;
+            } else {
+                std::cout << "Invalid choice. Try again ..." << std::endl;
+            }
+        }
+
+        wallets.emplace_back(funds, std::move(strategy), market);
+    }
 
 
     // Run simulation as long as user wants max. 20 times
     for (unsigned i{0}; i < MAX_SIM_ITERATIONS; ++i) {
         market->simulateMarket();
-        choice = 0;
 
         std::cout << std::endl
                   << "---" << std::endl
                   << "After running the simulation these are the performance metrics:" << std::endl;
         // TODO market->printCurrentStockPrices();
-        wallet.printWalletInfo();
-        while (choice != 1 and choice != 2) {
+        for (size_t i{0}; i < wallets.size(); ++i) {
+            std::cout << std::endl << "---Wallet No." << std::to_string(i + 1) << " Info:---";
+            wallets.at(i).printWalletInfo();
+        }
+
+        user_choice = 0;
+        while (user_choice != 1 and user_choice != 2) {
             std::cout << "---" << std::endl
                       << "Now chose whether you like to (1: end the simulation) or (2: extend the simulation): ";
-            choice = getTerminalInput();
+            user_choice = getTerminalInput();
         }
 
         // End simulation
-        if (choice == 1) {
+        if (user_choice == 1) {
             break;
         }
 
@@ -122,9 +141,22 @@ int main() {
         simulation_length = getTerminalInput();
         // TODO market.setSimulationLength(simulation_length);
 
+        // Pick whether and with which wallet to interact with
+        unsigned wallet_choice = 0;
+        while (wallet_choice <= 0 or wallets.size() + 1 <= wallet_choice) {
+            std::cout << "Do you want to interact with a Wallet (Opt. 1-" << std::to_string(wallets.size())
+                      << ") or leave all wallets unchanged (Opt. " << std::to_string(wallets.size() + 1) << "): ";
+            wallet_choice = getTerminalInput() - 1;
+        }
+
+        // Leave all wallets unchanged for the next iteration.
+        if (wallet_choice == wallets.size() + 1) {
+            continue;
+        }
+
         // Choose between 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks, 4. Don't modify
-        choice = 0;
-        while (choice != 1 and choice != 2 and choice != 3 and choice != 4) {
+        user_choice = 0;
+        while (user_choice != 1 and user_choice != 2 and user_choice != 3 and user_choice != 4) {
             std::cout << "---" << std::endl
                       << "You can now modify your wallet. Do you want to" << std::endl
                       << "(1.) add new funds to the cash position," << std::endl
@@ -132,9 +164,9 @@ int main() {
                       << "(3.) buy stocks with available cash or" << std::endl
                       << "(4.) don't modify the wallet at all" << std::endl
                       << "Your choice: ";
-            choice = getTerminalInput();
+            user_choice = getTerminalInput();
 
-            switch (choice) {
+            switch (user_choice) {
                 case 1: // TODO Add new funds to cash position
                     break;
                 case 2: // TODO Sell stocks from portfolio
@@ -143,14 +175,15 @@ int main() {
                     Stock stock{};
                     unsigned amount_stocks{0};
                     std::cout << "Out of the previous shares of which do you want to buy more stocks: ";
-                    stock = getStockFromTerminal(*market, wallet);
+                    stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to purchase? (Current cash position: ";
                     amount_stocks = getTerminalInput();
-                    if (not wallet.buyStocks(stock, amount_stocks)) {
+                    bool succes   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
+                    if (not succes) {
                         std::cout << "You need to add cash to the wallet or sell a different stock first to increase "
                                      "your cash position."
                                   << std::endl;
-                        choice = 0;
+                        user_choice = 0;
                     }
                     break;
                 }
@@ -160,12 +193,18 @@ int main() {
         }
     }
 
-    wallet.evaluateResults();
+    for (Wallet &wallet: wallets) {
+        wallet.evaluateResults();
+    }
 
     std::cout << std::endl << "---Simulation finished.---" << std::endl;
-    std::cout << "You started the simulation with: " << funds << std::endl;
-    std::cout << "After the simulation you have: " << wallet.getFunds() << std::endl;
-    std::cout << "You made a profit / loss of: " << wallet.getFunds() - funds << std::endl;
+    size_t i{0};
+    for (const Wallet &wallet: wallets) {
+        std::cout << std::endl << "-Stats for wallet No." << std::to_string(++i) << " :" << std::endl;
+        std::cout << "You started the simulation with: " << wallet.getFunds() << std::endl;
+        std::cout << "After the simulation your portfolio is worth: " << wallet.getPortfolioValue() << std::endl;
+        std::cout << "You made a profit / loss of: " << wallet.getPortfolioValue() - wallet.getFunds() << std::endl;
+    }
 
     market->outputPerformance();
 

@@ -6,8 +6,9 @@
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.2
 
-std::unordered_map<std::string, int> LowRiskStrategy::pickStocks(double totalFunds, const StockMarket &stockMarket) {
-    std::unordered_map<std::string, int> portfolio;
+std::unordered_map<std::string, unsigned> LowRiskStrategy::pickStocks(double totalFunds,
+                                                                      const StockMarket &stockMarket) {
+    std::unordered_map<std::string, unsigned> portfolio;
 
     // Groups all available stocks from stockmarket into low-risk, mid-risk and high-risk stocks.
     // FIXME: getStocks should work differently!!

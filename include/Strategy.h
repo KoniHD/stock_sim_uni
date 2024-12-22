@@ -32,8 +32,7 @@ public:
     Strategy(Strategy &&move) noexcept            = default;
     Strategy &operator=(Strategy &&move) noexcept = default;
 
-    [[nodiscard]] virtual std::unordered_map<std::string, int> pickStocks(double funds,
-                                                                          const StockMarket &stockMarket) = 0;
+    [[nodiscard]] virtual std::unordered_map<std::string, unsigned> pickStocks(double, const StockMarket &) = 0;
 };
 
 #endif // STRATEGY_H

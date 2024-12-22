@@ -19,8 +19,7 @@ public:
      * total available funds. Per risk category, the value is distributed equally among the stocks. By this the number
      * of stocks in the portoflio is dericed.
      */
-    [[nodiscard]] std::unordered_map<std::string, int> pickStocks(double funds,
-                                                                  const StockMarket &stockMarket) override;
+    [[nodiscard]] std::unordered_map<std::string, unsigned> pickStocks(double, const StockMarket &) override;
 };
 
 #endif // LOWRISKSTRATEGY_H

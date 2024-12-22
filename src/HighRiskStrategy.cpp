@@ -6,8 +6,9 @@
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.5
 
-std::unordered_map<std::string, int> HighRiskStrategy::pickStocks(double totalFunds, const StockMarket &stockMarket) {
-    std::unordered_map<std::string, int> portfolio;
+std::unordered_map<std::string, unsigned> HighRiskStrategy::pickStocks(double totalFunds,
+                                                                       const StockMarket &stockMarket) {
+    std::unordered_map<std::string, unsigned> portfolio;
 
     // FIXME: getStocks should work differently!!
     std::vector<Stock> stocks = stockMarket.getStocks();

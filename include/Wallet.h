@@ -11,8 +11,13 @@
 
 class Wallet {
 
-    double _funds;
+    double _funds; // FIXME should this variable be instead used as _invested_funds?
     double _cash_position;
+
+    /**
+     * @brief The total value of all stocks in @link _portfolio @endlink.
+     */
+    double _portfolio_value;
 
     /**
      * @brief The Strategy used for picking the stocks in @link _portfolio @endlink.
@@ -29,7 +34,7 @@ class Wallet {
     /**
      * @brief The portfolio of Stocks owned by the Wallet.
      */
-    std::unordered_map<std::string, int> _portfolio;
+    std::unordered_map<std::string, unsigned> _portfolio;
 
 public:
     Wallet() = delete;
@@ -45,13 +50,19 @@ public:
      * @param stock_name The name of the Stock to check.
      * @return Whether the Wallet contains the Stock
      */
-    bool containsStock(std::string_view stock_name) const noexcept;
+    bool containsStock(std::string_view) const noexcept;
 
     /**
      * @brief Get the @link _funds @endlink of the Wallet.
      * @return The @link _funds @endlink of the Wallet.
      */
     [[nodiscard]] double getFunds() const;
+
+    /**
+     * @brief Get the @link _portfolio_value @endlink of the Wallet.
+     * @return The @link _portfolio_value @endlink of the Wallet.
+     */
+    [[nodiscard]] double getPortfolioValue() const;
 
     /**
      * @brief Allow the user to buy a specified Stock.
@@ -71,7 +82,7 @@ public:
      * The function prints values rounded to two significant digits after dot for cash position, and the performance.
      * The other values are printed in their stored precision.
      */
-    void printWalletInfo();
+    void printWalletInfo() const;
 
     /**
      * @brief Calculate the total value of the @link _portfolio @endlink.
