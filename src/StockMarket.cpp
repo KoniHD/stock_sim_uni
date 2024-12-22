@@ -1,4 +1,5 @@
 #include "../include/StockMarket.h"
+
 #include "../include/Stock.h"
 
 #include <cmath>
@@ -23,26 +24,37 @@ StockMarket::StockMarket(float timeStep, int simulationLength) :
     _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
 }
 
+Stock StockMarket::getStock(std::string_view stock_name) const noexcept {
+    std::string stock_name_(stock_name);
+    auto it = _stocks.find(stock_name_);
+    if (it != _stocks.end()) {
+        return it->second;
+    } else {
+        return Stock{};
+    }
+}
+
 std::vector<Stock> StockMarket::getStocks() const {
     std::vector<Stock> stock_list;
-    for (const auto &[name, stock] : _stocks) {
+    for (const auto &[name, stock]: _stocks) {
         stock_list.push_back(stock);
     }
     return stock_list;
 }
 
-double StockMarket::getStockPrice(std::string_view stockName) const {
+double StockMarket::getStockPrice(std::string_view stockName) const noexcept {
     auto it = _stocks.find(std::string(stockName));
     if (it != _stocks.end()) {
         return it->second.getPrice();
     }
-    throw std::runtime_error("Stock not found: " + std::string(stockName));
+    return 0.0;
+    // throw std::runtime_error("Stock not found: " + std::string(stockName));
 }
 
 void StockMarket::simulateMarket() {
     std::default_random_engine generator(std::random_device{}());
     for (int time_step = 0; time_step < _simulation_length; ++time_step) {
-        for (auto &[name, stock] : _stocks) {
+        for (auto &[name, stock]: _stocks) {
             stock.updatePrice(_time_step, generator);
         }
     }
@@ -62,7 +74,7 @@ void StockMarket::outputPerformance() {
 
     // Copy data into history & write header row
     unsigned i{0};
-    for (const auto &[name, stock] : _stocks) {
+    for (const auto &[name, stock]: _stocks) {
         history.at(i) = stock.getPriceTimeSeries();
         ++i;
 

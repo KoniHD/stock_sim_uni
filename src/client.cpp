@@ -4,8 +4,13 @@
 #include "../include/Strategy.h"
 #include "../include/Wallet.h"
 
+#include <algorithm>
+#include <cctype>
+#include <ios>
 #include <iostream>
+#include <limits>
 #include <memory>
+#include <string>
 #include <utility>
 
 #define MAX_SIM_ITERATIONS 20
@@ -24,6 +29,29 @@ unsigned getTerminalInput() {
         } else {
             return static_cast<unsigned>(input);
         }
+    }
+}
+
+Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet) {
+    std::string stock_name{};
+    while (true) {
+        std::cin >> stock_name;
+
+        if (std::cin.fail() or stock_name.empty()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please try again: ";
+        }
+
+        // Unify output
+        std::transform(stock_name.begin(), stock_name.end(), stock_name.begin(), ::tolower);
+        stock_name[0] = std::toupper(stock_name[0]);
+
+        // Check and return a valid stock
+        if (wallet.containsStock(stock_name)) {
+            return market.getStock(stock_name);
+        }
+        std::cout << "The stock name inputed does not exist. Please try again: ";
     }
 }
 
@@ -90,9 +118,46 @@ int main() {
 
         // Extend simulation for new simulation length
         simulation_length = 0;
-        std::cout << "You chose to extend the simulation. Now please enter the extended simulation length: ";
+        std::cout << "New extended simulation length: ";
         simulation_length = getTerminalInput();
         // TODO market.setSimulationLength(simulation_length);
+
+        // Choose between 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks, 4. Don't modify
+        choice = 0;
+        while (choice != 1 and choice != 2 and choice != 3 and choice != 4) {
+            std::cout << "---" << std::endl
+                      << "You can now modify your wallet. Do you want to" << std::endl
+                      << "(1.) add new funds to the cash position," << std::endl
+                      << "(2.) sell stocks from the portfolio," << std::endl
+                      << "(3.) buy stocks with available cash or" << std::endl
+                      << "(4.) don't modify the wallet at all" << std::endl
+                      << "Your choice: ";
+            choice = getTerminalInput();
+
+            switch (choice) {
+                case 1: // TODO Add new funds to cash position
+                    break;
+                case 2: // TODO Sell stocks from portfolio
+                    break;
+                case 3: { // Buy stocks with available cash
+                    Stock stock{};
+                    unsigned amount_stocks{0};
+                    std::cout << "Out of the previous shares of which do you want to buy more stocks: ";
+                    stock = getStockFromTerminal(*market, wallet);
+                    std::cout << "How many stocks do you want to purchase? (Current cash position: ";
+                    amount_stocks = getTerminalInput();
+                    if (not wallet.buyStocks(stock, amount_stocks)) {
+                        std::cout << "You need to add cash to the wallet or sell a different stock first to increase "
+                                     "your cash position."
+                                  << std::endl;
+                        choice = 0;
+                    }
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
     }
 
     wallet.evaluateResults();

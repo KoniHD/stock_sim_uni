@@ -2,11 +2,18 @@
 
 #include <iostream>
 #include <memory>
+#include <string>
 #include <utility>
 
 Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market) :
     _funds{funds}, _strategy{std::move(strategy)}, _market{market} {
     _portfolio = _strategy->pickStocks(_funds, *_market);
+}
+
+bool Wallet::containsStock(std::string_view stock_name) const noexcept {
+    std::string stock_name_(stock_name);
+    auto it = _portfolio.find(stock_name_);
+    return it != _portfolio.end();
 }
 
 double Wallet::getFunds() const { return _funds; }
@@ -17,6 +24,17 @@ void Wallet::evaluateResults() {
         total += stock.second * _market->getStockPrice(stock.first);
     }
     _funds = total;
+}
+
+bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept {
+    double funds_needed = stock.getPrice() * amount;
+    if (funds_needed > _cash_position) {
+        std::cerr << std::endl << "Not enough money in wallet to buy the specified amount of stocks." << std::endl;
+        return false;
+    }
+    std::string name(stock.getName());
+    _portfolio.at(name) += amount;
+    return true;
 }
 
 void Wallet::printWalletInfo() {

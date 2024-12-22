@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 
 class Wallet {
@@ -22,13 +23,30 @@ public:
     /**
      * @brief Construct a new Wallet object and initialize the funds, strategy and market.
      */
-    Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market);
+    Wallet(double, std::unique_ptr<Strategy>, std::shared_ptr<StockMarket>);
+
+    /**
+     * @brief Checks whether the wallet contains the @link{Stock} specified by name
+     * @return Whether the Wallet contains the @link{Stock}
+     */
+    bool containsStock(std::string_view) const noexcept;
 
     /**
      * @brief Get the funds of the wallet.
-     * @return double The funds of the wallet.
+     * @return The funds of the wallet.
      */
-    double getFunds() const;
+    [[nodiscard]] double getFunds() const;
+
+    /**
+     * @brief Allow the user to buy a specified stock.
+     * @param[0] The stock to buy
+     * @param[1] The amount of stocks to be bought
+     * @return Whether the purchase was succesful.
+     *
+     * The method attemts to buy the amount of specified stocks using money from the @link{_cash_position}. If there is
+     * not enough money in @link{_cash_position} and error is printed and no stocks are bought.
+     */
+    bool buyStocks(const Stock &, unsigned) noexcept;
 
     /**
      * @brief Prints _cashPosition, each owned stock (value in owned stock, number stocks), and overall portfolio Value
