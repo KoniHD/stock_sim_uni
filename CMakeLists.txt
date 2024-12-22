@@ -38,6 +38,9 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 endif()
 
+# Create output dir for saving stockmarket results
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
+
 set(EXECUTABLE_NAME "stockmarket")
 
 add_executable(${EXECUTABLE_NAME}

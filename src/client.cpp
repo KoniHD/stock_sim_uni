@@ -97,13 +97,12 @@ int main() {
 
     wallet.evaluateResults();
 
-    std::cout << "---" << std::endl << "Simulation finished." << std::endl;
+    std::cout << std::endl << "---Simulation finished.---" << std::endl;
     std::cout << "You started the simulation with: " << funds << std::endl;
     std::cout << "After the simulation you have: " << wallet.getFunds() << std::endl;
     std::cout << "You made a profit / loss of: " << wallet.getFunds() - funds << std::endl;
 
-    std::cout << "The following shows the performance of all stocks in the market: " << std::endl;
-    market->printPerformance();
+    market->outputPerformance();
 
     return 0;
 }

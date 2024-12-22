@@ -10,20 +10,19 @@
 #include <vector>
 
 class StockMarket {
-    float timeStep; // timestep = 1.0 is equivalent to yearly steps; timestep = 1.0/12.0 is equivalent to monthly steps
-    int simulationLength;
-    std::unordered_map<std::string, Stock> stocks; // Map of stock names to Stock objects
+    float _time_step;
+    int _simulation_length;
+    std::unordered_map<std::string, Stock> _stocks;
 
 public:
-    StockMarket() = default;
+    StockMarket() = delete;
     StockMarket(float timeStep, int simulationLength);
 
-    std::vector<Stock> getStocks() const; // Retrieve all stocks in the market .getStocks() returns a list of all stocks in the market.
-    double getStockPrice(std::string_view stockName) const; // getStockPrice() retrieves the price of a stock by its name.
+    std::vector<Stock> getStocks() const;
+    double getStockPrice(std::string_view stockName) const;
 
-    void simulateMarket(); // simulateMarket() performs the simulation of stock prices over time using a stochastic
-                           // model, here a Geometric Brownian Motion
-    void printPerformance();
+    void simulateMarket();
+    void outputPerformance();
 };
 
 

@@ -71,3 +71,6 @@ perf.data*
 
 # macOS
 .DS_Store
+
+# output dir
+/output
