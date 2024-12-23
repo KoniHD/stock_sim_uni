@@ -11,15 +11,19 @@ class LowRiskStrategy : public Strategy {
 
 public:
     /**
-     * @brief Composes a low-risk portfolio of stocks.
-     * @param stockMarket The stock market to pick stocks from.
-     * @return The stock portfolio.
+     * @brief Composes a high-risk portfolio of @ref Stock "Stocks".
+     * @param total_funds The funds available for purchasing @ref Stock "Stocks".
+     * @param stockMarket The @ref StockMarket "Stock Market" to pick @ref Stock "Stocks" from.
+     * @return The Stock portfolio.
      *
-     * This strategy picks 50% low-risk stocks, 30% mid-risk stocks and 20% high-risk stocks. This share is based on the
-     * total available funds. Per risk category, the value is distributed equally among the stocks. By this the number
-     * of stocks in the portoflio is dericed.
+     * This strategy picks  50% @ref LOW_RISK_STOCK "low-risk stocks", 30% @ref MID_RISK_STOCK "mid-risk stocks" and 20%
+     * @ref HIGH_RISK_STOCK "high-risk stocks". The amount of @ref Stock "Stocks" per @ref StockRisk "risk level" then
+     * depends on the @p total_funds. Per @ref StockRisk "risk category", the value is distributed equally among the
+     * @ref Stock "Stocks". By this, the number of @ref Stock "Stocks" in the portoflio is derived. The method also
+     * decreases the @p total_funds passed to it, simulating a real purchase.
      */
-    [[nodiscard]] std::unordered_map<std::string, unsigned> pickStocks(double, const StockMarket &) override;
+    [[nodiscard]] std::unordered_map<std::string, unsigned> pickStocks(double &,
+                                                                       const StockMarket &) const noexcept override;
 };
 
 #endif // LOWRISKSTRATEGY_H

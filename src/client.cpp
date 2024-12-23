@@ -118,7 +118,7 @@ int main() {
                   << "---" << std::endl
                   << "After running the simulation these are the performance metrics:" << std::endl;
         // TODO market->printCurrentStockPrices();
-        for (size_t i{0}; i < wallets.size(); ++i) {
+        for (size_t i{0}; i < num_wallets; ++i) {
             std::cout << std::endl << "---Wallet No." << std::to_string(i + 1) << " Info:---";
             wallets.at(i).printWalletInfo();
         }
@@ -142,15 +142,16 @@ int main() {
         // TODO market.setSimulationLength(simulation_length);
 
         // Pick whether and with which wallet to interact with
-        unsigned wallet_choice = 0;
-        while (wallet_choice <= 0 or wallets.size() + 1 <= wallet_choice) {
-            std::cout << "Do you want to interact with a Wallet (Opt. 1-" << std::to_string(wallets.size())
-                      << ") or leave all wallets unchanged (Opt. " << std::to_string(wallets.size() + 1) << "): ";
-            wallet_choice = getTerminalInput() - 1;
-        }
+        unsigned wallet_choice = 1;
+        do {
+            std::cout << "Do you want to interact with a Wallet (Opt. 1-" << std::to_string(num_wallets)
+                      << ") or leave all wallets unchanged (Opt. " << std::to_string(num_wallets + 1) << "): ";
+            wallet_choice = getTerminalInput();
+        } while (wallet_choice > num_wallets + 1);
+        --wallet_choice;
 
         // Leave all wallets unchanged for the next iteration.
-        if (wallet_choice == wallets.size() + 1) {
+        if (wallet_choice == num_wallets) {
             continue;
         }
 

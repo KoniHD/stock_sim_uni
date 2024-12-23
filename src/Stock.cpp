@@ -6,7 +6,6 @@
 #include <utility>
 #include <vector>
 
-
 // Constructor
 Stock::Stock(std::string name, double price, double expectedReturn, double variance, double priceChange) :
     name{std::move(name)}, price{price}, expectedReturn{expectedReturn}, variance{variance}, priceChange{priceChange},
@@ -19,7 +18,7 @@ double Stock::getPrice() const { return price; }
 
 double Stock::getExpectedReturn() const { return expectedReturn; }
 
-double Stock::getVariance() const { return variance; }
+double Stock::getVariance() const noexcept { return variance; }
 
 std::string_view Stock::getName() const { return name; }
 
@@ -47,7 +46,7 @@ double drawRandomNumber(std::default_random_engine &generator) {
 // simulates new price for one timestep with Geometric Brownian Motion (see link in README)
 void Stock::updatePrice(const double &timeStep, std::default_random_engine &generator) {
     double randomNumber = drawRandomNumber(generator);
-    price = price + price * (expectedReturn * timeStep + randomNumber * variance * sqrt(timeStep));
-    price = std::max(price, 0.01);
+    price               = price + price * (expectedReturn * timeStep + randomNumber * variance * sqrt(timeStep));
+    price               = std::max(price, 0.01);
     priceTimeSeries.push_back(price);
 }

@@ -1,8 +1,8 @@
 #ifndef STOCK_H
 #define STOCK_H
 
-#include <string>
 #include <random>
+#include <string>
 #include <vector>
 
 class Stock {
@@ -22,7 +22,7 @@ public:
     // getters
     double getPrice() const;
     double getExpectedReturn() const;
-    double getVariance() const;
+    [[nodiscard]] double getVariance() const noexcept;
     std::string_view getName() const;
     std::vector<double> getPriceTimeSeries() const;
 
@@ -33,7 +33,8 @@ public:
     void setVariance(double variance);
     void setName(std::string_view name);
 
-    void updatePrice(const double& timeStep, std::default_random_engine& generator); // simulates new price for one timestep
+    void updatePrice(const double &timeStep,
+                     std::default_random_engine &generator); // simulates new price for one timestep
 };
 
 #endif // STOCK_H

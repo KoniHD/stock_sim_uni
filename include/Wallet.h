@@ -15,24 +15,25 @@ class Wallet {
     double _cash_position;
 
     /**
-     * @brief The total value of all stocks in @link _portfolio @endlink.
+     * @brief The total value of all @ref Stock "Stocks" in @ref _portfolio.
      */
     double _portfolio_value;
 
     /**
-     * @brief The Strategy used for picking the stocks in @link _portfolio @endlink.
+     * @brief The Strategy used for picking the stocks in @ref _portfolio.
      *
-     * The Strategy is unique to this Wallet. It can be implemented with low or high risk.
+     * The Strategy is unique to this Wallet. It can be implemented with @ref LowRiskStrategy "low" or @ref
+     * HighRiskStrategy "high risk".
      */
     std::unique_ptr<Strategy> _strategy;
 
     /**
-     * @brief The Stockmarket at which the Stocks in the @link _portfolio @endlink are listed.
+     * @brief The StockMarket at which the @ref Stock "Stocks" in the @ref _portfolio are listed.
      */
     std::shared_ptr<StockMarket> _market;
 
     /**
-     * @brief The portfolio of Stocks owned by the Wallet.
+     * @brief The portfolio of @ref Stock "Stocks" owned by the Wallet.
      */
     std::unordered_map<std::string, unsigned> _portfolio;
 
@@ -40,8 +41,12 @@ public:
     Wallet() = delete;
 
     /**
-     * @brief Construct a new Wallet object and initialize the @link _funds @endlink, @link _strategy @endlink and @link
-     * _market @endlink.
+     * @brief Construct a new Wallet object.
+     *
+     * The constructor initializes the @ref _funds and @ref _cash_position with @p funds and @ref _portfolio_value is
+     * initially set to 0 but updated when the portflio is assembled using the @p strategy. The @ref _strategy is
+     * moved to be owned by the Wallet. The @p market is the StockMarket at which the Wallet operates. Since multiple
+     * @ref Wallet "Wallets" can operator on this StockMarket, @ref _market is a shared_ptr.
      */
     Wallet(double, std::unique_ptr<Strategy>, std::shared_ptr<StockMarket>);
 
@@ -53,42 +58,41 @@ public:
     bool containsStock(std::string_view) const noexcept;
 
     /**
-     * @brief Get the @link _funds @endlink of the Wallet.
-     * @return The @link _funds @endlink of the Wallet.
+     * @brief Get the @ref _funds of the Wallet.
+     * @return The @ref _funds of the Wallet.
      */
     [[nodiscard]] double getFunds() const;
 
     /**
-     * @brief Get the @link _portfolio_value @endlink of the Wallet.
-     * @return The @link _portfolio_value @endlink of the Wallet.
+     * @brief Get the @ref _portfolio_value of the Wallet.
+     * @return The @ref _portfolio_value of the Wallet.
      */
     [[nodiscard]] double getPortfolioValue() const;
 
     /**
      * @brief Allow the user to buy a specified Stock.
      * @param stock The Stock to buy
-     * @param amount The amount of Stocks to be bought
+     * @param amount The amount of @ref Stock "Stocks" to be bought
      * @return Whether the purchase was succesful.
      *
-     * The method attempts to buy stocks (specified by @p amount) using money from the @link _cash_position @endlink. If
-     * there is not enough money in @link _cash_position @endlink and error is printed and no Stocks are bought.
+     * The method attempts to buy @ref Stock "Stocks" (specified by @p amount) using money from the @ref _cash_position.
+     * If there is not enough money in @ref _cash_position an error is printed and no @ref Stock "Stocks" are bought.
      */
     bool buyStocks(const Stock &, unsigned) noexcept;
 
     /**
-     * @brief Prints @link _cashPosition @endlink, each owned stock (value in owned stock, number stocks), and overall
-     * portfolio value and performance.
+     * @brief Prints @ref _cash_position, each owned Stock (value in owned Stock, number of @ref Stock "Stocks"), and
+     * overall @ref _portfolio_value and performance.
      *
-     * The function prints values rounded to two significant digits after dot for cash position, and the performance.
-     * The other values are printed in their stored precision.
+     * The function prints values rounded to two significant digits after dot for @ref _cash_position, and the
+     * performance. The other values are printed in their stored precision.
      */
     void printWalletInfo() const;
 
     /**
-     * @brief Calculate the total value of the @link _portfolio @endlink.
+     * @brief Calculate the total value of the @ref _portfolio.
      *
-     * This function adds together the value of each Stock contained in the @link _portfolio @endlink times its current
-     * price.
+     * This function adds together the value of each Stock contained in the @ref _portfolio times its current price.
      */
     void evaluateResults();
 };

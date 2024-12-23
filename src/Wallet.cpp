@@ -6,8 +6,8 @@
 #include <utility>
 
 Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market) :
-    _cash_position{funds}, _funds{funds}, _portfolio_value{funds}, _strategy{std::move(strategy)}, _market{market} {
-    _portfolio = _strategy->pickStocks(_funds, *_market);
+    _funds{funds}, _cash_position{funds}, _portfolio_value{0.0}, _strategy{std::move(strategy)}, _market{market} {
+    _portfolio = _strategy->pickStocks(_cash_position, *_market);
 }
 
 bool Wallet::containsStock(std::string_view stock_name) const noexcept {
