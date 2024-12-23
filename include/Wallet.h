@@ -1,6 +1,7 @@
 #ifndef WALLET_H
 #define WALLET_H
 
+#include "Stock.h"
 #include "StockMarket.h"
 #include "Strategy.h"
 
@@ -48,14 +49,14 @@ public:
      * moved to be owned by the Wallet. The @p market is the StockMarket at which the Wallet operates. Since multiple
      * @ref Wallet "Wallets" can operator on this StockMarket, @ref _market is a shared_ptr.
      */
-    Wallet(double, std::unique_ptr<Strategy>, std::shared_ptr<StockMarket>);
+    Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market);
 
     /**
      * @brief Checks whether the Wallet contains the Stock specified by @p stock_name
      * @param stock_name The name of the Stock to check.
      * @return Whether the Wallet contains the Stock
      */
-    bool containsStock(std::string_view) const noexcept;
+    bool containsStock(std::string_view stock_name) const noexcept;
 
     /**
      * @brief Get the @ref _funds of the Wallet.
@@ -78,7 +79,7 @@ public:
      * The method attempts to buy @ref Stock "Stocks" (specified by @p amount) using money from the @ref _cash_position.
      * If there is not enough money in @ref _cash_position an error is printed and no @ref Stock "Stocks" are bought.
      */
-    bool buyStocks(const Stock &, unsigned) noexcept;
+    bool buyStocks(const Stock &stock, unsigned amount) noexcept;
 
     /**
      * @brief Prints @ref _cash_position, each owned Stock (value in owned Stock, number of @ref Stock "Stocks"), and

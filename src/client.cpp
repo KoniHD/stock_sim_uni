@@ -1,8 +1,9 @@
-#include "../include/HighRiskStrategy.h"
-#include "../include/LowRiskStrategy.h"
-#include "../include/StockMarket.h"
-#include "../include/Strategy.h"
-#include "../include/Wallet.h"
+#include "HighRiskStrategy.h"
+#include "LowRiskStrategy.h"
+#include "Stock.h"
+#include "StockMarket.h"
+#include "Strategy.h"
+#include "Wallet.h"
 
 #include <algorithm>
 #include <cctype>
@@ -17,7 +18,8 @@
 
 #define MAX_SIM_ITERATIONS 20
 
-unsigned getTerminalInput() {
+unsigned getTerminalInput()
+{
     int input{-1};
     while (true) {
         std::cin >> input;
@@ -34,7 +36,8 @@ unsigned getTerminalInput() {
     }
 }
 
-Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet) {
+Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet)
+{
     std::string stock_name{};
     while (true) {
         std::cin >> stock_name;
@@ -57,7 +60,8 @@ Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet) {
     }
 }
 
-int main() {
+int main()
+{
     double funds{0.0};
     unsigned user_choice{0};
     unsigned simulation_length{0};

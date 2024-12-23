@@ -22,8 +22,8 @@ public:
      * @ref Stock "Stocks". By this, the number of @ref Stock "Stocks" in the portoflio is derived. The method also
      * decreases the @p total_funds passed to it, simulating a real purchase.
      */
-    [[nodiscard]] std::unordered_map<std::string, unsigned> pickStocks(double &,
-                                                                       const StockMarket &) const noexcept override;
+    [[nodiscard]] auto pickStocks(double &total_funds, const StockMarket &stockMarket) const noexcept
+            -> std::unordered_map<std::string, unsigned> override;
 };
 
 #endif // LOWRISKSTRATEGY_H

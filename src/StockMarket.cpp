@@ -1,17 +1,20 @@
-#include "../include/StockMarket.h"
+#include "StockMarket.h"
 
-#include "../include/Stock.h"
+#include "Stock.h"
 
 #include <cmath>
+#include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <random>
-#include <stdexcept>
+#include <string>
 #include <string_view>
 #include <vector>
 
 StockMarket::StockMarket(float timeStep, int simulationLength) :
-    _time_step{timeStep}, _simulation_length{simulationLength} {
+    _time_step{timeStep},
+    _simulation_length{simulationLength}
+{
     _stocks["Google"]     = Stock("Google", 100.0, 0.04, 0.05, 0.0);
     _stocks["Amazon"]     = Stock("Amazon", 200.0, 0.045, 0.07, 0.0);
     _stocks["Tesla"]      = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
@@ -24,7 +27,8 @@ StockMarket::StockMarket(float timeStep, int simulationLength) :
     _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
 }
 
-Stock StockMarket::getStock(std::string_view stock_name) const noexcept {
+Stock StockMarket::getStock(std::string_view stock_name) const noexcept
+{
     std::string stock_name_(stock_name);
     auto it = _stocks.find(stock_name_);
     if (it != _stocks.end()) {
@@ -34,7 +38,8 @@ Stock StockMarket::getStock(std::string_view stock_name) const noexcept {
     }
 }
 
-std::vector<Stock> StockMarket::getStocks() const {
+std::vector<Stock> StockMarket::getStocks() const
+{
     std::vector<Stock> stock_list;
     for (const auto &[name, stock]: _stocks) {
         stock_list.push_back(stock);
@@ -42,16 +47,17 @@ std::vector<Stock> StockMarket::getStocks() const {
     return stock_list;
 }
 
-double StockMarket::getStockPrice(std::string_view stockName) const noexcept {
+double StockMarket::getStockPrice(std::string_view stockName) const noexcept
+{
     auto it = _stocks.find(std::string(stockName));
     if (it != _stocks.end()) {
         return it->second.getPrice();
     }
     return 0.0;
-    // throw std::runtime_error("Stock not found: " + std::string(stockName));
 }
 
-void StockMarket::simulateMarket() {
+void StockMarket::simulateMarket()
+{
     std::default_random_engine generator(std::random_device{}());
     for (int time_step = 0; time_step < _simulation_length; ++time_step) {
         for (auto &[name, stock]: _stocks) {
@@ -60,7 +66,8 @@ void StockMarket::simulateMarket() {
     }
 }
 
-void StockMarket::outputPerformance() {
+void StockMarket::outputPerformance()
+{
     std::ofstream out_file("../output/market_performance.csv");
     if (not out_file.is_open()) {
         std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;

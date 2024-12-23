@@ -1,16 +1,29 @@
-#include "../include/Wallet.h"
+#include "Wallet.h"
 
+#include "Stock.h"
+#include "StockMarket.h"
+#include "Strategy.h"
+
+#include <cmath>
 #include <iostream>
 #include <memory>
 #include <string>
+#include <string_view>
 #include <utility>
 
 Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market) :
-    _funds{funds}, _cash_position{funds}, _portfolio_value{0.0}, _strategy{std::move(strategy)}, _market{market} {
+    _funds{funds},
+    _cash_position{funds},
+    _portfolio_value{0.0},
+    _strategy{std::move(strategy)},
+    _market{market}
+{
     _portfolio = _strategy->pickStocks(_cash_position, *_market);
+    evaluateResults();
 }
 
-bool Wallet::containsStock(std::string_view stock_name) const noexcept {
+bool Wallet::containsStock(std::string_view stock_name) const noexcept
+{
     std::string stock_name_(stock_name);
     auto it = _portfolio.find(stock_name_);
     return it != _portfolio.end();
@@ -20,7 +33,8 @@ double Wallet::getFunds() const { return _funds; }
 
 double Wallet::getPortfolioValue() const { return _portfolio_value; }
 
-void Wallet::evaluateResults() {
+void Wallet::evaluateResults()
+{
     double total{0.0f};
     for (const auto &stock: _portfolio) {
         total += stock.second * _market->getStockPrice(stock.first);
@@ -28,7 +42,8 @@ void Wallet::evaluateResults() {
     _portfolio_value = total;
 }
 
-bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept {
+bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept
+{
     double funds_needed = stock.getPrice() * amount;
     if (funds_needed > _cash_position) {
         std::cerr << std::endl << "Not enough money in wallet to buy the specified amount of stocks." << std::endl;
@@ -40,7 +55,8 @@ bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept {
     return true;
 }
 
-void Wallet::printWalletInfo() const {
+void Wallet::printWalletInfo() const
+{
     double portfolio_value{0.0};
 
     std::cout << std::endl

@@ -47,6 +47,7 @@ Makefile
 
 # CMake + lsp
 /compile_commands.json
+.clangd
 
 # debugging
 callgrind.out.*

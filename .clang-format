@@ -19,28 +19,26 @@ AlignConsecutiveDeclarations: false
 AlignOperands: true
 AlignTrailingComments: false
 AlwaysBreakTemplateDeclarations: Yes
+BreakBeforeBraces: Custom
 BraceWrapping: 
   AfterCaseLabel: false
   AfterClass: false
   AfterControlStatement: false
-  AfterEnum: false
-  AfterFunction: false
+  AfterEnum: true
+  AfterFunction: true
   AfterNamespace: false
   AfterStruct: false
   AfterUnion: false
-  AfterExternBlock: false
+  AfterExternBlock: true
   BeforeCatch: false
   BeforeElse: false
   BeforeLambdaBody: false
   BeforeWhile: false
-  SplitEmptyFunction: true
-  SplitEmptyRecord: true
-  SplitEmptyNamespace: true
-BreakBeforeBraces: Custom
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
 BreakConstructorInitializers: AfterColon
-BreakConstructorInitializersBeforeComma: false
 ColumnLimit: 120
-ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ContinuationIndentWidth: 8
 IncludeBlocks: Regroup
 IncludeCategories: 
@@ -58,6 +56,8 @@ MacroBlockBegin: ''
 MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
+PackConstructorInitializers: Never
+PenaltyReturnTypeOnItsOwnLine: 1000
 SortIncludes: CaseInsensitive
 SeparateDefinitionBlocks: Always
 SpaceAfterCStyleCast: true
