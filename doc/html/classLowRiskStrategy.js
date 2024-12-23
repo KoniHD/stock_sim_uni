@@ -1,4 +1,4 @@
 var classLowRiskStrategy =
 [
-    [ "pickStocks", "classLowRiskStrategy.html#a731211c68d32d93899f87dc75a1e3060", null ]
+    [ "pickStocks", "classLowRiskStrategy.html#aa6aac929331ccba71ca9b58c4883d6fa", null ]
 ];

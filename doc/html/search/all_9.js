@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['main_30',['main',['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'client.cpp']]],
-  ['mid_5frisk_5fbound_31',['MID_RISK_BOUND',['../Strategy_8cpp.html#a79964595da41ef05f00c6c531a01e3b4',1,'Strategy.cpp']]],
-  ['mid_5frisk_5fpercentage_32',['MID_RISK_PERCENTAGE',['../HighRiskStrategy_8cpp.html#a7f551ca0ffd132fa91898b583827d31a',1,'MID_RISK_PERCENTAGE():&#160;HighRiskStrategy.cpp'],['../LowRiskStrategy_8cpp.html#a7f551ca0ffd132fa91898b583827d31a',1,'MID_RISK_PERCENTAGE():&#160;LowRiskStrategy.cpp']]],
-  ['mid_5frisk_5fstock_33',['MID_RISK_STOCK',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86',1,'Strategy.h']]]
+  ['low_5frisk_5fbound_37',['LOW_RISK_BOUND',['../Strategy_8cpp.html#a9e3f9ac18f0e0d22c5ab9e0e05b4d6c8',1,'Strategy.cpp']]],
+  ['low_5frisk_5fpercentage_38',['LOW_RISK_PERCENTAGE',['../HighRiskStrategy_8cpp.html#a7643e19dd4cf3d959514d299dfe1cfd1',1,'LOW_RISK_PERCENTAGE():&#160;HighRiskStrategy.cpp'],['../LowRiskStrategy_8cpp.html#a7643e19dd4cf3d959514d299dfe1cfd1',1,'LOW_RISK_PERCENTAGE():&#160;LowRiskStrategy.cpp']]],
+  ['low_5frisk_5fstock_39',['LOW_RISK_STOCK',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3',1,'Strategy.h']]],
+  ['lowriskstrategy_40',['LowRiskStrategy',['../classLowRiskStrategy.html',1,'']]],
+  ['lowriskstrategy_2ecpp_41',['LowRiskStrategy.cpp',['../LowRiskStrategy_8cpp.html',1,'']]],
+  ['lowriskstrategy_2eh_42',['LowRiskStrategy.h',['../LowRiskStrategy_8h.html',1,'']]]
 ];

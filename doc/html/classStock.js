@@ -6,7 +6,7 @@ var classStock =
     [ "getName", "classStock.html#ae3fd770d4a41d9940bc844355ae291be", null ],
     [ "getPrice", "classStock.html#a5ae326fbde0889e50711c2ff7be3c8e6", null ],
     [ "getPriceTimeSeries", "classStock.html#aedab6adf5df7bb216f96ee8ed1b344c3", null ],
-    [ "getVariance", "classStock.html#ac6398c2105d9ff64871c83a1e8934e8a", null ],
+    [ "getVariance", "classStock.html#a9dc5d7ff9c502e765a4021ab5ca36a0f", null ],
     [ "saveCurrentPrice", "classStock.html#a76e8f403b3137860e64857842f7a392d", null ],
     [ "setExpectedReturn", "classStock.html#a84d3cb7065fefa726befea8078191c72", null ],
     [ "setName", "classStock.html#aeed5c0e4595b4d0744c5ece50879a753", null ],

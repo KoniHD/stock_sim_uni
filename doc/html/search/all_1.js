@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['assessstockrisk_4',['assessStockRisk',['../Strategy_8cpp.html#a698c7ada01380cefc347d368dfaa90b7',1,'assessStockRisk(Stock stock):&#160;Strategy.cpp'],['../Strategy_8h.html#a698c7ada01380cefc347d368dfaa90b7',1,'assessStockRisk(Stock stock):&#160;Strategy.cpp']]]
+  ['assessstockrisk_9',['assessStockRisk',['../Strategy_8cpp.html#a428d727f8026e9e616be920f79e2b0cc',1,'assessStockRisk(const Stock &amp;stock) noexcept:&#160;Strategy.cpp'],['../Strategy_8h.html#a8492ae783813a5d6900f30385e397c77',1,'assessStockRisk(const Stock &amp;) noexcept:&#160;Strategy.cpp']]]
 ];

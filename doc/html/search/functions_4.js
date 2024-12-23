@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_97',['main',['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'client.cpp']]]
+  ['evaluateresults_104',['evaluateResults',['../classWallet.html#a1143304d4b55e7b9c354a620474bbf0a',1,'Wallet']]]
 ];

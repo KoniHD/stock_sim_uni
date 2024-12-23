@@ -83,6 +83,7 @@ $(document).ready(function(){initNavTree('classStrategy.html',''); initResizable
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="classStrategy-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Strategy Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -95,9 +96,9 @@ Inheritance diagram for Strategy:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStrategy__inherit__graph.png" border="0" usemap="#aStrategy_inherit__map" alt="Inheritance graph"/></div>
 <map name="aStrategy_inherit__map" id="aStrategy_inherit__map">
-<area shape="rect" title=" " alt="" coords="93,5,210,171"/>
-<area shape="rect" href="classHighRiskStrategy.html" title=" " alt="" coords="5,219,140,296"/>
-<area shape="rect" href="classLowRiskStrategy.html" title=" " alt="" coords="165,219,295,296"/>
+<area shape="rect" title=" " alt="" coords="54,5,249,200"/>
+<area shape="rect" href="classHighRiskStrategy.html" title=" " alt="" coords="5,248,140,325"/>
+<area shape="rect" href="classLowRiskStrategy.html" title=" " alt="" coords="165,248,295,325"/>
 </map>
 </div>
 <div class="dynheader">
@@ -105,7 +106,7 @@ Collaboration diagram for Strategy:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStrategy__coll__graph.png" border="0" usemap="#aStrategy_coll__map" alt="Collaboration graph"/></div>
 <map name="aStrategy_coll__map" id="aStrategy_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,123,171"/>
+<area shape="rect" title=" " alt="" coords="5,5,200,200"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -123,8 +124,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9092ff54b5dbe89814e8ad779d22fe59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af63c9d0d5cf225c708deab895f91f695"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStrategy.html">Strategy</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#af63c9d0d5cf225c708deab895f91f695">operator=</a> (<a class="el" href="classStrategy.html">Strategy</a> &amp;&amp;move) noexcept=default</td></tr>
 <tr class="separator:af63c9d0d5cf225c708deab895f91f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70c7e96def94a90d4186a95899322676"><td class="memItemLeft" align="right" valign="top">virtual std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a70c7e96def94a90d4186a95899322676">pickStocks</a> (double funds, const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;stockMarket)=0</td></tr>
-<tr class="separator:a70c7e96def94a90d4186a95899322676"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74dc25f2fe86e9a75e1facb1f16f8dcc"><td class="memItemLeft" align="right" valign="top">virtual std::unordered_map&lt; std::string, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a74dc25f2fe86e9a75e1facb1f16f8dcc">pickStocks</a> (double &amp;, const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;) const noexcept=0</td></tr>
+<tr class="memdesc:a74dc25f2fe86e9a75e1facb1f16f8dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function to buy <a class="el" href="classStock.html">Stocks</a> for a portfolio based on their <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">Risk</a>. Implemented in <a class="el" href="classLowRiskStrategy.html">LowRiskStrategy</a> and <a class="el" href="classHighRiskStrategy.html">HighRiskStrategy</a>.  <a href="classStrategy.html#a74dc25f2fe86e9a75e1facb1f16f8dcc">More...</a><br /></td></tr>
+<tr class="separator:a74dc25f2fe86e9a75e1facb1f16f8dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:acc8761ea7adca433da1a6c0ca6aef92f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#acc8761ea7adca433da1a6c0ca6aef92f">groupStocks</a> (const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;) noexcept</td></tr>
+<tr class="memdesc:acc8761ea7adca433da1a6c0ca6aef92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method groups all <a class="el" href="classStock.html">Stocks</a> listed at <code>market</code> into <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">LOW_RISK_STOCK</a>, <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">MID_RISK_STOCK</a>, and <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">HIGH_RISK_STOCK</a>.  <a href="classStrategy.html#acc8761ea7adca433da1a6c0ca6aef92f">More...</a><br /></td></tr>
+<tr class="separator:acc8761ea7adca433da1a6c0ca6aef92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f4d508301aa4a7255911d6fee1c06f1"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a6f4d508301aa4a7255911d6fee1c06f1">purchaseStocksByRisk</a> (double &amp;, const <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a> &amp;, std::array&lt; double, 3 &gt;) noexcept</td></tr>
+<tr class="memdesc:a6f4d508301aa4a7255911d6fee1c06f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method attempts to buy as many <a class="el" href="classStock.html">Stocks</a> for each <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk</a> as possible with the given <code>total_funds</code>.  <a href="classStrategy.html#a6f4d508301aa4a7255911d6fee1c06f1">More...</a><br /></td></tr>
+<tr class="separator:a6f4d508301aa4a7255911d6fee1c06f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4c952e0ccc5f3359d01fcceee3b9e967"></a>
@@ -230,6 +241,41 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="acc8761ea7adca433da1a6c0ca6aef92f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc8761ea7adca433da1a6c0ca6aef92f">&#9670;&nbsp;</a></span>groupStocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a> Strategy::groupStocks </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;&#160;</td>
+          <td class="paramname"><em>market</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Method groups all <a class="el" href="classStock.html">Stocks</a> listed at <code>market</code> into <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">LOW_RISK_STOCK</a>, <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">MID_RISK_STOCK</a>, and <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">HIGH_RISK_STOCK</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">market</td><td>The <a class="el" href="classStockMarket.html">StockMarket</a> from which the <a class="el" href="classStock.html">Stocks</a> should be fetched. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classStock.html">Stocks</a> grouped acording to their <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">Stock Risk</a> level. </dd></dl>
+
+</div>
+</div>
 <a id="ab3261137d82ffea3614af2172dd3f91b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3261137d82ffea3614af2172dd3f91b">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
@@ -282,8 +328,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a70c7e96def94a90d4186a95899322676"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70c7e96def94a90d4186a95899322676">&#9670;&nbsp;</a></span>pickStocks()</h2>
+<a id="a74dc25f2fe86e9a75e1facb1f16f8dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74dc25f2fe86e9a75e1facb1f16f8dcc">&#9670;&nbsp;</a></span>pickStocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,16 +338,63 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::unordered_map&lt;std::string, int&gt; Strategy::pickStocks </td>
+          <td class="memname">virtual std::unordered_map&lt;std::string, unsigned&gt; Strategy::pickStocks </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>funds</em>, </td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;&#160;</td>
-          <td class="paramname"><em>stockMarket</em>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function to buy <a class="el" href="classStock.html">Stocks</a> for a portfolio based on their <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">Risk</a>. Implemented in <a class="el" href="classLowRiskStrategy.html">LowRiskStrategy</a> and <a class="el" href="classHighRiskStrategy.html">HighRiskStrategy</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The portfolio of <a class="el" href="classStock.html">Stocks</a>. </dd></dl>
+
+<p>Implemented in <a class="el" href="classLowRiskStrategy.html#aa6aac929331ccba71ca9b58c4883d6fa">LowRiskStrategy</a>, and <a class="el" href="classHighRiskStrategy.html#ab0a2062e73fff9648096465eedb08c29">HighRiskStrategy</a>.</p>
+
+</div>
+</div>
+<a id="a6f4d508301aa4a7255911d6fee1c06f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f4d508301aa4a7255911d6fee1c06f1">&#9670;&nbsp;</a></span>purchaseStocksByRisk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, unsigned &gt; Strategy::purchaseStocksByRisk </td>
+          <td>(</td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>total_funds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a> &amp;&#160;</td>
+          <td class="paramname"><em>grouped_stocks</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::array&lt; double, 3 &gt;&#160;</td>
+          <td class="paramname"><em>risk_percentage</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -311,17 +404,28 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span><span class="mlabel">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="classLowRiskStrategy.html#a731211c68d32d93899f87dc75a1e3060">LowRiskStrategy</a>, and <a class="el" href="classHighRiskStrategy.html#aa502a2502f46085f89c3d57b9389c6ae">HighRiskStrategy</a>.</p>
+<p>Method attempts to buy as many <a class="el" href="classStock.html">Stocks</a> for each <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk</a> as possible with the given <code>total_funds</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">total_funds</td><td>Total available funds across all <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk</a> levels. <code>total_funds</code> will also be spent (i.e. the variable decreases). </td></tr>
+    <tr><td class="paramname">grouped_stocks</td><td>Predetermined container of <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a>. </td></tr>
+    <tr><td class="paramname">risk_percentage</td><td>Array specifying how much [0] <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">low risk stocks</a>, [1] <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">mid risk stocks</a>, and [2] <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">high risk stocks</a> (in decimal) to buy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classStock.html">Stock</a> portfolio.</dd></dl>
+<p>The method optimizes the <a class="el" href="classStock.html">Stock</a> purchase such that first funds for each <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">risk level</a> are determined. The resulting fraction is then divided by the amount of <a class="el" href="classStock.html">Stocks</a> to create a budget for that <a class="el" href="classStock.html">Stock</a>. Then the biggest possible amount of <a class="el" href="classStock.html">Stocks</a> is bought with that budget. Finally using the left-over budget it is attemted to buy the cheapest <a class="el" href="classStock.html">Stock</a> in the <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk category</a>. </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="Strategy_8h_source.html">Strategy.h</a></li>
+<li><a class="el" href="Strategy_8cpp.html">Strategy.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

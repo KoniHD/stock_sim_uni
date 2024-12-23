@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_2ecpp_5',['client.cpp',['../client_8cpp.html',1,'']]]
+  ['buystocks_10',['buyStocks',['../classWallet.html#af6a15aa19439c9d75ee60fdae4167083',1,'Wallet']]]
 ];

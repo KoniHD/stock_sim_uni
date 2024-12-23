@@ -1,5 +1,5 @@
 <map id="Strategy" name="Strategy">
-<area shape="rect" id="node1" title=" " alt="" coords="93,5,210,171"/>
-<area shape="rect" id="node2" href="$classHighRiskStrategy.html" title=" " alt="" coords="5,219,140,296"/>
-<area shape="rect" id="node3" href="$classLowRiskStrategy.html" title=" " alt="" coords="165,219,295,296"/>
+<area shape="rect" id="node1" title=" " alt="" coords="54,5,249,200"/>
+<area shape="rect" id="node2" href="$classHighRiskStrategy.html" title=" " alt="" coords="5,248,140,325"/>
+<area shape="rect" id="node3" href="$classLowRiskStrategy.html" title=" " alt="" coords="165,248,295,325"/>
 </map>

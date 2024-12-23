@@ -1,11 +1,11 @@
 <map id="Strategy.h" name="Strategy.h">
-<area shape="rect" id="node1" title=" " alt="" coords="297,5,383,32"/>
-<area shape="rect" id="node2" href="$client_8cpp.html" title=" " alt="" coords="189,155,275,181"/>
-<area shape="rect" id="node3" href="$Strategy_8cpp.html" title=" " alt="" coords="534,80,637,107"/>
-<area shape="rect" id="node4" href="$HighRiskStrategy_8h.html" title=" " alt="" coords="49,80,194,107"/>
-<area shape="rect" id="node6" href="$LowRiskStrategy_8h.html" title=" " alt="" coords="269,80,411,107"/>
-<area shape="rect" id="node8" href="$Wallet_8h.html" title=" " alt="" coords="435,80,509,107"/>
-<area shape="rect" id="node5" href="$HighRiskStrategy_8cpp.html" title=" " alt="" coords="5,155,165,181"/>
-<area shape="rect" id="node7" href="$LowRiskStrategy_8cpp.html" title=" " alt="" coords="299,155,455,181"/>
-<area shape="rect" id="node9" href="$Wallet_8cpp.html" title=" " alt="" coords="480,155,571,181"/>
+<area shape="rect" id="node1" title=" " alt="" coords="301,5,387,32"/>
+<area shape="rect" id="node2" href="$client_8cpp.html" title=" " alt="" coords="227,155,312,181"/>
+<area shape="rect" id="node3" href="$HighRiskStrategy_8cpp.html" title=" " alt="" coords="5,155,165,181"/>
+<area shape="rect" id="node4" href="$LowRiskStrategy_8cpp.html" title=" " alt="" coords="478,155,634,181"/>
+<area shape="rect" id="node5" href="$Strategy_8cpp.html" title=" " alt="" coords="622,80,725,107"/>
+<area shape="rect" id="node6" href="$HighRiskStrategy_8h.html" title=" " alt="" coords="86,80,231,107"/>
+<area shape="rect" id="node7" href="$LowRiskStrategy_8h.html" title=" " alt="" coords="405,80,547,107"/>
+<area shape="rect" id="node8" href="$Wallet_8h.html" title=" " alt="" coords="307,80,381,107"/>
+<area shape="rect" id="node9" href="$Wallet_8cpp.html" title=" " alt="" coords="336,155,427,181"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['drawrandomnumber_87',['drawRandomNumber',['../Stock_8cpp.html#aefd983ce61c5b375cf76548b2d7dbb70',1,'Stock.cpp']]]
+  ['buystocks_101',['buyStocks',['../classWallet.html#af6a15aa19439c9d75ee60fdae4167083',1,'Wallet']]]
 ];
