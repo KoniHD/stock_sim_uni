@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstddef>
 #include <fstream>
+#include <ios>
 #include <iostream>
 #include <random>
 #include <string>
@@ -87,6 +88,7 @@ void StockMarket::outputPerformance()
 
         out_file << name << ",";
     }
+    out_file.seekp(-1, std::ios_base::cur);
     out_file << "\n";
 
     // Write data into .csv
@@ -94,6 +96,7 @@ void StockMarket::outputPerformance()
         for (unsigned j{0}; j < _stocks.size(); ++j) {
             out_file << history.at(j).at(i) << ",";
         }
+        out_file.seekp(-1, std::ios_base::cur);
         out_file << "\n";
     }
 

@@ -50,7 +50,7 @@ Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet)
 
         // Unify output
         std::transform(stock_name.begin(), stock_name.end(), stock_name.begin(), ::tolower);
-        stock_name[0] = std::toupper(stock_name[0]);
+        stock_name[0] = static_cast<char>(std::toupper(stock_name[0]));
 
         // Check and return a valid stock
         if (wallet.containsStock(stock_name)) {

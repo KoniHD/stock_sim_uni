@@ -29,8 +29,8 @@ StockRisk assessStockRisk(const Stock &stock) noexcept
     return HIGH_RISK_STOCK;
 }
 
-auto Strategy::_purchaseStocks(double &total_funds, double partial_funds,
-                               const std::vector<Stock> &stocks) noexcept -> std::unordered_map<std::string, unsigned>
+auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
+                              const std::vector<Stock> &stocks) noexcept -> std::unordered_map<std::string, unsigned>
 {
     if (stocks.empty())
         return {};
@@ -81,7 +81,7 @@ auto Strategy::purchaseStocksByRisk(double &total_funds, const std::array<std::v
     for (std::size_t i{0}; i < grouped_stocks.size(); ++i) {
         if (not grouped_stocks.at(i).empty()) {
             double partial_funds{total_funds * risk_percentage.at(i)};
-            portfolio.merge(_purchaseStocks(total_funds, partial_funds, grouped_stocks.at(i)));
+            portfolio.merge(purchaseStocks(total_funds, partial_funds, grouped_stocks.at(i)));
         }
     }
 

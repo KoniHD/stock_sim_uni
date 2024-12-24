@@ -38,5 +38,8 @@ auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMa
         weight /= total_weight;
     }
 
-    return purchaseStocksByRisk(total_funds, grouped_stocks, weights);
+    std::unordered_map<std::string, unsigned> portfolio{purchaseStocksByRisk(total_funds, grouped_stocks, weights)};
+    portfolio.merge(purchaseStocks(total_funds, total_funds, grouped_stocks.at(StockRisk::LOW_RISK_STOCK)));
+
+    return portfolio;
 }

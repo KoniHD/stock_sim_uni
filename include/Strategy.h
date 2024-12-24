@@ -38,6 +38,7 @@ StockRisk assessStockRisk(const Stock &stock) noexcept;
 
 class Strategy {
 
+protected:
     /**
      * @brief Purchases @ref Stock "Stocks" based on available @p partial_funds and Stock prices.
      * @param total_funds Reference to the @p total_funds available.
@@ -45,11 +46,10 @@ class Strategy {
      * @param stocks Vector of available @ref Stock "Stocks".
      * @return A map of Stock names to the number of shares purchased.
      */
-    [[nodiscard]] static auto _purchaseStocks(double &total_funds, double partial_funds,
-                                              const std::vector<Stock> &stocks) noexcept
+    [[nodiscard]] static auto purchaseStocks(double &total_funds, double partial_funds,
+                                             const std::vector<Stock> &stocks) noexcept
             -> std::unordered_map<std::string, unsigned>;
 
-protected:
     /**
      * @brief Method groups all @ref Stock "Stocks" listed at @p market into
      * @ref LOW_RISK_STOCK, @ref MID_RISK_STOCK,
