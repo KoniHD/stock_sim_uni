@@ -63,27 +63,3 @@ target_sources(${EXECUTABLE_NAME}
         src/Wallet.cpp
         
 )
-
-find_package(Python QUIET COMPONENTS Interpreter)
-
-if (Python_FOUND)
-    message(STATUS "Python interpreter found.")
-
-    # Create output dir for saving stockmarket results
-    file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
-    
-    set(CSV_OUTPUT "market_performance.csv")
-    set(PLOT_OUTPUT "stock_prices_plot.pdf")
-
-    # Create a custom target to execute ploting from .csv
-    add_custom_target(plot
-        COMMAND "${CMAKE_SOURCE_DIR}/build/${EXECUTABLE_NAME}"
-        COMMAND ${Python_EXECUTABLE} "${CMAKE_SOURCE_DIR}/src/plot_price_history.py" "${CMAKE_SOURCE_DIR}/output/${CSV_OUTPUT}" "${CMAKE_SOURCE_DIR}/output"
-        OUTPUT ${CSV_OUTPUT} ${PLOT_OUTPUT}
-    )
-    # Make sure that ${EXECUTABLE_NAME} is built first
-    add_dependencies(plot ${EXECUTABLE_NAME})
-
-else()
-    message(WARNING "Python not found! Skipping plot generation.")
-endif()
