@@ -172,10 +172,28 @@ int main()
             user_choice = getTerminalInput();
 
             switch (user_choice) {
-                case 1: // TODO Add new funds to cash position
+                case 1: { // add money to cash position
+                    double new_cash{0.0};
+                    std::cout << "Enter the amount of money you want to add to your cashposition: ";
+                    new_cash = getTerminalInput();
+                    wallets.at(wallet_choice).addToCashposition(new_cash);
                     break;
-                case 2: // TODO Sell stocks from portfolio
+                }
+                case 2: { // Sell stocks from portfolio
+                    Stock stock{};
+                    unsigned amount_stocks{0};
+                    std::cout << "Considering the shares in your wallet, of which do you want to sell stocks: ";
+                    stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
+                    std::cout << "How many stocks do you want to sell? (Current cash position: ";
+                    amount_stocks = getTerminalInput();
+                    bool success = wallets.at(wallet_choice).sellStocks(stock, amount_stocks);
+                    if (not success) {
+                        std::cout << "You need to either sell fewer stocks of this type or select a differnt one. "
+                        << std::endl;
+                        user_choice = 0;
+                    }
                     break;
+                }
                 case 3: { // Buy stocks with available cash
                     Stock stock{};
                     unsigned amount_stocks{0};
@@ -183,8 +201,8 @@ int main()
                     stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to purchase? (Current cash position: ";
                     amount_stocks = getTerminalInput();
-                    bool succes   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
-                    if (not succes) {
+                    bool success   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
+                    if (not success) {
                         std::cout << "You need to add cash to the wallet or sell a different stock first to increase "
                                      "your cash position."
                                   << std::endl;

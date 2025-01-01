@@ -55,6 +55,18 @@ bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept
     return true;
 }
 
+bool Wallet::sellStocks(const Stock &stock, unsigned amount)
+{
+    std::string name(stock.getName());
+    if (amount > _portfolio.at(name)) {
+        std::cout << "You don't own enough stocks to realize the selling. " << std::endl;
+        return false;
+    }
+    _cash_position += amount * stock.getPrice();
+    _portfolio.at(name) -= amount;
+    return true;
+}
+
 void Wallet::printWalletInfo() const
 {
     double portfolio_value{0.0};
@@ -79,3 +91,5 @@ void Wallet::printWalletInfo() const
         std::cout << "$, down by " << std::round(performance * 100.0) / 100.0 << "%" << std::endl;
     }
 }
+
+void Wallet::addToCashposition(double new_cash) { this->_cash_position += new_cash;}
