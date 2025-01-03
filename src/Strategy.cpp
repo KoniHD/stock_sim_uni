@@ -18,7 +18,7 @@
 StockRisk assessStockRisk(const Stock &stock) noexcept
 {
 
-    double standard_deviation = stock.getVariance();
+    double standard_deviation = stock.getStandardDev();
 
     if (standard_deviation < LOW_RISK_BOUND)
         return LOW_RISK_STOCK;

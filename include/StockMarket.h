@@ -10,13 +10,13 @@
 #include <vector>
 
 class StockMarket {
-    float _time_step;
+    double _time_step;
     int _simulation_length;
     std::unordered_map<std::string, Stock> _stocks;
 
 public:
     StockMarket() = delete;
-    StockMarket(float timeStep, int simulationLength);
+    StockMarket(double timeStep, int simulationLength);
 
     Stock& getStock(std::string_view) noexcept;
     std::vector<Stock> getStocks() const;

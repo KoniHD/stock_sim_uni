@@ -73,7 +73,7 @@ int main()
     std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
     std::cout << "First input how long you want the simulation to run (Unit: Months, int): ";
     simulation_length = getTerminalInput();
-    market            = std::make_shared<StockMarket>(1.0f / 12.0f, simulation_length);
+    market            = std::make_shared<StockMarket>(1.0 / 12.0, simulation_length);
 
     // Create Wallets
     std::cout << std::endl << "---Wallet creation---" << std::endl;
@@ -180,11 +180,11 @@ int main()
                     break;
                 }
                 case 2: { // Sell stocks from portfolio
-                    Stock stock{};
                     unsigned amount_stocks{0};
                     std::cout << "Considering the shares in your wallet, of which do you want to sell stocks: ";
+                    Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
-                    std::cout << "How many stocks do you want to sell? (Current cash position: ";
+                    std::cout << "How many stocks do you want to sell? ";
                     amount_stocks = getTerminalInput();
                     bool success = wallets.at(wallet_choice).sellStocks(stock, amount_stocks);
                     if (not success) {
@@ -195,12 +195,11 @@ int main()
                     break;
                 }
                 case 3: { // Buy stocks with available cash
-                    //Stock stock{};
                     unsigned amount_stocks{0};
                     std::cout << "Out of the previous shares of which do you want to buy more stocks: ";
                     Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     //stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
-                    std::cout << "How many stocks do you want to purchase? (Current cash position: ";
+                    std::cout << "How many stocks do you want to purchase? ";
                     amount_stocks = getTerminalInput();
                     bool success   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
                     if (not success) {

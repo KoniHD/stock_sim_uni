@@ -17,11 +17,15 @@ Our group project implements the [Stockmarket simulation idea](https://gitlab.lr
     - Next:  (3 Options) 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks
     - Final: set new simulationlength
 - Wallet-StockMarket interaction
-    - logic behind changes in wallet composition (purchases/sells) maybe research more ? optional: we still have the used parameter price_change -> maybe that's helpful.
-        - which threshold for impact or proportional change ?
-        - How mathematically realize the impact
+    - The logic behind the interaction between trades and a stock's performance is implemented in the Stock.cpp class inside the updatePrice() method
+    - The main approach is a Geometric Brownian Motion with an integrated Feedback mechanism that alters the statistical values expectedReturn and standardDev of the traded stock
+    - If for example a stock was bought, it will probably lead to a temporally increased performance of the stock and a higher trading activity; analogously a sell will likely lead to a decreasing price and also higher trading activity
+    - This behavior is realized by temporally (one timestep) manipulating the expected return and standard deviation of the stock
+    - Since small sales should hardly have an impact unlike large orders, the available amount of each stock was introduced
+    - If an order is excecuted, the relation between the order volume and the available stocks is used to weigh the temporal impact on the statistical parameters 
+- Simulation is implemented with monthly simulation time steps
 
-## Optional ideas:
+## Optional ideas (not implemented):
 
 - Class for sectors
     - allows to simulate e.g. overperformance of tech stocks while other sectors underperform

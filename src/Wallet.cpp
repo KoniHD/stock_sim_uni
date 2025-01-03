@@ -16,7 +16,8 @@ Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr
     _cash_position{funds},
     _portfolio_value{0.0},
     _strategy{std::move(strategy)},
-    _market{market}
+    _market{market},
+    _added_cash{0.0}
 {
     _portfolio = _strategy->pickStocks(_cash_position, *_market);
     evaluateResults();
@@ -87,7 +88,8 @@ void Wallet::printWalletInfo() const
     }
 
     // Evaluating the portfolio performance relative to the initial funds.s
-    double performance = (portfolio_value / _funds - 1.0) * 100.0;
+    //double performance = (portfolio_value / _funds - 1.0) * 100.0;
+    double performance = ((portfolio_value + _cash_position) /( _funds + _added_cash) - 1.0) * 100.0;
     std::cout << std::endl << "Total portfolio value in wallet is : " << portfolio_value;
     if (performance > 0.0) {
         std::cout << "$, up by " << std::round(performance * 100.0) / 100.0 << "%" << std::endl;
@@ -96,4 +98,8 @@ void Wallet::printWalletInfo() const
     }
 }
 
-void Wallet::addToCashposition(double new_cash) { this->_cash_position += new_cash;}
+void Wallet::addToCashposition(double new_cash)
+{
+    this->_cash_position += new_cash;
+    this->_added_cash += new_cash;
+}

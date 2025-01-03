@@ -12,20 +12,20 @@
 #include <string_view>
 #include <vector>
 
-StockMarket::StockMarket(float timeStep, int simulationLength) :
+StockMarket::StockMarket(double timeStep, int simulationLength) :
     _time_step{timeStep},
     _simulation_length{simulationLength}
 {
-    _stocks["Google"]     = Stock("Google", 100.0, 0.04, 0.05, 0.0);
-    _stocks["Amazon"]     = Stock("Amazon", 200.0, 0.045, 0.07, 0.0);
-    _stocks["Tesla"]      = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
-    _stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2, 0.0);
-    _stocks["Adidas"]     = Stock("Adidas", 40.0, 0.1, 0.25, 0.0);
-    _stocks["Apple"]      = Stock("Apple", 320.0, 0.055, 0.13, 0.0);
-    _stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12, 0.0);
-    _stocks["Disney"]     = Stock("Disney", 150.0, 0.07, 0.14, 0.0);
-    _stocks["Airbus"]     = Stock("Airbus", 700.0, 0.075, 0.16, 0.0);
-    _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
+    _stocks["Google"]     = Stock("Google", 100.0, 0.04, 0.05);
+    _stocks["Amazon"]     = Stock("Amazon", 200.0, 0.045, 0.07);
+    _stocks["Tesla"]      = Stock("Tesla", 300.0, 0.055, 0.1);
+    _stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2);
+    _stocks["Adidas"]     = Stock("Adidas", 40.0, 0.1, 0.25);
+    _stocks["Apple"]      = Stock("Apple", 320.0, 0.055, 0.13);
+    _stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12);
+    _stocks["Disney"]     = Stock("Disney", 150.0, 0.07, 0.14);
+    _stocks["Airbus"]     = Stock("Airbus", 700.0, 0.075, 0.16);
+    _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22);
 }
 
 Stock& StockMarket::getStock(std::string_view stock_name) noexcept
@@ -64,7 +64,7 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
 * The method generates the price series for all stocks in the stock market by iterating over the given simulation length
 * and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes
 * OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock
-* are being altered (e.g. higher expectedReturn and variance in case of a buy). After one timestep, those values
+* are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those values
 * are being reset again.
 */
 void StockMarket::simulateMarket()

@@ -34,9 +34,16 @@ class Wallet {
     std::shared_ptr<StockMarket> _market;
 
     /**
+    * @brief This variable keeps track of the cash added during the simulation, such that it is considered in the
+    * performance calculation.
+    */
+    double _added_cash;
+
+    /**
      * @brief The portfolio of @ref Stock "Stocks" owned by the Wallet.
      */
     std::unordered_map<std::string, unsigned> _portfolio;
+
 
 public:
     Wallet() = delete;

@@ -11,8 +11,7 @@ class Stock {
     std::string name;
     double price;
     double expectedReturn;
-    double variance;
-    double priceChange; // FIXME: parameter necessary?
+    double standardDev;
     std::vector<double> priceTimeSeries;
     double availableStocks;
     double marketCap;
@@ -22,14 +21,13 @@ class Stock {
 
 public:
     // constructor
-    Stock(std::string name, double price, double expectedReturn, double variance, double priceChange,
-      double availableStocks = 1e9);
+    Stock(std::string name, double price, double expectedReturn, double standardDev, double availableStocks = 1e9);
     Stock();
 
     // getters
     double getPrice() const;
     double getExpectedReturn() const;
-    [[nodiscard]] double getVariance() const noexcept;
+    [[nodiscard]] double getStandardDev() const noexcept;
     std::string_view getName() const;
     std::vector<double> getPriceTimeSeries() const;
     bool getSellExecuted() const;
@@ -40,7 +38,7 @@ public:
     void saveCurrentPrice(double price);
     void setPrice(double price);
     void setExpectedReturn(double expectedReturn);
-    void setVariance(double variance);
+    void setStandardDev(double standardDev);
     void setName(std::string_view name);
     void setSellExecuted(bool state);
     void setBuyExecuted(bool state);
