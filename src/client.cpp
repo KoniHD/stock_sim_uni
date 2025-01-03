@@ -36,7 +36,7 @@ unsigned getTerminalInput()
     }
 }
 
-Stock getStockFromTerminal(const StockMarket &market, const Wallet &wallet)
+Stock& getStockFromTerminal(StockMarket &market, const Wallet &wallet)
 {
     std::string stock_name{};
     while (true) {
@@ -71,7 +71,7 @@ int main()
     // Determine the simulation length
     std::cout << "---Welcome to the stock market!--" << std::endl;
     std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
-    std::cout << "First input how long you want the simulation to run (Unit: Years, int): ";
+    std::cout << "First input how long you want the simulation to run (Unit: Months, int): ";
     simulation_length = getTerminalInput();
     market            = std::make_shared<StockMarket>(1.0f / 12.0f, simulation_length);
 
@@ -195,10 +195,11 @@ int main()
                     break;
                 }
                 case 3: { // Buy stocks with available cash
-                    Stock stock{};
+                    //Stock stock{};
                     unsigned amount_stocks{0};
                     std::cout << "Out of the previous shares of which do you want to buy more stocks: ";
-                    stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
+                    Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
+                    //stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to purchase? (Current cash position: ";
                     amount_stocks = getTerminalInput();
                     bool success   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);

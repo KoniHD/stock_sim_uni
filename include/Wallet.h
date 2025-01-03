@@ -79,7 +79,7 @@ public:
      * The method attempts to buy @ref Stock "Stocks" (specified by @p amount) using money from the @ref _cash_position.
      * If there is not enough money in @ref _cash_position an error is printed and no @ref Stock "Stocks" are bought.
      */
-    bool buyStocks(const Stock &stock, unsigned amount) noexcept;
+    bool buyStocks(Stock &stock, unsigned amount);
 
     /**
     * @brief Allow the user to sell a specified Stock.
@@ -91,7 +91,7 @@ public:
     * @ref _cash_position. If there are not enough stocks in the wallet, an error is printed and
     * no @ref Stock "Stocks" are sold.
     */
-    bool sellStocks(const Stock &stock, unsigned amount);
+    bool sellStocks(Stock &stock, unsigned amount);
 
 
     /**

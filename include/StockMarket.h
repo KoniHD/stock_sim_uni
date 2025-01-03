@@ -18,7 +18,7 @@ public:
     StockMarket() = delete;
     StockMarket(float timeStep, int simulationLength);
 
-    Stock getStock(std::string_view) const noexcept;
+    Stock& getStock(std::string_view) noexcept;
     std::vector<Stock> getStocks() const;
     double getStockPrice(std::string_view stockName) const noexcept;
 

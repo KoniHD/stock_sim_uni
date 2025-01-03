@@ -21,22 +21,22 @@ StockMarket::StockMarket(float timeStep, int simulationLength) :
     _stocks["Tesla"]      = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
     _stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2, 0.0);
     _stocks["Adidas"]     = Stock("Adidas", 40.0, 0.1, 0.25, 0.0);
-    _stocks["Apple"]      = Stock("Apple", 320.0, 0.03, 0.13, 0.0);
+    _stocks["Apple"]      = Stock("Apple", 320.0, 0.055, 0.13, 0.0);
     _stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12, 0.0);
     _stocks["Disney"]     = Stock("Disney", 150.0, 0.07, 0.14, 0.0);
     _stocks["Airbus"]     = Stock("Airbus", 700.0, 0.075, 0.16, 0.0);
     _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
 }
 
-Stock StockMarket::getStock(std::string_view stock_name) const noexcept
+Stock& StockMarket::getStock(std::string_view stock_name) noexcept
 {
     std::string stock_name_(stock_name);
     auto it = _stocks.find(stock_name_);
     if (it != _stocks.end()) {
         return it->second;
-    } else {
-        return Stock{};
     }
+    throw std::runtime_error("Stock not found: " + std::string(stock_name));
+    //return Stock{};
 }
 
 std::vector<Stock> StockMarket::getStocks() const
@@ -57,11 +57,26 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
     return 0.0;
 }
 
+
+/**
+* @brief Update prices iteratively for the given simulation length.
+*
+* The method generates the price series for all stocks in the stock market by iterating over the given simulation length
+* and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes
+* OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock
+* are being altered (e.g. higher expectedReturn and variance in case of a buy). After one timestep, those values
+* are being reset again.
+*/
 void StockMarket::simulateMarket()
 {
     std::default_random_engine generator(std::random_device{}());
     for (int time_step = 0; time_step < _simulation_length; ++time_step) {
         for (auto &[name, stock]: _stocks) {
+            if (time_step == 1) {
+                stock.setOrderVolume(0.0);
+                stock.setBuyExecuted(false);
+                stock.setSellExecuted(false);
+            }
             stock.updatePrice(_time_step, generator);
         }
     }

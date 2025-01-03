@@ -42,7 +42,7 @@ void Wallet::evaluateResults()
     _portfolio_value = total;
 }
 
-bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept
+bool Wallet::buyStocks( Stock &stock, unsigned amount)
 {
     double funds_needed = stock.getPrice() * amount;
     if (funds_needed > _cash_position) {
@@ -52,10 +52,12 @@ bool Wallet::buyStocks(const Stock &stock, unsigned amount) noexcept
     _cash_position -= funds_needed;
     std::string name(stock.getName());
     _portfolio.at(name) += amount;
+    stock.setOrderVolume(amount);
+    stock.setBuyExecuted(true);
     return true;
 }
 
-bool Wallet::sellStocks(const Stock &stock, unsigned amount)
+bool Wallet::sellStocks(Stock &stock, unsigned amount)
 {
     std::string name(stock.getName());
     if (amount > _portfolio.at(name)) {
@@ -64,6 +66,8 @@ bool Wallet::sellStocks(const Stock &stock, unsigned amount)
     }
     _cash_position += amount * stock.getPrice();
     _portfolio.at(name) -= amount;
+    stock.setOrderVolume(amount);
+    stock.setSellExecuted(true);
     return true;
 }
 
