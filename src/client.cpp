@@ -73,7 +73,8 @@ int main()
     std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
     std::cout << "First input how long you want the simulation to run (Unit: Months, int): ";
     simulation_length = getTerminalInput();
-    market            = std::make_shared<StockMarket>(1.0 / 12.0, simulation_length);
+    market = std::make_shared<StockMarket>(1.0 / 12.0, simulation_length, "../input/stocks.json");
+
 
     // Create Wallets
     std::cout << std::endl << "---Wallet creation---" << std::endl;

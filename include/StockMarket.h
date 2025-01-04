@@ -9,6 +9,11 @@
 #include <unordered_map>
 #include <vector>
 
+#include "json.hpp"
+
+using json = nlohmann::json;
+
+
 class StockMarket {
     double _time_step;
     int _simulation_length;
@@ -16,7 +21,8 @@ class StockMarket {
 
 public:
     StockMarket() = delete;
-    StockMarket(double timeStep, int simulationLength);
+    StockMarket(double timeStep, int simulationLength, const std::string &jsonFilePath);
+
 
     Stock& getStock(std::string_view) noexcept;
     std::vector<Stock> getStocks() const;
@@ -24,6 +30,8 @@ public:
 
     void simulateMarket();
     void outputPerformance();
+    void validateStockData(const json &stockEntry);
+
 };
 
 

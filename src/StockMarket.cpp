@@ -2,30 +2,76 @@
 
 #include "Stock.h"
 
+#include "json.hpp" // Include the JSON library
+
 #include <cmath>
 #include <cstddef>
 #include <fstream>
 #include <ios>
 #include <iostream>
+#include <stdexcept>
 #include <random>
 #include <string>
+#include <unordered_map>
 #include <string_view>
 #include <vector>
 
-StockMarket::StockMarket(double timeStep, int simulationLength) :
+// Use the nlohmann JSON namespace for convenience
+using json = nlohmann::json;
+
+StockMarket::StockMarket(double timeStep, int simulationLength, const std::string &jsonFilePath) :
     _time_step{timeStep},
     _simulation_length{simulationLength}
 {
-    _stocks["Google"]     = Stock("Google", 100.0, 0.04, 0.05);
-    _stocks["Amazon"]     = Stock("Amazon", 200.0, 0.045, 0.07);
-    _stocks["Tesla"]      = Stock("Tesla", 300.0, 0.055, 0.1);
-    _stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2);
-    _stocks["Adidas"]     = Stock("Adidas", 40.0, 0.1, 0.25);
-    _stocks["Apple"]      = Stock("Apple", 320.0, 0.055, 0.13);
-    _stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12);
-    _stocks["Disney"]     = Stock("Disney", 150.0, 0.07, 0.14);
-    _stocks["Airbus"]     = Stock("Airbus", 700.0, 0.075, 0.16);
-    _stocks["Nestle"]     = Stock("Nestle", 290.0, 0.095, 0.22);
+    // Load stock data from JSON file
+    std::ifstream jsonFile(jsonFilePath);
+    if (!jsonFile.is_open()) {
+        throw std::runtime_error("Failed to open JSON file: " + jsonFilePath);
+    }
+
+    json jsonData;
+    try {
+        jsonFile >> jsonData; // Parse the JSON file
+    } catch (const json::parse_error &e) {
+        throw std::runtime_error("JSON parsing error: " + std::string(e.what()));
+    }
+
+    // Validate and populate stocks
+    for (const auto &stockEntry : jsonData) {
+        try {
+            validateStockData(stockEntry);
+
+            std::string name = stockEntry["name"];
+            double initialPrice = stockEntry["initial_price"];
+            double expectedReturn = stockEntry["expected_return"];
+            double standardDev = stockEntry["standard_dev"];
+
+            _stocks[name] = Stock(name, initialPrice, expectedReturn, standardDev);
+        } catch (const std::exception &e) {
+            std::cerr << "Invalid stock data: " << e.what() << std::endl;
+        }
+    }
+
+    jsonFile.close();
+}
+
+void StockMarket::validateStockData(const json &stockEntry)
+{
+    if (!stockEntry.contains("name") || !stockEntry["name"].is_string()) {
+        throw std::invalid_argument("Stock entry is missing 'name' or it is not a string.");
+    }
+
+    if (!stockEntry.contains("initial_price") || !stockEntry["initial_price"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'initial_price' or it is not a number.");
+    }
+
+    if (!stockEntry.contains("expected_return") || !stockEntry["expected_return"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'expected_return' or it is not a number.");
+    }
+
+    if (!stockEntry.contains("standard_dev") || !stockEntry["standard_dev"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'standard_dev' or it is not a number.");
+    }
 }
 
 Stock& StockMarket::getStock(std::string_view stock_name) noexcept
