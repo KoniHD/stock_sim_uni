@@ -84,36 +84,23 @@ void StockMarket::simulateMarket()
 
 void StockMarket::outputPerformance()
 {
+    // Open the output file
     std::ofstream out_file("../output/market_performance.csv");
-    if (not out_file.is_open()) {
+    if (!out_file.is_open()) {
         std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
         return;
     }
 
-    // FIXME Once timesteps are implemented correctly please use a better way of retrieving the total timesteps!
-    std::size_t max_sim_length = _stocks.begin()->second.getPriceTimeSeries().size();
+    // Write the header row
+    out_file << "Stock Name,Current Price\n";
 
-    std::vector<std::vector<double>> history(_stocks.size());
-
-    // Copy data into history & write header row
-    unsigned i{0};
-    for (const auto &[name, stock]: _stocks) {
-        history.at(i) = stock.getPriceTimeSeries();
-        ++i;
-
-        out_file << name << ",";
-    }
-    out_file.seekp(-1, std::ios_base::cur);
-    out_file << "\n";
-
-    // Write data into .csv
-    for (unsigned i{0}; i < max_sim_length; ++i) {
-        for (unsigned j{0}; j < _stocks.size(); ++j) {
-            out_file << history.at(j).at(i) << ",";
-        }
-        out_file.seekp(-1, std::ios_base::cur);
-        out_file << "\n";
+    // Write the current stock prices
+    for (const auto &[name, stock] : _stocks) {
+        out_file << name << "," << stock.getPrice() << "\n";
     }
 
     out_file.close();
+
+    std::cout << "Market performance saved: Current stock prices printed to market_performance.csv" << std::endl;
 }
+
