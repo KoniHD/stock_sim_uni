@@ -17,7 +17,6 @@
 
 StockRisk assessStockRisk(const Stock &stock) noexcept
 {
-
     double standard_deviation = stock.getStandardDev();
 
     if (standard_deviation < LOW_RISK_BOUND)
@@ -40,7 +39,7 @@ auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
 
     unsigned amount_of_stock{0};
     Stock cheapest_stock{"Not cheap", DBL_MAX, 0.0, 0.0, 0.0};
-    for (const Stock &stock: stocks) {
+    for (const Stock &stock : stocks) {
         double stock_price = stock.getPrice();
         if (stock_price < cheapest_stock.getPrice())
             cheapest_stock = stock;
@@ -57,16 +56,15 @@ auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
     return portfolio;
 }
 
-auto Strategy::groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<Stock>, 3>
+auto Strategy::groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<const Stock*>, 3>
 {
+    std::array<std::vector<const Stock*>, 3> grouped_stocks;
 
-    std::array<std::vector<Stock>, 3> grouped_stocks;
-
-    // FIXME: getStocks should work differently!!
-    std::vector<Stock> stocks = market.getStocks();
-    for (Stock &stock: stocks) {
-        StockRisk risklevel{assessStockRisk(stock)};
-        grouped_stocks.at(risklevel).push_back(std::move(stock));
+    // Updated to work with pointers from market.getStocks()
+    const std::vector<const Stock*> stocks = market.getStocks();
+    for (const Stock *stock : stocks) {
+        StockRisk risklevel{assessStockRisk(*stock)}; // Dereference pointer to access Stock
+        grouped_stocks.at(risklevel).push_back(stock); // Add pointer to the appropriate group
     }
     return grouped_stocks;
 }
@@ -75,7 +73,6 @@ auto Strategy::purchaseStocksByRisk(double &total_funds, const std::array<std::v
                                     std::array<double, 3> risk_percentage) noexcept
         -> std::unordered_map<std::string, unsigned>
 {
-
     std::unordered_map<std::string, unsigned> portfolio;
 
     for (std::size_t i{0}; i < grouped_stocks.size(); ++i) {

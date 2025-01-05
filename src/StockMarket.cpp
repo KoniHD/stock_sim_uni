@@ -85,14 +85,15 @@ Stock& StockMarket::getStock(std::string_view stock_name) noexcept
     //return Stock{};
 }
 
-std::vector<Stock> StockMarket::getStocks() const
+std::vector<const Stock*> StockMarket::getStocks() const
 {
-    std::vector<Stock> stock_list;
-    for (const auto &[name, stock]: _stocks) {
-        stock_list.push_back(stock);
+    std::vector<const Stock*> stock_list;
+    for (const auto &[name, stock] : _stocks) {
+        stock_list.push_back(&stock); // Store the address of each stock
     }
     return stock_list;
 }
+
 
 double StockMarket::getStockPrice(std::string_view stockName) const noexcept
 {

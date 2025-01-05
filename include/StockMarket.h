@@ -25,7 +25,8 @@ public:
 
 
     Stock& getStock(std::string_view) noexcept;
-    std::vector<Stock> getStocks() const;
+    std::vector<const Stock*> getStocks() const;
+
     double getStockPrice(std::string_view stockName) const noexcept;
 
     void simulateMarket();

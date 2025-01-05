@@ -60,7 +60,8 @@ protected:
      * "Stock Risk" level.
 
      */
-    [[nodiscard]] static auto groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<Stock>, 3>;
+    [[nodiscard]] static auto groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<const Stock*>, 3>;
+
 
     /**
      * @brief Method attempts to buy as many @ref Stock "Stocks" for each @ref

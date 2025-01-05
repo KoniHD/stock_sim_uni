@@ -10,7 +10,6 @@
 #include <unordered_map>
 #include <vector>
 
-
 #define LOW_RISK_PERCENTAGE  0.2
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.5
@@ -18,8 +17,8 @@
 auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMarket) const noexcept
         -> std::unordered_map<std::string, unsigned>
 {
-
-    std::array<std::vector<Stock>, 3> grouped_stocks = groupStocks(stockMarket);
+    // Use the updated groupStocks return type
+    const std::array<std::vector<const Stock*>, 3> grouped_stocks = groupStocks(stockMarket);
 
     std::array<double, 3> weights = {LOW_RISK_PERCENTAGE, MID_RISK_PERCENTAGE, HIGH_RISK_PERCENTAGE};
 
@@ -28,7 +27,7 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
     if (grouped_stocks.at(StockRisk::MID_RISK_STOCK).empty())
         weights.at(1) = 0.0;
     if (grouped_stocks.at(StockRisk::HIGH_RISK_STOCK).empty()) {
-        std::cerr << "Currently there are no stocks considered high risk listed at the stockmarket." << std::endl
+        std::cerr << "Currently there are no stocks considered high risk listed at the stock market." << std::endl
                   << "Abort purchase!" << std::endl;
         return {};
     }
@@ -38,8 +37,24 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
         weight /= total_weight;
     }
 
-    std::unordered_map<std::string, unsigned> portfolio{purchaseStocksByRisk(total_funds, grouped_stocks, weights)};
-    portfolio.merge(purchaseStocks(total_funds, total_funds, grouped_stocks.at(StockRisk::HIGH_RISK_STOCK)));
+    // Create a portfolio
+    std::unordered_map<std::string, unsigned> portfolio;
+
+    for (std::size_t i = 0; i < grouped_stocks.size(); ++i) {
+        if (!grouped_stocks[i].empty()) {
+            double partial_funds = total_funds * weights[i];
+
+            // Copy or process stocks
+            std::vector<Stock> stocks_copy;
+            for (const Stock* stock_ptr : grouped_stocks[i]) {
+                stocks_copy.push_back(*stock_ptr); // Dereference pointer to copy Stock
+            }
+
+            // Purchase stocks for the current risk group
+            auto risk_portfolio = purchaseStocks(total_funds, partial_funds, stocks_copy);
+            portfolio.merge(risk_portfolio);
+        }
+    }
 
     return portfolio;
 }
