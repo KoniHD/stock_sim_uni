@@ -1,19 +1,18 @@
 #include "StockMarket.h"
 
-#include "Stock.h"
-
 #include "json.hpp" // Include the JSON library
+#include "Stock.h"
 
 #include <cmath>
 #include <cstddef>
 #include <fstream>
 #include <ios>
 #include <iostream>
-#include <stdexcept>
 #include <random>
+#include <stdexcept>
 #include <string>
-#include <unordered_map>
 #include <string_view>
+#include <unordered_map>
 #include <vector>
 
 // Use the nlohmann JSON namespace for convenience
@@ -37,14 +36,14 @@ StockMarket::StockMarket(double timeStep, int simulationLength, const std::strin
     }
 
     // Validate and populate stocks
-    for (const auto &stockEntry : jsonData) {
+    for (const auto &stockEntry: jsonData) {
         try {
             validateStockData(stockEntry);
 
-            std::string name = stockEntry["name"];
-            double initialPrice = stockEntry["initial_price"];
+            std::string name      = stockEntry["name"];
+            double initialPrice   = stockEntry["initial_price"];
             double expectedReturn = stockEntry["expected_return"];
-            double standardDev = stockEntry["standard_dev"];
+            double standardDev    = stockEntry["standard_dev"];
 
             _stocks[name] = Stock(name, initialPrice, expectedReturn, standardDev);
         } catch (const std::exception &e) {
@@ -74,7 +73,7 @@ void StockMarket::validateStockData(const json &stockEntry)
     }
 }
 
-Stock& StockMarket::getStock(std::string_view stock_name) noexcept
+Stock &StockMarket::getStock(std::string_view stock_name) noexcept
 {
     std::string stock_name_(stock_name);
     auto it = _stocks.find(stock_name_);
@@ -82,18 +81,17 @@ Stock& StockMarket::getStock(std::string_view stock_name) noexcept
         return it->second;
     }
     throw std::runtime_error("Stock not found: " + std::string(stock_name));
-    //return Stock{};
+    // return Stock{};
 }
 
-std::vector<const Stock*> StockMarket::getStocks() const
+std::vector<const Stock *> StockMarket::getStocks() const
 {
-    std::vector<const Stock*> stock_list;
-    for (const auto &[name, stock] : _stocks) {
+    std::vector<const Stock *> stock_list;
+    for (const auto &[name, stock]: _stocks) {
         stock_list.push_back(&stock); // Store the address of each stock
     }
     return stock_list;
 }
-
 
 double StockMarket::getStockPrice(std::string_view stockName) const noexcept
 {
@@ -104,16 +102,15 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
     return 0.0;
 }
 
-
 /**
-* @brief Update prices iteratively for the given simulation length.
-*
-* The method generates the price series for all stocks in the stock market by iterating over the given simulation length
-* and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes
-* OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock
-* are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those values
-* are being reset again.
-*/
+ * @brief Update prices iteratively for the given simulation length.
+ *
+ * The method generates the price series for all stocks in the stock market by iterating over the given simulation
+ * length and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes
+ * OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock
+ * are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those values
+ * are being reset again.
+ */
 void StockMarket::simulateMarket()
 {
     std::default_random_engine generator(std::random_device{}());
@@ -131,23 +128,36 @@ void StockMarket::simulateMarket()
 
 void StockMarket::outputPerformance()
 {
-    // Open the output file
     std::ofstream out_file("../output/market_performance.csv");
-    if (!out_file.is_open()) {
+    if (not out_file.is_open()) {
         std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
         return;
     }
 
-    // Write the header row
-    out_file << "Stock Name,Current Price\n";
+    // FIXME Once timesteps are implemented correctly please use a better way of retrieving the total timesteps!
+    std::size_t max_sim_length = _stocks.begin()->second.getPriceTimeSeries().size();
 
-    // Write the current stock prices
-    for (const auto &[name, stock] : _stocks) {
-        out_file << name << "," << stock.getPrice() << "\n";
+    std::vector<std::vector<double>> history(_stocks.size());
+
+    // Copy data into history & write header row
+    unsigned i{0};
+    for (const auto &[name, stock]: _stocks) {
+        history.at(i) = stock.getPriceTimeSeries();
+        ++i;
+
+        out_file << name << ",";
+    }
+    out_file.seekp(-1, std::ios_base::cur);
+    out_file << "\n";
+
+    // Write data into .csv
+    for (unsigned i{0}; i < max_sim_length; ++i) {
+        for (unsigned j{0}; j < _stocks.size(); ++j) {
+            out_file << history.at(j).at(i) << ",";
+        }
+        out_file.seekp(-1, std::ios_base::cur);
+        out_file << "\n";
     }
 
     out_file.close();
-
-    std::cout << "Market performance saved: Current stock prices printed to market_performance.csv" << std::endl;
 }
-
