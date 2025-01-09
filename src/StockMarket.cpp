@@ -18,7 +18,7 @@
 // Use the nlohmann JSON namespace for convenience
 using json = nlohmann::json;
 
-StockMarket::StockMarket(double timeStep, int simulationLength, const std::string &jsonFilePath) :
+StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::string &jsonFilePath) :
     _time_step{timeStep},
     _simulation_length{simulationLength}
 {
@@ -73,7 +73,7 @@ void StockMarket::validateStockData(const json &stockEntry)
     }
 }
 
-Stock &StockMarket::getStock(std::string_view stock_name) noexcept
+Stock &StockMarket::getStock(std::string_view stock_name)
 {
     std::string stock_name_(stock_name);
     auto it = _stocks.find(stock_name_);
@@ -81,7 +81,11 @@ Stock &StockMarket::getStock(std::string_view stock_name) noexcept
         return it->second;
     }
     throw std::runtime_error("Stock not found: " + std::string(stock_name));
-    // return Stock{};
+}
+
+void StockMarket::setSimulationLength(unsigned new_simulation_length) noexcept
+{
+    _simulation_length = new_simulation_length;
 }
 
 std::vector<const Stock *> StockMarket::getStocks() const
@@ -102,19 +106,10 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
     return 0.0;
 }
 
-/**
- * @brief Update prices iteratively for the given simulation length.
- *
- * The method generates the price series for all stocks in the stock market by iterating over the given simulation
- * length and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes
- * OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock
- * are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those values
- * are being reset again.
- */
 void StockMarket::simulateMarket()
 {
     std::default_random_engine generator(std::random_device{}());
-    for (int time_step = 0; time_step < _simulation_length; ++time_step) {
+    for (unsigned time_step = 0; time_step < _simulation_length; ++time_step) {
         for (auto &[name, stock]: _stocks) {
             if (time_step == 1) {
                 stock.setOrderVolume(0.0);

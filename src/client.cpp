@@ -36,7 +36,7 @@ unsigned getTerminalInput()
     }
 }
 
-Stock& getStockFromTerminal(StockMarket &market, const Wallet &wallet)
+Stock &getStockFromTerminal(StockMarket &market, const Wallet &wallet)
 {
     std::string stock_name{};
     while (true) {
@@ -73,7 +73,7 @@ int main()
     std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
     std::cout << "First input how long you want the simulation to run (Unit: Months, int): ";
     simulation_length = getTerminalInput();
-    market = std::make_shared<StockMarket>(1.0 / 12.0, simulation_length, "../input/stocks.json");
+    market            = std::make_shared<StockMarket>(1.0 / 12.0, simulation_length, "../input/stocks.json");
 
 
     // Create Wallets
@@ -144,7 +144,7 @@ int main()
         simulation_length = 0;
         std::cout << "New extended simulation length: ";
         simulation_length = getTerminalInput();
-        // TODO market.setSimulationLength(simulation_length);
+        market->setSimulationLength(simulation_length);
 
         // Pick whether and with which wallet to interact with
         unsigned wallet_choice = 1;
@@ -184,13 +184,13 @@ int main()
                     unsigned amount_stocks{0};
                     std::cout << "Considering the shares in your wallet, of which do you want to sell stocks: ";
                     Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
-                    stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
+                    stock        = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to sell? ";
                     amount_stocks = getTerminalInput();
-                    bool success = wallets.at(wallet_choice).sellStocks(stock, amount_stocks);
+                    bool success  = wallets.at(wallet_choice).sellStocks(stock, amount_stocks);
                     if (not success) {
                         std::cout << "You need to either sell fewer stocks of this type or select a differnt one. "
-                        << std::endl;
+                                  << std::endl;
                         user_choice = 0;
                     }
                     break;
@@ -199,10 +199,10 @@ int main()
                     unsigned amount_stocks{0};
                     std::cout << "Out of the previous shares of which do you want to buy more stocks: ";
                     Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
-                    //stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
+                    // stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to purchase? ";
                     amount_stocks = getTerminalInput();
-                    bool success   = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
+                    bool success  = wallets.at(wallet_choice).buyStocks(stock, amount_stocks);
                     if (not success) {
                         std::cout << "You need to add cash to the wallet or sell a different stock first to increase "
                                      "your cash position."
