@@ -245,10 +245,9 @@ int main()
     market->outputPerformance();
 
     std::cout << std::endl
-              << "NOTE: Additionally you can have a look in output/marketperformance to see the individual stock "
-                 "performance"
+              << "NOTE: Additionally an individual stock performance is saved in output/market_performance.csv"
               << std::endl
-              << "And if you want you can use src/plot_price_history.py to create a nice plot from the data.";
+              << "This can be plotted using src/plot_price_history.py." << std::endl;
 
     return 0;
 }

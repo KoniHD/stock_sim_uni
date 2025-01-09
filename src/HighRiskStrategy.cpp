@@ -18,7 +18,7 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
         -> std::unordered_map<std::string, unsigned>
 {
     // Use the updated groupStocks return type
-    const std::array<std::vector<const Stock*>, 3> grouped_stocks = groupStocks(stockMarket);
+    const std::array<std::vector<const Stock *>, 3> grouped_stocks = groupStocks(stockMarket);
 
     std::array<double, 3> weights = {LOW_RISK_PERCENTAGE, MID_RISK_PERCENTAGE, HIGH_RISK_PERCENTAGE};
 
@@ -46,7 +46,7 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
 
             // Copy or process stocks
             std::vector<Stock> stocks_copy;
-            for (const Stock* stock_ptr : grouped_stocks[i]) {
+            for (const Stock *stock_ptr: grouped_stocks[i]) {
                 stocks_copy.push_back(*stock_ptr); // Dereference pointer to copy Stock
             }
 
@@ -55,6 +55,14 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
             portfolio.merge(risk_portfolio);
         }
     }
+
+
+    // Prioritize low-risk stocks with remaining funds
+    std::vector<Stock> high_risk_stocks_copy;
+    for (const Stock *stock_ptr: grouped_stocks.at(StockRisk::HIGH_RISK_STOCK)) {
+        high_risk_stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy
+    }
+    portfolio.merge(purchaseStocks(total_funds, total_funds, high_risk_stocks_copy));
 
     return portfolio;
 }
