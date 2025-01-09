@@ -2,9 +2,8 @@
 
 Our group project implements the [Stockmarket simulation idea](https://gitlab.lrz.de/tum-i05/public/advprog-project-ideas/-/tree/master/Trading-stock-market-simulation?ref_type=heads). The description can also be found again in [idea.md](https://gitlab.lrz.de/advprog2024/group-07/-/blob/sprint1/idea.md)
 
-## Helpful resources for the project
+## Helpful for the project
 
-* Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
 * Directory structure:
 ```bash
 group-07
