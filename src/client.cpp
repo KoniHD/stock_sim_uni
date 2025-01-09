@@ -18,6 +18,7 @@
 
 #define MAX_SIM_ITERATIONS 20
 
+// helper function deals with terminal input for user choices and does validation
 unsigned getTerminalInput()
 {
     int input{-1};
@@ -36,6 +37,7 @@ unsigned getTerminalInput()
     }
 }
 
+// helper function to let the user select a valid stock
 Stock &getStockFromTerminal(StockMarket &market, const Wallet &wallet)
 {
     std::string stock_name{};
@@ -68,7 +70,7 @@ int main()
     std::shared_ptr<StockMarket> market;
     std::vector<Wallet> wallets;
 
-    // Determine the simulation length
+    // Determine the simulation length and initialize the stock market
     std::cout << "---Welcome to the stock market!--" << std::endl;
     std::cout << "This is a simulation of a stockmarket which you can influence!!" << std::endl;
     std::cout << "First input how long you want the simulation to run (Unit: Months, int): ";
@@ -86,13 +88,14 @@ int main()
         num_wallets = getTerminalInput();
     }
 
+    // Initialize the wallets with funds and a strategy to pick stocks for the portfolio
     for (unsigned i{0}; i < num_wallets; ++i) {
         std::unique_ptr<Strategy> strategy;
 
         std::cout << std::endl
                   << "---Wallet No." << std::to_string(i + 1) << "---" << std::endl
                   << "Please enter the amount of funds you would like wallet No." << std::to_string(i + 1)
-                  << " to have: ";
+                  << " to have (minimum recommended amount is 1000): ";
         funds = getTerminalInput();
 
         user_choice = 0;
@@ -114,6 +117,7 @@ int main()
         wallets.emplace_back(funds, std::move(strategy), market);
     }
 
+    /** Simulation start **/
 
     // Run simulation as long as user wants max. 20 times
     for (unsigned i{0}; i < MAX_SIM_ITERATIONS; ++i) {
@@ -122,12 +126,14 @@ int main()
         std::cout << std::endl
                   << "---" << std::endl
                   << "After running the simulation these are the performance metrics:" << std::endl;
-        // TODO market->printCurrentStockPrices();
+
+        // print performance of each wallet
         for (size_t i{0}; i < num_wallets; ++i) {
             std::cout << std::endl << "---Wallet No." << std::to_string(i + 1) << " Info:---";
             wallets.at(i).printWalletInfo();
         }
 
+        /**     allow the user to extend the simulation **/
         user_choice = 0;
         while (user_choice != 1 and user_choice != 2) {
             std::cout << "---" << std::endl
@@ -137,7 +143,7 @@ int main()
 
         // End simulation
         if (user_choice == 1) {
-            break;
+            break; // Exit the loop
         }
 
         // Extend simulation for new simulation length
@@ -145,6 +151,8 @@ int main()
         std::cout << "New extended simulation length: ";
         simulation_length = getTerminalInput();
         market->setSimulationLength(simulation_length);
+
+        /** Allow modifications when extending **/
 
         // Pick whether and with which wallet to interact with
         unsigned wallet_choice = 1;
@@ -217,10 +225,14 @@ int main()
         }
     }
 
+    /** Simulation End **/
+
+    // Evaluate portfolios of each wallet
     for (Wallet &wallet: wallets) {
         wallet.evaluateResults();
     }
 
+    /** Print output of simulations +*/
     std::cout << std::endl << "---Simulation finished.---" << std::endl;
     size_t i{0};
     for (const Wallet &wallet: wallets) {
@@ -231,6 +243,12 @@ int main()
     }
 
     market->outputPerformance();
+
+    std::cout << std::endl
+              << "NOTE: Additionally you can have a look in output/marketperformance to see the individual stock "
+                 "performance"
+              << std::endl
+              << "And if you want you can use src/plot_price_history.py to create a nice plot from the data.";
 
     return 0;
 }
