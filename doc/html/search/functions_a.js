@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateprice_133',['updatePrice',['../classStock.html#a5e76346b67f99c59aba64fbaa5b15d62',1,'Stock']]]
+  ['wallet_131',['Wallet',['../classWallet.html#af6c8cd5aad02075178572e033f38ffcd',1,'Wallet::Wallet()=delete'],['../classWallet.html#af805e885bee2de907bbe737cf21abf0d',1,'Wallet::Wallet(double funds, std::unique_ptr&lt; Strategy &gt; strategy, std::shared_ptr&lt; StockMarket &gt; market)']]]
 ];

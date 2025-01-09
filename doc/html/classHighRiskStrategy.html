@@ -95,8 +95,8 @@ Inheritance diagram for HighRiskStrategy:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHighRiskStrategy__inherit__graph.png" border="0" usemap="#aHighRiskStrategy_inherit__map" alt="Inheritance graph"/></div>
 <map name="aHighRiskStrategy_inherit__map" id="aHighRiskStrategy_inherit__map">
-<area shape="rect" title=" " alt="" coords="35,248,170,325"/>
-<area shape="rect" href="classStrategy.html" title=" " alt="" coords="5,5,200,200"/>
+<area shape="rect" title=" " alt="" coords="35,263,170,340"/>
+<area shape="rect" href="classStrategy.html" title=" " alt="" coords="5,5,200,215"/>
 </map>
 </div>
 <div class="dynheader">
@@ -104,16 +104,16 @@ Collaboration diagram for HighRiskStrategy:</div>
 <div class="dyncontent">
 <div class="center"><img src="classHighRiskStrategy__coll__graph.png" border="0" usemap="#aHighRiskStrategy_coll__map" alt="Collaboration graph"/></div>
 <map name="aHighRiskStrategy_coll__map" id="aHighRiskStrategy_coll__map">
-<area shape="rect" title=" " alt="" coords="35,248,170,325"/>
-<area shape="rect" href="classStrategy.html" title=" " alt="" coords="5,5,200,200"/>
+<area shape="rect" title=" " alt="" coords="35,263,170,340"/>
+<area shape="rect" href="classStrategy.html" title=" " alt="" coords="5,5,200,215"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab0a2062e73fff9648096465eedb08c29"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHighRiskStrategy.html#ab0a2062e73fff9648096465eedb08c29">pickStocks</a> (double &amp;, const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;) const noexcept override</td></tr>
-<tr class="memdesc:ab0a2062e73fff9648096465eedb08c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes a high-risk portfolio of <a class="el" href="classStock.html">Stocks</a>.  <a href="classHighRiskStrategy.html#ab0a2062e73fff9648096465eedb08c29">More...</a><br /></td></tr>
-<tr class="separator:ab0a2062e73fff9648096465eedb08c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3676a7298f50579111fc829acdf8bb5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5">pickStocks</a> (double &amp;total_funds, const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;stockMarket) const noexcept -&gt; std::unordered_map&lt; std::string, unsigned &gt; override</td></tr>
+<tr class="memdesc:ad3676a7298f50579111fc829acdf8bb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Composes a high-risk portfolio of <a class="el" href="classStock.html">Stocks</a>.  <a href="classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5">More...</a><br /></td></tr>
+<tr class="separator:ad3676a7298f50579111fc829acdf8bb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classStrategy"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classStrategy')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classStrategy.html">Strategy</a></td></tr>
 <tr class="memitem:a4c952e0ccc5f3359d01fcceee3b9e967 inherit pub_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a4c952e0ccc5f3359d01fcceee3b9e967">Strategy</a> ()=default</td></tr>
 <tr class="separator:a4c952e0ccc5f3359d01fcceee3b9e967 inherit pub_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,16 +131,19 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_static_methods_classStrategy"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_classStrategy')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="classStrategy.html">Strategy</a></td></tr>
-<tr class="memitem:acc8761ea7adca433da1a6c0ca6aef92f inherit pro_static_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#acc8761ea7adca433da1a6c0ca6aef92f">groupStocks</a> (const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;) noexcept</td></tr>
-<tr class="memdesc:acc8761ea7adca433da1a6c0ca6aef92f inherit pro_static_methods_classStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method groups all <a class="el" href="classStock.html">Stocks</a> listed at <code>market</code> into <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">LOW_RISK_STOCK</a>, <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">MID_RISK_STOCK</a>, and <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">HIGH_RISK_STOCK</a>.  <a href="classStrategy.html#acc8761ea7adca433da1a6c0ca6aef92f">More...</a><br /></td></tr>
-<tr class="separator:acc8761ea7adca433da1a6c0ca6aef92f inherit pro_static_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f4d508301aa4a7255911d6fee1c06f1 inherit pro_static_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">static std::unordered_map&lt; std::string, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a6f4d508301aa4a7255911d6fee1c06f1">purchaseStocksByRisk</a> (double &amp;, const <a class="el" href="Strategy_8h.html#a9092253d797622082485164ae40f8e71">StockGroups</a> &amp;, std::array&lt; double, 3 &gt;) noexcept</td></tr>
-<tr class="memdesc:a6f4d508301aa4a7255911d6fee1c06f1 inherit pro_static_methods_classStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method attempts to buy as many <a class="el" href="classStock.html">Stocks</a> for each <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk</a> as possible with the given <code>total_funds</code>.  <a href="classStrategy.html#a6f4d508301aa4a7255911d6fee1c06f1">More...</a><br /></td></tr>
-<tr class="separator:a6f4d508301aa4a7255911d6fee1c06f1 inherit pro_static_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b5ccd737452b57a71a064a62841922 inherit pro_static_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#ac7b5ccd737452b57a71a064a62841922">purchaseStocks</a> (double &amp;total_funds, double partial_funds, const std::vector&lt; <a class="el" href="classStock.html">Stock</a> &gt; &amp;stocks) noexcept -&gt; std::unordered_map&lt; std::string, unsigned &gt;</td></tr>
+<tr class="memdesc:ac7b5ccd737452b57a71a064a62841922 inherit pro_static_methods_classStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Purchases <a class="el" href="classStock.html">Stocks</a> based on available <code>partial_funds</code> and <a class="el" href="classStock.html">Stock</a> prices.  <a href="classStrategy.html#ac7b5ccd737452b57a71a064a62841922">More...</a><br /></td></tr>
+<tr class="separator:ac7b5ccd737452b57a71a064a62841922 inherit pro_static_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7caa6559a3ccd73e56d0f44fd53ff0f6 inherit pro_static_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a7caa6559a3ccd73e56d0f44fd53ff0f6">groupStocks</a> (const <a class="el" href="classStockMarket.html">StockMarket</a> &amp;market) noexcept -&gt; std::array&lt; std::vector&lt; const <a class="el" href="classStock.html">Stock</a> * &gt;, 3 &gt;</td></tr>
+<tr class="memdesc:a7caa6559a3ccd73e56d0f44fd53ff0f6 inherit pro_static_methods_classStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method groups all <a class="el" href="classStock.html">Stocks</a> listed at <code>market</code> into <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">LOW_RISK_STOCK</a>, <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">MID_RISK_STOCK</a>, and <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">HIGH_RISK_STOCK</a>.  <a href="classStrategy.html#a7caa6559a3ccd73e56d0f44fd53ff0f6">More...</a><br /></td></tr>
+<tr class="separator:a7caa6559a3ccd73e56d0f44fd53ff0f6 inherit pro_static_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844e932e0c0717d812ee3b653ac7f7a6 inherit pro_static_methods_classStrategy"><td class="memItemLeft" align="right" valign="top">static auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStrategy.html#a844e932e0c0717d812ee3b653ac7f7a6">purchaseStocksByRisk</a> (double &amp;total_funds, const std::array&lt; std::vector&lt; <a class="el" href="classStock.html">Stock</a> &gt;, 3 &gt; &amp;grouped_stocks, std::array&lt; double, 3 &gt; risk_percentage) noexcept -&gt; std::unordered_map&lt; std::string, unsigned &gt;</td></tr>
+<tr class="memdesc:a844e932e0c0717d812ee3b653ac7f7a6 inherit pro_static_methods_classStrategy"><td class="mdescLeft">&#160;</td><td class="mdescRight">Method attempts to buy as many <a class="el" href="classStock.html">Stocks</a> for each <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">stock risk</a> as possible with the given <code>total_funds</code>.  <a href="classStrategy.html#a844e932e0c0717d812ee3b653ac7f7a6">More...</a><br /></td></tr>
+<tr class="separator:a844e932e0c0717d812ee3b653ac7f7a6 inherit pro_static_methods_classStrategy"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab0a2062e73fff9648096465eedb08c29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0a2062e73fff9648096465eedb08c29">&#9670;&nbsp;</a></span>pickStocks()</h2>
+<a id="ad3676a7298f50579111fc829acdf8bb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3676a7298f50579111fc829acdf8bb5">&#9670;&nbsp;</a></span>pickStocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +152,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unordered_map&lt; std::string, unsigned &gt; HighRiskStrategy::pickStocks </td>
+          <td class="memname">auto HighRiskStrategy::pickStocks </td>
           <td>(</td>
           <td class="paramtype">double &amp;&#160;</td>
           <td class="paramname"><em>total_funds</em>, </td>
@@ -163,7 +166,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td> const -&gt;  std::unordered_map&lt; std::string, unsigned &gt;</td>
         </tr>
       </table>
   </td>
@@ -184,13 +187,12 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="classStock.html">Stock</a> portfolio.</dd></dl>
 <p>This strategy picks 20% <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">low-risk stocks</a>, 30% <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">mid-risk stocks</a> and 50% <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">high-risk stocks</a>. The amount of <a class="el" href="classStock.html">Stocks</a> per <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">risk level</a> then depends on the <code>total_funds</code>. Per <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">risk category</a>, the value is distributed equally among the <a class="el" href="classStock.html">Stocks</a>. By this, the number of <a class="el" href="classStock.html">Stocks</a> in the portoflio is derived. The method also decreases the <code>total_funds</code> passed to it, simulating a real purchase. </p>
 
-<p>Implements <a class="el" href="classStrategy.html#a74dc25f2fe86e9a75e1facb1f16f8dcc">Strategy</a>.</p>
+<p>Implements <a class="el" href="classStrategy.html#a630bf2b9f0a82d5f939c8c77aef7d700">Strategy</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="HighRiskStrategy_8h_source.html">HighRiskStrategy.h</a></li>
-<li><a class="el" href="HighRiskStrategy_8cpp.html">HighRiskStrategy.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

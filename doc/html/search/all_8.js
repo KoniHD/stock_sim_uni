@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['idea_2emd_36',['idea.md',['../idea_8md.html',1,'']]]
+  ['json_38',['json',['../StockMarket_8h.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'StockMarket.h']]]
 ];

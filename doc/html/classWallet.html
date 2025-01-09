@@ -96,7 +96,7 @@ Collaboration diagram for Wallet:</div>
 <div class="dyncontent">
 <div class="center"><img src="classWallet__coll__graph.png" border="0" usemap="#aWallet_coll__map" alt="Collaboration graph"/></div>
 <map name="aWallet_coll__map" id="aWallet_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,164,259"/>
+<area shape="rect" title=" " alt="" coords="5,5,175,303"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -104,27 +104,33 @@ Collaboration diagram for Wallet:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af6c8cd5aad02075178572e033f38ffcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#af6c8cd5aad02075178572e033f38ffcd">Wallet</a> ()=delete</td></tr>
 <tr class="separator:af6c8cd5aad02075178572e033f38ffcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2d3dce75f82993f7b6f603d250e66d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#ac2d3dce75f82993f7b6f603d250e66d0">Wallet</a> (double, std::unique_ptr&lt; <a class="el" href="classStrategy.html">Strategy</a> &gt;, std::shared_ptr&lt; <a class="el" href="classStockMarket.html">StockMarket</a> &gt;)</td></tr>
-<tr class="memdesc:ac2d3dce75f82993f7b6f603d250e66d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classWallet.html">Wallet</a> object.  <a href="classWallet.html#ac2d3dce75f82993f7b6f603d250e66d0">More...</a><br /></td></tr>
-<tr class="separator:ac2d3dce75f82993f7b6f603d250e66d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93fde1cfb1aa9c380f27f7f74765fdf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a93fde1cfb1aa9c380f27f7f74765fdf0">containsStock</a> (std::string_view) const noexcept</td></tr>
-<tr class="memdesc:a93fde1cfb1aa9c380f27f7f74765fdf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the <a class="el" href="classWallet.html">Wallet</a> contains the <a class="el" href="classStock.html">Stock</a> specified by <code>stock_name</code>.  <a href="classWallet.html#a93fde1cfb1aa9c380f27f7f74765fdf0">More...</a><br /></td></tr>
-<tr class="separator:a93fde1cfb1aa9c380f27f7f74765fdf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af805e885bee2de907bbe737cf21abf0d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#af805e885bee2de907bbe737cf21abf0d">Wallet</a> (double funds, std::unique_ptr&lt; <a class="el" href="classStrategy.html">Strategy</a> &gt; strategy, std::shared_ptr&lt; <a class="el" href="classStockMarket.html">StockMarket</a> &gt; market)</td></tr>
+<tr class="memdesc:af805e885bee2de907bbe737cf21abf0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classWallet.html">Wallet</a> object.  <a href="classWallet.html#af805e885bee2de907bbe737cf21abf0d">More...</a><br /></td></tr>
+<tr class="separator:af805e885bee2de907bbe737cf21abf0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5340af7efe7bea56d9c2b86bec1957"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a0c5340af7efe7bea56d9c2b86bec1957">containsStock</a> (std::string_view stock_name) const noexcept</td></tr>
+<tr class="memdesc:a0c5340af7efe7bea56d9c2b86bec1957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the <a class="el" href="classWallet.html">Wallet</a> contains the <a class="el" href="classStock.html">Stock</a> specified by <code>stock_name</code>.  <a href="classWallet.html#a0c5340af7efe7bea56d9c2b86bec1957">More...</a><br /></td></tr>
+<tr class="separator:a0c5340af7efe7bea56d9c2b86bec1957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc07ae31a6812fb9ea8e0936b87f4579"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">getFunds</a> () const</td></tr>
 <tr class="memdesc:acc07ae31a6812fb9ea8e0936b87f4579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classWallet.html#a98bef1226d8675828eb232126332fdac">_funds</a> of the <a class="el" href="classWallet.html">Wallet</a>.  <a href="classWallet.html#acc07ae31a6812fb9ea8e0936b87f4579">More...</a><br /></td></tr>
 <tr class="separator:acc07ae31a6812fb9ea8e0936b87f4579"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99c8b28e7b586bf926778c4e43ae8d45"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a99c8b28e7b586bf926778c4e43ae8d45">getPortfolioValue</a> () const</td></tr>
 <tr class="memdesc:a99c8b28e7b586bf926778c4e43ae8d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the <a class="el" href="classWallet.html#a09abd2ba099eb88e3a6670703c97173c">_portfolio_value</a> of the <a class="el" href="classWallet.html">Wallet</a>.  <a href="classWallet.html#a99c8b28e7b586bf926778c4e43ae8d45">More...</a><br /></td></tr>
 <tr class="separator:a99c8b28e7b586bf926778c4e43ae8d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6a15aa19439c9d75ee60fdae4167083"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#af6a15aa19439c9d75ee60fdae4167083">buyStocks</a> (const <a class="el" href="classStock.html">Stock</a> &amp;, unsigned) noexcept</td></tr>
-<tr class="memdesc:af6a15aa19439c9d75ee60fdae4167083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the user to buy a specified <a class="el" href="classStock.html">Stock</a>.  <a href="classWallet.html#af6a15aa19439c9d75ee60fdae4167083">More...</a><br /></td></tr>
-<tr class="separator:af6a15aa19439c9d75ee60fdae4167083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c04a1dc681350eafdecf78df1dd9e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a34c04a1dc681350eafdecf78df1dd9e5">buyStocks</a> (<a class="el" href="classStock.html">Stock</a> &amp;stock, unsigned amount)</td></tr>
+<tr class="memdesc:a34c04a1dc681350eafdecf78df1dd9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the user to buy a specified <a class="el" href="classStock.html">Stock</a>.  <a href="classWallet.html#a34c04a1dc681350eafdecf78df1dd9e5">More...</a><br /></td></tr>
+<tr class="separator:a34c04a1dc681350eafdecf78df1dd9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeb5683b46aefa1ee72f9db00c2a538d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#aaeb5683b46aefa1ee72f9db00c2a538d">sellStocks</a> (<a class="el" href="classStock.html">Stock</a> &amp;stock, unsigned amount)</td></tr>
+<tr class="memdesc:aaeb5683b46aefa1ee72f9db00c2a538d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow the user to sell a specified <a class="el" href="classStock.html">Stock</a>.  <a href="classWallet.html#aaeb5683b46aefa1ee72f9db00c2a538d">More...</a><br /></td></tr>
+<tr class="separator:aaeb5683b46aefa1ee72f9db00c2a538d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05fc87f67c82689ebef43169e30d1dd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a05fc87f67c82689ebef43169e30d1dd3">printWalletInfo</a> () const</td></tr>
 <tr class="memdesc:a05fc87f67c82689ebef43169e30d1dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints <a class="el" href="classWallet.html#ab9635044a6dcf3105fe4b328b9867326">_cash_position</a>, each owned <a class="el" href="classStock.html">Stock</a> (value in owned <a class="el" href="classStock.html">Stock</a>, number of <a class="el" href="classStock.html">Stocks</a>), and overall <a class="el" href="classWallet.html#a09abd2ba099eb88e3a6670703c97173c">_portfolio_value</a> and performance.  <a href="classWallet.html#a05fc87f67c82689ebef43169e30d1dd3">More...</a><br /></td></tr>
 <tr class="separator:a05fc87f67c82689ebef43169e30d1dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1143304d4b55e7b9c354a620474bbf0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">evaluateResults</a> ()</td></tr>
 <tr class="memdesc:a1143304d4b55e7b9c354a620474bbf0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the total value of the <a class="el" href="classWallet.html#a309c6c724c7819ee76ec4abd225f2523">_portfolio</a>.  <a href="classWallet.html#a1143304d4b55e7b9c354a620474bbf0a">More...</a><br /></td></tr>
 <tr class="separator:a1143304d4b55e7b9c354a620474bbf0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1366c48e1a9831497f9c01f8de9e26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#acd1366c48e1a9831497f9c01f8de9e26">addToCashposition</a> (double new_cash)</td></tr>
+<tr class="memdesc:acd1366c48e1a9831497f9c01f8de9e26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add money to your cashposition.  <a href="classWallet.html#acd1366c48e1a9831497f9c01f8de9e26">More...</a><br /></td></tr>
+<tr class="separator:acd1366c48e1a9831497f9c01f8de9e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -141,6 +147,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a39ead46c7a4192414a40ee6d9fc988a7"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classStockMarket.html">StockMarket</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a39ead46c7a4192414a40ee6d9fc988a7">_market</a></td></tr>
 <tr class="memdesc:a39ead46c7a4192414a40ee6d9fc988a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="classStockMarket.html">StockMarket</a> at which the <a class="el" href="classStock.html">Stocks</a> in the <a class="el" href="classWallet.html#a309c6c724c7819ee76ec4abd225f2523">_portfolio</a> are listed.  <a href="classWallet.html#a39ead46c7a4192414a40ee6d9fc988a7">More...</a><br /></td></tr>
 <tr class="separator:a39ead46c7a4192414a40ee6d9fc988a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a307d05a11d7ec65d183d2265d531bd16"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a307d05a11d7ec65d183d2265d531bd16">_added_cash</a></td></tr>
+<tr class="memdesc:a307d05a11d7ec65d183d2265d531bd16"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable keeps track of the cash added during the simulation, such that it is considered in the performance calculation.  <a href="classWallet.html#a307d05a11d7ec65d183d2265d531bd16">More...</a><br /></td></tr>
+<tr class="separator:a307d05a11d7ec65d183d2265d531bd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a309c6c724c7819ee76ec4abd225f2523"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, unsigned &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classWallet.html#a309c6c724c7819ee76ec4abd225f2523">_portfolio</a></td></tr>
 <tr class="memdesc:a309c6c724c7819ee76ec4abd225f2523"><td class="mdescLeft">&#160;</td><td class="mdescRight">The portfolio of <a class="el" href="classStock.html">Stocks</a> owned by the <a class="el" href="classWallet.html">Wallet</a>.  <a href="classWallet.html#a309c6c724c7819ee76ec4abd225f2523">More...</a><br /></td></tr>
 <tr class="separator:a309c6c724c7819ee76ec4abd225f2523"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,8 +180,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac2d3dce75f82993f7b6f603d250e66d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2d3dce75f82993f7b6f603d250e66d0">&#9670;&nbsp;</a></span>Wallet() <span class="overload">[2/2]</span></h2>
+<a id="af805e885bee2de907bbe737cf21abf0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af805e885bee2de907bbe737cf21abf0d">&#9670;&nbsp;</a></span>Wallet() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,19 +218,43 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af6a15aa19439c9d75ee60fdae4167083"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6a15aa19439c9d75ee60fdae4167083">&#9670;&nbsp;</a></span>buyStocks()</h2>
+<a id="acd1366c48e1a9831497f9c01f8de9e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1366c48e1a9831497f9c01f8de9e26">&#9670;&nbsp;</a></span>addToCashposition()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wallet::addToCashposition </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>new_cash</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add money to your cashposition. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">new_cash</td><td>The amount of cash that should be added to the wallet's cashposition</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function allows you to add money to your cashposition during the simumlation. </p>
+
+</div>
+</div>
+<a id="a34c04a1dc681350eafdecf78df1dd9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c04a1dc681350eafdecf78df1dd9e5">&#9670;&nbsp;</a></span>buyStocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool Wallet::buyStocks </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classStock.html">Stock</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classStock.html">Stock</a> &amp;&#160;</td>
           <td class="paramname"><em>stock</em>, </td>
         </tr>
         <tr>
@@ -236,11 +269,6 @@ Private Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Allow the user to buy a specified <a class="el" href="classStock.html">Stock</a>. </p>
@@ -256,8 +284,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a93fde1cfb1aa9c380f27f7f74765fdf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93fde1cfb1aa9c380f27f7f74765fdf0">&#9670;&nbsp;</a></span>containsStock()</h2>
+<a id="a0c5340af7efe7bea56d9c2b86bec1957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5340af7efe7bea56d9c2b86bec1957">&#9670;&nbsp;</a></span>containsStock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -371,7 +399,70 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aaeb5683b46aefa1ee72f9db00c2a538d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeb5683b46aefa1ee72f9db00c2a538d">&#9670;&nbsp;</a></span>sellStocks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Wallet::sellStocks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStock.html">Stock</a> &amp;&#160;</td>
+          <td class="paramname"><em>stock</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>amount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allow the user to sell a specified <a class="el" href="classStock.html">Stock</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stock</td><td>The <a class="el" href="classStock.html">Stock</a> to sell </td></tr>
+    <tr><td class="paramname">amount</td><td>The amount of <a class="el" href="classStock.html">Stocks</a> to be sold </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whether the selling was succesful.</dd></dl>
+<p>The method attempts to sell <a class="el" href="classStock.html">Stocks</a> (specified by <code>amount</code>) and add the money to the <a class="el" href="classWallet.html#ab9635044a6dcf3105fe4b328b9867326">_cash_position</a>. If there are not enough stocks in the wallet, an error is printed and no <a class="el" href="classStock.html">Stocks</a> are sold. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a307d05a11d7ec65d183d2265d531bd16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307d05a11d7ec65d183d2265d531bd16">&#9670;&nbsp;</a></span>_added_cash</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Wallet::_added_cash</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This variable keeps track of the cash added during the simulation, such that it is considered in the performance calculation. </p>
+
+</div>
+</div>
 <a id="ab9635044a6dcf3105fe4b328b9867326"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab9635044a6dcf3105fe4b328b9867326">&#9670;&nbsp;</a></span>_cash_position</h2>
 
@@ -513,9 +604,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="Wallet_8h_source.html">Wallet.h</a></li>
-<li><a class="el" href="Wallet_8cpp.html">Wallet.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

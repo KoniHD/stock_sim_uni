@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['lowriskstrategy_2ecpp_90',['LowRiskStrategy.cpp',['../LowRiskStrategy_8cpp.html',1,'']]],
-  ['lowriskstrategy_2eh_91',['LowRiskStrategy.h',['../LowRiskStrategy_8h.html',1,'']]]
+  ['stock_2eh_87',['Stock.h',['../Stock_8h.html',1,'']]],
+  ['stockmarket_2eh_88',['StockMarket.h',['../StockMarket_8h.html',1,'']]],
+  ['strategy_2eh_89',['Strategy.h',['../Strategy_8h.html',1,'']]]
 ];

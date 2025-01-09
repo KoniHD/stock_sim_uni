@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stockgroups_151',['StockGroups',['../Strategy_8h.html#a9092253d797622082485164ae40f8e71',1,'Strategy.h']]]
+  ['json_153',['json',['../StockMarket_8h.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'StockMarket.h']]]
 ];

@@ -97,17 +97,17 @@ $(document).ready(function(){initNavTree('LowRiskStrategy_8h_source.html',''); i
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classLowRiskStrategy.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLowRiskStrategy.html">LowRiskStrategy</a> : <span class="keyword">public</span> <a class="code" href="classStrategy.html">Strategy</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    [[nodiscard]] std::unordered_map&lt;std::string, unsigned&gt; <a class="code" href="classLowRiskStrategy.html#aa6aac929331ccba71ca9b58c4883d6fa">pickStocks</a>(<span class="keywordtype">double</span> &amp;,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                                                                       <span class="keyword">const</span> <a class="code" href="classStockMarket.html">StockMarket</a> &amp;) <span class="keyword">const</span> noexcept <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classLowRiskStrategy.html#a773c7b88880c0cc96afe936e61f82262">   25</a></span>&#160;    [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="classLowRiskStrategy.html#a773c7b88880c0cc96afe936e61f82262">pickStocks</a>(<span class="keywordtype">double</span> &amp;total_funds, <span class="keyword">const</span> <a class="code" href="classStockMarket.html">StockMarket</a> &amp;stockMarket) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            -&gt; std::unordered_map&lt;std::string, unsigned&gt; <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LOWRISKSTRATEGY_H</span></div>
 <div class="ttc" id="aStockMarket_8h_html"><div class="ttname"><a href="StockMarket_8h.html">StockMarket.h</a></div></div>
 <div class="ttc" id="aStrategy_8h_html"><div class="ttname"><a href="Strategy_8h.html">Strategy.h</a></div></div>
 <div class="ttc" id="aclassLowRiskStrategy_html"><div class="ttname"><a href="classLowRiskStrategy.html">LowRiskStrategy</a></div><div class="ttdef"><b>Definition:</b> LowRiskStrategy.h:10</div></div>
-<div class="ttc" id="aclassLowRiskStrategy_html_aa6aac929331ccba71ca9b58c4883d6fa"><div class="ttname"><a href="classLowRiskStrategy.html#aa6aac929331ccba71ca9b58c4883d6fa">LowRiskStrategy::pickStocks</a></div><div class="ttdeci">std::unordered_map&lt; std::string, unsigned &gt; pickStocks(double &amp;, const StockMarket &amp;) const noexcept override</div><div class="ttdoc">Composes a high-risk portfolio of Stocks.</div><div class="ttdef"><b>Definition:</b> LowRiskStrategy.cpp:15</div></div>
-<div class="ttc" id="aclassStockMarket_html"><div class="ttname"><a href="classStockMarket.html">StockMarket</a></div><div class="ttdef"><b>Definition:</b> StockMarket.h:12</div></div>
-<div class="ttc" id="aclassStrategy_html"><div class="ttname"><a href="classStrategy.html">Strategy</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:46</div></div>
+<div class="ttc" id="aclassLowRiskStrategy_html_a773c7b88880c0cc96afe936e61f82262"><div class="ttname"><a href="classLowRiskStrategy.html#a773c7b88880c0cc96afe936e61f82262">LowRiskStrategy::pickStocks</a></div><div class="ttdeci">auto pickStocks(double &amp;total_funds, const StockMarket &amp;stockMarket) const noexcept -&gt; std::unordered_map&lt; std::string, unsigned &gt; override</div><div class="ttdoc">Composes a high-risk portfolio of Stocks.</div></div>
+<div class="ttc" id="aclassStockMarket_html"><div class="ttname"><a href="classStockMarket.html">StockMarket</a></div><div class="ttdef"><b>Definition:</b> StockMarket.h:17</div></div>
+<div class="ttc" id="aclassStrategy_html"><div class="ttname"><a href="classStrategy.html">Strategy</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

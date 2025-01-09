@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variance_125',['variance',['../classStock.html#a6355d6afdff0177fee65decea2698b6e',1,'Stock']]]
+  ['ordervolume_148',['orderVolume',['../classStock.html#aad6a043d796b0e742e44eba0c220d5cb',1,'Stock']]]
 ];

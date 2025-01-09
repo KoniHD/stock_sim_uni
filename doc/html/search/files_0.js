@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['client_2ecpp_86',['client.cpp',['../client_8cpp.html',1,'']]]
+  ['highriskstrategy_2eh_84',['HighRiskStrategy.h',['../HighRiskStrategy_8h.html',1,'']]]
 ];

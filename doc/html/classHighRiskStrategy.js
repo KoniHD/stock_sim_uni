@@ -1,4 +1,4 @@
 var classHighRiskStrategy =
 [
-    [ "pickStocks", "classHighRiskStrategy.html#ab0a2062e73fff9648096465eedb08c29", null ]
+    [ "pickStocks", "classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5", null ]
 ];

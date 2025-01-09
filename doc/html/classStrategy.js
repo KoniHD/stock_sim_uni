@@ -6,5 +6,5 @@ var classStrategy =
     [ "Strategy", "classStrategy.html#a9092ff54b5dbe89814e8ad779d22fe59", null ],
     [ "operator=", "classStrategy.html#ab3261137d82ffea3614af2172dd3f91b", null ],
     [ "operator=", "classStrategy.html#af63c9d0d5cf225c708deab895f91f695", null ],
-    [ "pickStocks", "classStrategy.html#a74dc25f2fe86e9a75e1facb1f16f8dcc", null ]
+    [ "pickStocks", "classStrategy.html#a630bf2b9f0a82d5f939c8c77aef7d700", null ]
 ];

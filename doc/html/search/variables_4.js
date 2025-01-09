@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['variance_150',['variance',['../classStock.html#a6355d6afdff0177fee65decea2698b6e',1,'Stock']]]
+  ['marketcap_146',['marketCap',['../classStock.html#af63be3e4839a7795c424861bf5c53f81',1,'Stock']]]
 ];

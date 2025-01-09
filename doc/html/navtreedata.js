@@ -59,8 +59,7 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", null ]
+        [ "Enumerator", "globals_eval.html", null ]
       ] ]
     ] ]
   ] ]
@@ -68,7 +67,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"HighRiskStrategy_8cpp.html"
+"HighRiskStrategy_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -96,7 +96,7 @@ Collaboration diagram for StockMarket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStockMarket__coll__graph.png" border="0" usemap="#aStockMarket_coll__map" alt="Collaboration graph"/></div>
 <map name="aStockMarket_coll__map" id="aStockMarket_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,177,200"/>
+<area shape="rect" title=" " alt="" coords="5,5,177,215"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -104,23 +104,25 @@ Collaboration diagram for StockMarket:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7ecdc095ff3c6b5576cfa7a543f69d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#af7ecdc095ff3c6b5576cfa7a543f69d5">StockMarket</a> ()=delete</td></tr>
 <tr class="separator:af7ecdc095ff3c6b5576cfa7a543f69d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8505bd458095729822b7369d67c837f1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a8505bd458095729822b7369d67c837f1">StockMarket</a> (float timeStep, int simulationLength)</td></tr>
-<tr class="separator:a8505bd458095729822b7369d67c837f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad716a8c76aa88aafec04509863e3154c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStock.html">Stock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#ad716a8c76aa88aafec04509863e3154c">getStock</a> (std::string_view) const noexcept</td></tr>
-<tr class="separator:ad716a8c76aa88aafec04509863e3154c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e0c18b03f551d97091f293ea4c594c6"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classStock.html">Stock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a2e0c18b03f551d97091f293ea4c594c6">getStocks</a> () const</td></tr>
-<tr class="separator:a2e0c18b03f551d97091f293ea4c594c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a952cfac2812994cd4fae3bd12c8aada7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a952cfac2812994cd4fae3bd12c8aada7">StockMarket</a> (double timeStep, int simulationLength, const std::string &amp;jsonFilePath)</td></tr>
+<tr class="separator:a952cfac2812994cd4fae3bd12c8aada7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88cf765a310be21ac0f4d8c813b4989d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStock.html">Stock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a88cf765a310be21ac0f4d8c813b4989d">getStock</a> (std::string_view) noexcept</td></tr>
+<tr class="separator:a88cf765a310be21ac0f4d8c813b4989d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99abf93b7db519dcc5656e29d72edeb1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classStock.html">Stock</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a99abf93b7db519dcc5656e29d72edeb1">getStocks</a> () const</td></tr>
+<tr class="separator:a99abf93b7db519dcc5656e29d72edeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ff3f05e2b66d53ec86a7c37906ea3c0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a2ff3f05e2b66d53ec86a7c37906ea3c0">getStockPrice</a> (std::string_view stockName) const noexcept</td></tr>
 <tr class="separator:a2ff3f05e2b66d53ec86a7c37906ea3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a872b5d8b68141587cf9649f72057d7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a872b5d8b68141587cf9649f72057d7ac">simulateMarket</a> ()</td></tr>
 <tr class="separator:a872b5d8b68141587cf9649f72057d7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e99a33361e70a229d4a2dc70435910b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a3e99a33361e70a229d4a2dc70435910b">outputPerformance</a> ()</td></tr>
 <tr class="separator:a3e99a33361e70a229d4a2dc70435910b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8960b6b6d02a5f2f5459d2222997a0e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a8960b6b6d02a5f2f5459d2222997a0e1">validateStockData</a> (const <a class="el" href="StockMarket_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;stockEntry)</td></tr>
+<tr class="separator:a8960b6b6d02a5f2f5459d2222997a0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a059254559fdb080ba6a8118eb027a7e3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a059254559fdb080ba6a8118eb027a7e3">_time_step</a></td></tr>
-<tr class="separator:a059254559fdb080ba6a8118eb027a7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75105ca045830ae08b320fa9fb643282"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a75105ca045830ae08b320fa9fb643282">_time_step</a></td></tr>
+<tr class="separator:a75105ca045830ae08b320fa9fb643282"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27e394a6f29f551c7804d191a82d3030"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a27e394a6f29f551c7804d191a82d3030">_simulation_length</a></td></tr>
 <tr class="separator:a27e394a6f29f551c7804d191a82d3030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bd6035d166e4a184edd828645621acd"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classStock.html">Stock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a0bd6035d166e4a184edd828645621acd">_stocks</a></td></tr>
@@ -152,8 +154,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8505bd458095729822b7369d67c837f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8505bd458095729822b7369d67c837f1">&#9670;&nbsp;</a></span>StockMarket() <span class="overload">[2/2]</span></h2>
+<a id="a952cfac2812994cd4fae3bd12c8aada7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a952cfac2812994cd4fae3bd12c8aada7">&#9670;&nbsp;</a></span>StockMarket() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,14 +163,20 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">StockMarket::StockMarket </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>timeStep</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>simulationLength</em>&#160;</td>
+          <td class="paramname"><em>simulationLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>jsonFilePath</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -181,8 +189,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad716a8c76aa88aafec04509863e3154c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad716a8c76aa88aafec04509863e3154c">&#9670;&nbsp;</a></span>getStock()</h2>
+<a id="a88cf765a310be21ac0f4d8c813b4989d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88cf765a310be21ac0f4d8c813b4989d">&#9670;&nbsp;</a></span>getStock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,11 +199,11 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classStock.html">Stock</a> StockMarket::getStock </td>
+          <td class="memname"><a class="el" href="classStock.html">Stock</a>&amp; StockMarket::getStock </td>
           <td>(</td>
           <td class="paramtype">std::string_view&#160;</td>
-          <td class="paramname"><em>stock_name</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -233,14 +241,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2e0c18b03f551d97091f293ea4c594c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e0c18b03f551d97091f293ea4c594c6">&#9670;&nbsp;</a></span>getStocks()</h2>
+<a id="a99abf93b7db519dcc5656e29d72edeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99abf93b7db519dcc5656e29d72edeb1">&#9670;&nbsp;</a></span>getStocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="classStock.html">Stock</a> &gt; StockMarket::getStocks </td>
+          <td class="memname">std::vector&lt;const <a class="el" href="classStock.html">Stock</a>*&gt; StockMarket::getStocks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -277,6 +285,24 @@ Private Attributes</h2></td></tr>
           <td class="memname">void StockMarket::simulateMarket </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8960b6b6d02a5f2f5459d2222997a0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8960b6b6d02a5f2f5459d2222997a0e1">&#9670;&nbsp;</a></span>validateStockData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StockMarket::validateStockData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="StockMarket_8h.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a> &amp;&#160;</td>
+          <td class="paramname"><em>stockEntry</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -329,8 +355,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a059254559fdb080ba6a8118eb027a7e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a059254559fdb080ba6a8118eb027a7e3">&#9670;&nbsp;</a></span>_time_step</h2>
+<a id="a75105ca045830ae08b320fa9fb643282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75105ca045830ae08b320fa9fb643282">&#9670;&nbsp;</a></span>_time_step</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,7 +365,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float StockMarket::_time_step</td>
+          <td class="memname">double StockMarket::_time_step</td>
         </tr>
       </table>
   </td>
@@ -351,9 +377,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="StockMarket_8h_source.html">StockMarket.h</a></li>
-<li><a class="el" href="StockMarket_8cpp.html">StockMarket.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['expectedreturn_145',['expectedReturn',['../classStock.html#a115170ad5fe62683b079863145f7ab0d',1,'Stock']]]
+  ['availablestocks_143',['availableStocks',['../classStock.html#afccd850daa9ecabfac3bfdce1be0a82d',1,'Stock']]]
 ];
