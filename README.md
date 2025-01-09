@@ -5,35 +5,18 @@ Our group project implements the [Stockmarket simulation idea](https://gitlab.lr
 ## Helpful resources for the project
 
 * Programm structure and class definitions in UML style is in `res/Trading Market Simulation.pdf`
-
-## Details for Sprint 2
-
-**RULE:** Make sure that for every commit the code keeps running!! We do not commit code that breaks the programm in its functionality!
-
-- User interaction 
-    - Allow user to define simulationlength interacively
-    - After simulationlength is over print Stockmarket info (current stockprices) and print Wallet information (cashPosition, portfolioValue, owned stocks (value in owned stock, number stocks)) two Options: 1. end or 2. define interaction
-    - If interaction: choose wallet to interact with
-    - Next:  (3 Options) 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks
-    - Final: set new simulationlength
-- Wallet-StockMarket interaction
-    - The logic behind the interaction between trades and a stock's performance is implemented in the Stock.cpp class inside the updatePrice() method
-    - The main approach is a Geometric Brownian Motion with an integrated Feedback mechanism that alters the statistical values expectedReturn and standardDev of the traded stock
-    - If for example a stock was bought, it will probably lead to a temporally increased performance of the stock and a higher trading activity; analogously a sell will likely lead to a decreasing price and also higher trading activity
-    - This behavior is realized by temporally (one timestep) manipulating the expected return and standard deviation of the stock
-    - Since small sales should hardly have an impact unlike large orders, the available amount of each stock was introduced
-    - If an order is excecuted, the relation between the order volume and the available stocks is used to weigh the temporal impact on the statistical parameters 
-- Simulation is implemented with monthly simulation time steps
-
-## Optional ideas (not implemented):
-
-- Class for sectors
-    - allows to simulate e.g. overperformance of tech stocks while other sectors underperform
-    - statistial values for those sectors could be randomly determined as well
-- Better overview on stock market
-    - Which stocks in which sector?
-    - Which risk catergorization...
-    - performance overview of single stocks
+* Directory structure:
+```bash
+group-07
+|----doc/html   // unfinished doxygen-style documentation
+|----include    // .h files
+|----input      // directory for '.json' input values
+|----output     // directory for stocktimesteps (gets created at build)
+|----res        // miscelaneous resources: UML-class diagram
+|----src        // .cpp files -> actual code xD
+|----tests      // unfinished test directory
+```
+-> Only `src` and `input` should be relevant for the review.
 
 
 ## Build and run the code
@@ -63,21 +46,43 @@ make
 
 Now you should be able to run the program `./stockmarket` inside the `build/` directory
 
+*NOTE:* The cmake build command automatically creates an `output` directory which is needed in order to output the stockmarket performance in a `.csv` file.
+
 ### Option 3 Manual compile command (strongly discuraged)
 
 *Note:* Works but is tedious
 
-In the terminal run:
+First create the necessary output directory `output`:
+```bash
+mkdir output
+```
+Secondly create the build terminal (which is needed since the relative paths rely on it):
+```bash
+mkdir build
+cd build
+```
+
+Then in the terminal run:
 
 ```bash
-g++ -o stockmarket -I include src/HighRiskStrategy.cpp src/LowRiskStrategy.cpp src/Stock.cpp src/StockMarket.cpp src/Strategy.cpp src/Wallet.cpp src/client.cpp
+g++ -o stockmarket -I ../include ../src/HighRiskStrategy.cpp ../src/LowRiskStrategy.cpp ../src/Stock.cpp ../src/StockMarket.cpp ../src/Strategy.cpp ../src/Wallet.cpp ../src/client.cpp
 ```
 
 Like option 2 you can now run the `./stockmarket` program.
 
-## Remarks for implementation of Sprint 1
+### Plot simulation
+
+After executing `stockmarket` you can use the provided python script to create a plot of individual stock performances.
+
+```
+python3 src/plot_price_history.py
+```
+
+*NOTE:* This is not meant to be part of the `.cpp` project. So it doesn't have to be reviewed. Still if you want to we encourage you to try it out!
+
+## Remarks for implementation (mostly Sprint 1)
 - if you run the program --> client starts running
-    1. stock market constructor called --> stocks and statistical values hard coded
+    1. stock market constructor called --> stocks and statistical values taken from `input/stocks.json`
     2. Client welcomes you...
     3. based on inputs, call composeWallet() after initializing Wallet with constructor
         - **Important:** Enter sufficient funds for values (roughly >3000) such that wallet will be properly filled 
@@ -88,14 +93,44 @@ Like option 2 you can now run the `./stockmarket` program.
         - if lowRiskStrategy --> 50% low-risk stocks, 30% mid-risk stocks 20% high-risk stocks
         - if highRiskStrategy --> 20% low-risk stocks, 30% mid-risk stocks and 50% high-risk stocks
         - split money to be invested evenly among all stocks in respective category
-    4. client calls simulateMarket() automatically, timeStepSize and simulationLength hard coded
+    4. Simulation loop is entered to let user interact with the simulation.
+    5. client calls simulateMarket() automatically, timeStepSize and simulationLength hard coded
         - simulateMarket() iteratively calls Stock.updatePrice() for each stock
         - Stock.updatePrice() implements one time step according to [Investopedia - How to Use Monte Carlo Simulation With GBM](https://www.investopedia.com/articles/07/montecarlo.asp) for each stock
-    5. client calls evaluateResults() from Wallet
-    6. printPerformance() returns stck trends for all stocks.
+    6. Modifications to a wallet are possible. (**Sprint2** goal)
+    7. If user choses to (or if max iterations is reached) the simulation loop is exited
+    8. client calls evaluateResults() from Wallet
+    9. printPerformance() returns stck trends for all stocks.
+
+## Details for Sprint 2
+
+- User interaction 
+    - Allow user to define simulationlength interacively
+    - After simulationlength is over print Stockmarket info (current stockprices) and print Wallet information (cashPosition, portfolioValue, owned stocks (value in owned stock, number stocks)) two Options: 1. end or 2. define interaction
+    - If interaction: choose wallet to interact with
+    - Next:  (3 Options) 1. Add new funds to cashPosition, 2. Sell stocks, 3. Buy stocks
+    - Final: set new simulationlength
+- Wallet-StockMarket interaction
+    - The logic behind the interaction between trades and a stock's performance is implemented in the Stock.cpp class inside the updatePrice() method
+    - The main approach is a Geometric Brownian Motion with an integrated Feedback mechanism that alters the statistical values expectedReturn and standardDev of the traded stock
+    - If for example a stock was bought, it will probably lead to a temporally increased performance of the stock and a higher trading activity; analogously a sell will likely lead to a decreasing price and also higher trading activity
+    - This behavior is realized by temporally (one timestep) manipulating the expected return and standard deviation of the stock
+    - Since small sales should hardly have an impact unlike large orders, the available amount of each stock was introduced
+    - If an order is excecuted, the relation between the order volume and the available stocks is used to weigh the temporal impact on the statistical parameters 
+- Simulation is implemented with monthly simulation time steps
 
 ## Final remarks
 
 - We used GCC Version 13.2 for successful compilation but any compiler supporting C++20 should work.
 - We haven't had time to implement tests yet hence the empty `test/` directory.
 - The documentation in `doc/html/index.html` is not done as we plan to introduce doxygen style documentation later on in the project so this is also "work-in-progress"
+
+## Optional ideas (not implemented):
+
+- Class for sectors
+    - allows to simulate e.g. overperformance of tech stocks while other sectors underperform
+    - statistial values for those sectors could be randomly determined as well
+- Better overview on stock market
+    - Which stocks in which sector?
+    - Which risk catergorization...
+    - performance overview of single stocks

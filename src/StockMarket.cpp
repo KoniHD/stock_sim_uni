@@ -129,7 +129,6 @@ void StockMarket::outputPerformance()
         return;
     }
 
-    // FIXME Once timesteps are implemented correctly please use a better way of retrieving the total timesteps!
     std::size_t max_sim_length = _stocks.begin()->second.getPriceTimeSeries().size();
 
     std::vector<std::vector<double>> history(_stocks.size());

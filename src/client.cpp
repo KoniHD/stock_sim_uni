@@ -95,7 +95,7 @@ int main()
         std::cout << std::endl
                   << "---Wallet No." << std::to_string(i + 1) << "---" << std::endl
                   << "Please enter the amount of funds you would like wallet No." << std::to_string(i + 1)
-                  << " to have (minimum recommended amount is 1000): ";
+                  << " to have (minimum recommended amount is 3000): ";
         funds = getTerminalInput();
 
         user_choice = 0;
