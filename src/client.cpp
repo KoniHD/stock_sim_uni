@@ -192,7 +192,6 @@ int main()
                     unsigned amount_stocks{0};
                     std::cout << "Considering the shares in your wallet, of which do you want to sell stocks: ";
                     Stock &stock = getStockFromTerminal(*market, wallets.at(wallet_choice));
-                    stock        = getStockFromTerminal(*market, wallets.at(wallet_choice));
                     std::cout << "How many stocks do you want to sell? ";
                     amount_stocks = getTerminalInput();
                     bool success  = wallets.at(wallet_choice).sellStocks(stock, amount_stocks);
