@@ -1,10 +1,14 @@
 var classStockMarket =
 [
-    [ "StockMarket", "classStockMarket.html#a8505bd458095729822b7369d67c837f1", null ],
-    [ "getStockPrice", "classStockMarket.html#a337f944b3e091e5fb3e63b8f2077c678", null ],
-    [ "getStocks", "classStockMarket.html#ab388d968089318c51997999deebc7913", null ],
+    [ "StockMarket", "classStockMarket.html#af7ecdc095ff3c6b5576cfa7a543f69d5", null ],
+    [ "StockMarket", "classStockMarket.html#a952cfac2812994cd4fae3bd12c8aada7", null ],
+    [ "getStock", "classStockMarket.html#a88cf765a310be21ac0f4d8c813b4989d", null ],
+    [ "getStockPrice", "classStockMarket.html#a2ff3f05e2b66d53ec86a7c37906ea3c0", null ],
+    [ "getStocks", "classStockMarket.html#a99abf93b7db519dcc5656e29d72edeb1", null ],
+    [ "outputPerformance", "classStockMarket.html#a3e99a33361e70a229d4a2dc70435910b", null ],
     [ "simulateMarket", "classStockMarket.html#a872b5d8b68141587cf9649f72057d7ac", null ],
-    [ "simulationData", "classStockMarket.html#a3a71d2b50ffd4930363b73d6fe76d6ff", null ],
-    [ "simulationLength", "classStockMarket.html#a790f6b854ce6fd2f2b96b17c11ff16a4", null ],
-    [ "timeStep", "classStockMarket.html#ac1d5b03546f281d7989f948984399495", null ]
+    [ "validateStockData", "classStockMarket.html#a8960b6b6d02a5f2f5459d2222997a0e1", null ],
+    [ "_simulation_length", "classStockMarket.html#a27e394a6f29f551c7804d191a82d3030", null ],
+    [ "_stocks", "classStockMarket.html#a0bd6035d166e4a184edd828645621acd", null ],
+    [ "_time_step", "classStockMarket.html#a75105ca045830ae08b320fa9fb643282", null ]
 ];

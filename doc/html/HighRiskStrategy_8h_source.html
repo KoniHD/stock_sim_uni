@@ -88,28 +88,26 @@ $(document).ready(function(){initNavTree('HighRiskStrategy_8h_source.html',''); 
 <a href="HighRiskStrategy_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef HIGHRISKSTRATEGY_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define HIGHRISKSTRATEGY_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Stock_8h.html">Stock.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="StockMarket_8h.html">StockMarket.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Strategy_8h.html">Strategy.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classHighRiskStrategy.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHighRiskStrategy.html">HighRiskStrategy</a> : <span class="keyword">public</span> <a class="code" href="classStrategy.html">Strategy</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    [[nodiscard]] std::unordered_map&lt;std::string, int&gt; <a class="code" href="classHighRiskStrategy.html#aa502a2502f46085f89c3d57b9389c6ae">pickStocks</a>(<span class="keywordtype">double</span> funds,</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                                                                  <span class="keyword">const</span> <a class="code" href="classStockMarket.html">StockMarket</a> &amp;stockMarket) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HIGHRISKSTRATEGY_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="StockMarket_8h.html">StockMarket.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Strategy_8h.html">Strategy.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classHighRiskStrategy.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHighRiskStrategy.html">HighRiskStrategy</a> : <span class="keyword">public</span> <a class="code" href="classStrategy.html">Strategy</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5">   25</a></span>&#160;    [[nodiscard]] <span class="keyword">auto</span> <a class="code" href="classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5">pickStocks</a>(<span class="keywordtype">double</span> &amp;total_funds, <span class="keyword">const</span> <a class="code" href="classStockMarket.html">StockMarket</a> &amp;stockMarket) <span class="keyword">const</span> noexcept</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            -&gt; std::unordered_map&lt;std::string, unsigned&gt; <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// HIGHRISKSTRATEGY_H</span></div>
 <div class="ttc" id="aStockMarket_8h_html"><div class="ttname"><a href="StockMarket_8h.html">StockMarket.h</a></div></div>
-<div class="ttc" id="aStock_8h_html"><div class="ttname"><a href="Stock_8h.html">Stock.h</a></div></div>
 <div class="ttc" id="aStrategy_8h_html"><div class="ttname"><a href="Strategy_8h.html">Strategy.h</a></div></div>
-<div class="ttc" id="aclassHighRiskStrategy_html"><div class="ttname"><a href="classHighRiskStrategy.html">HighRiskStrategy</a></div><div class="ttdef"><b>Definition:</b> HighRiskStrategy.h:11</div></div>
-<div class="ttc" id="aclassHighRiskStrategy_html_aa502a2502f46085f89c3d57b9389c6ae"><div class="ttname"><a href="classHighRiskStrategy.html#aa502a2502f46085f89c3d57b9389c6ae">HighRiskStrategy::pickStocks</a></div><div class="ttdeci">std::unordered_map&lt; std::string, int &gt; pickStocks(double funds, const StockMarket &amp;stockMarket) override</div><div class="ttdoc">Composes a high-risk portfolio of stocks.</div><div class="ttdef"><b>Definition:</b> HighRiskStrategy.cpp:18</div></div>
-<div class="ttc" id="aclassStockMarket_html"><div class="ttname"><a href="classStockMarket.html">StockMarket</a></div><div class="ttdef"><b>Definition:</b> StockMarket.h:10</div></div>
-<div class="ttc" id="aclassStrategy_html"><div class="ttname"><a href="classStrategy.html">Strategy</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:14</div></div>
+<div class="ttc" id="aclassHighRiskStrategy_html"><div class="ttname"><a href="classHighRiskStrategy.html">HighRiskStrategy</a></div><div class="ttdef"><b>Definition:</b> HighRiskStrategy.h:10</div></div>
+<div class="ttc" id="aclassHighRiskStrategy_html_ad3676a7298f50579111fc829acdf8bb5"><div class="ttname"><a href="classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5">HighRiskStrategy::pickStocks</a></div><div class="ttdeci">auto pickStocks(double &amp;total_funds, const StockMarket &amp;stockMarket) const noexcept -&gt; std::unordered_map&lt; std::string, unsigned &gt; override</div><div class="ttdoc">Composes a high-risk portfolio of Stocks.</div></div>
+<div class="ttc" id="aclassStockMarket_html"><div class="ttname"><a href="classStockMarket.html">StockMarket</a></div><div class="ttdef"><b>Definition:</b> StockMarket.h:17</div></div>
+<div class="ttc" id="aclassStrategy_html"><div class="ttname"><a href="classStrategy.html">Strategy</a></div><div class="ttdef"><b>Definition:</b> Strategy.h:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

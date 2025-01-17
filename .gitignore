@@ -47,6 +47,7 @@ Makefile
 
 # CMake + lsp
 /compile_commands.json
+.clangd
 
 # debugging
 callgrind.out.*
@@ -71,3 +72,6 @@ perf.data*
 
 # macOS
 .DS_Store
+
+# output dir
+/output

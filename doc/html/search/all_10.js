@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7estrategy_56',['~Strategy',['../classStrategy.html#a4762a086f587ed294ca7178e396f142f',1,'Strategy']]]
+  ['validatestockdata_74',['validateStockData',['../classStockMarket.html#a8960b6b6d02a5f2f5459d2222997a0e1',1,'StockMarket']]]
 ];

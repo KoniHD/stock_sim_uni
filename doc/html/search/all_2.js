@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['evaluateresults_2',['evaluateResults',['../classWallet.html#a1143304d4b55e7b9c354a620474bbf0a',1,'Wallet']]],
-  ['expectedreturn_3',['expectedReturn',['../classStock.html#a115170ad5fe62683b079863145f7ab0d',1,'Stock']]]
+  ['buyexecuted_13',['buyExecuted',['../classStock.html#aecd2973a84b75099156b1637ac03ab4e',1,'Stock']]],
+  ['buystocks_14',['buyStocks',['../classWallet.html#a34c04a1dc681350eafdecf78df1dd9e5',1,'Wallet']]]
 ];

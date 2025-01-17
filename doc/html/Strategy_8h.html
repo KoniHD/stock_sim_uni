@@ -91,20 +91,25 @@ $(document).ready(function(){initNavTree('Strategy_8h.html',''); initResizable()
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="Stock_8h_source.html">Stock.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="StockMarket_8h_source.html">StockMarket.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Strategy.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="Strategy_8h__incl.png" border="0" usemap="#aStrategy_8h" alt=""/></div>
 <map name="aStrategy_8h" id="aStrategy_8h">
-<area shape="rect" title=" " alt="" coords="75,5,162,32"/>
-<area shape="rect" href="Stock_8h.html" title=" " alt="" coords="37,155,107,181"/>
+<area shape="rect" title=" " alt="" coords="339,5,426,32"/>
+<area shape="rect" href="Stock_8h.html" title=" " alt="" coords="123,155,194,181"/>
 <area shape="rect" title=" " alt="" coords="5,229,64,256"/>
-<area shape="rect" href="StockMarket_8h.html" title=" " alt="" coords="109,80,224,107"/>
-<area shape="rect" title=" " alt="" coords="249,80,373,107"/>
-<area shape="rect" title=" " alt="" coords="131,155,229,181"/>
-<area shape="rect" title=" " alt="" coords="253,155,315,181"/>
+<area shape="rect" title=" " alt="" coords="306,229,369,256"/>
+<area shape="rect" href="StockMarket_8h.html" title=" " alt="" coords="225,80,340,107"/>
+<area shape="rect" title=" " alt="" coords="422,155,546,181"/>
+<area shape="rect" title=" " alt="" coords="621,80,677,107"/>
+<area shape="rect" title=" " alt="" coords="88,229,160,256"/>
+<area shape="rect" title=" " alt="" coords="185,229,282,256"/>
+<area shape="rect" title=" " alt="" coords="320,155,397,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -112,15 +117,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="Strategy_8h__dep__incl.png" border="0" usemap="#aStrategy_8hdep" alt=""/></div>
 <map name="aStrategy_8hdep" id="aStrategy_8hdep">
-<area shape="rect" title=" " alt="" coords="297,5,383,32"/>
-<area shape="rect" href="client_8cpp.html" title=" " alt="" coords="189,155,275,181"/>
-<area shape="rect" href="Strategy_8cpp.html" title=" " alt="" coords="534,80,637,107"/>
-<area shape="rect" href="HighRiskStrategy_8h.html" title=" " alt="" coords="49,80,194,107"/>
-<area shape="rect" href="LowRiskStrategy_8h.html" title=" " alt="" coords="269,80,411,107"/>
-<area shape="rect" href="Wallet_8h.html" title=" " alt="" coords="435,80,509,107"/>
-<area shape="rect" href="HighRiskStrategy_8cpp.html" title=" " alt="" coords="5,155,165,181"/>
-<area shape="rect" href="LowRiskStrategy_8cpp.html" title=" " alt="" coords="299,155,455,181"/>
-<area shape="rect" href="Wallet_8cpp.html" title=" " alt="" coords="480,155,571,181"/>
+<area shape="rect" title=" " alt="" coords="203,5,289,32"/>
+<area shape="rect" href="HighRiskStrategy_8h.html" title=" " alt="" coords="5,80,151,107"/>
+<area shape="rect" href="LowRiskStrategy_8h.html" title=" " alt="" coords="175,80,317,107"/>
+<area shape="rect" href="Wallet_8h.html" title=" " alt="" coords="341,80,415,107"/>
 </map>
 </div>
 </div>
@@ -136,14 +136,16 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a20547a588ff38b7e9ef38f2a4f2fd52c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">StockRisk</a> { <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">LOW_RISK_STOCK</a>
 , <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">MID_RISK_STOCK</a>
 , <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">HIGH_RISK_STOCK</a>
+, <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca2addb49878f50c95dc669e5fdbd130a2">COUNT</a>
  }</td></tr>
+<tr class="memdesc:a20547a588ff38b7e9ef38f2a4f2fd52c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the risk level of a stock.  <a href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">More...</a><br /></td></tr>
 <tr class="separator:a20547a588ff38b7e9ef38f2a4f2fd52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a698c7ada01380cefc347d368dfaa90b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">StockRisk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Strategy_8h.html#a698c7ada01380cefc347d368dfaa90b7">assessStockRisk</a> (<a class="el" href="classStock.html">Stock</a> stock)</td></tr>
-<tr class="memdesc:a698c7ada01380cefc347d368dfaa90b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses the risk of a stock based on its variance and its price.  <a href="Strategy_8h.html#a698c7ada01380cefc347d368dfaa90b7">More...</a><br /></td></tr>
-<tr class="separator:a698c7ada01380cefc347d368dfaa90b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428d727f8026e9e616be920f79e2b0cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">StockRisk</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Strategy_8h.html#a428d727f8026e9e616be920f79e2b0cc">assessStockRisk</a> (const <a class="el" href="classStock.html">Stock</a> &amp;stock) noexcept</td></tr>
+<tr class="memdesc:a428d727f8026e9e616be920f79e2b0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assesses the risk of a stock based on its variance and its price.  <a href="Strategy_8h.html#a428d727f8026e9e616be920f79e2b0cc">More...</a><br /></td></tr>
+<tr class="separator:a428d727f8026e9e616be920f79e2b0cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a20547a588ff38b7e9ef38f2a4f2fd52c"></a>
@@ -157,29 +159,44 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Represents the risk level of a stock. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3"></a>LOW_RISK_STOCK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86"></a>MID_RISK_STOCK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248"></a>HIGH_RISK_STOCK&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3"></a>LOW_RISK_STOCK&#160;</td><td class="fielddoc"><p>low risk level </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86"></a>MID_RISK_STOCK&#160;</td><td class="fielddoc"><p>mid risk level </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248"></a>HIGH_RISK_STOCK&#160;</td><td class="fielddoc"><p>high risk level </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a20547a588ff38b7e9ef38f2a4f2fd52ca2addb49878f50c95dc669e5fdbd130a2"></a>COUNT&#160;</td><td class="fielddoc"><p>Number of risk levels </p>
+</td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a698c7ada01380cefc347d368dfaa90b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a698c7ada01380cefc347d368dfaa90b7">&#9670;&nbsp;</a></span>assessStockRisk()</h2>
+<a id="a428d727f8026e9e616be920f79e2b0cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428d727f8026e9e616be920f79e2b0cc">&#9670;&nbsp;</a></span>assessStockRisk()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">StockRisk</a> assessStockRisk </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classStock.html">Stock</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classStock.html">Stock</a> &amp;&#160;</td>
           <td class="paramname"><em>stock</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Assesses the risk of a stock based on its variance and its price. </p>
@@ -189,9 +206,9 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The risk of the stock. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">StockRisk</a></dd></dl>
-<p>The risk is assessed based on the standard deviation of the stock which is computed by sqrt(variance) / Price. If the standard deviation is below 0.1, the stock is considered low risk. If the standard deviation is between 0.1 and 0.14, the stock is considered mid risk. Everything above is considered to be high risk. </p>
+<dl class="section return"><dt>Returns</dt><dd>The risk of the <a class="el" href="classStock.html">Stock</a>. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c" title="Represents the risk level of a stock.">StockRisk</a></dd></dl>
+<p>The <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52c">risk</a> is assessed based on the standard deviation of the <a class="el" href="classStock.html">Stock</a> which is computed by sqrt(variance) / Price. If the standard deviation is below 0.1, the <a class="el" href="classStock.html">Stock</a> is considered <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca7eccb4f4f37d34e9fb46eb8429c530a3">low risk</a>. If the standard deviation is between 0.1 and 0.14, the <a class="el" href="classStock.html">Stock</a> is considered <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86">mid risk</a>. Everything above is considered to be <a class="el" href="Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248">high risk</a>. </p>
 
 </div>
 </div>

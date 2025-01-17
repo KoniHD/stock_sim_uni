@@ -1,68 +1,157 @@
-#include "../include/StockMarket.h"
-#include "../include/Stock.h"
-#include <iostream>
+#include "StockMarket.h"
+
+#include "json.hpp" // Include the JSON library
+#include "Stock.h"
 
 #include <cmath>
+#include <cstddef>
+#include <fstream>
+#include <ios>
+#include <iostream>
 #include <random>
 #include <stdexcept>
+#include <string>
 #include <string_view>
+#include <unordered_map>
+#include <vector>
 
-StockMarket::StockMarket(float timeStep, int simulationLength) : //The constructor initializes the StockMarket with a time step and simulation length.
-    timeStep{timeStep}, simulationLength{simulationLength} {
-    // Initialize with some sample stocks with initial values for price, expected return, variance, and price change. These are represented by the Stock class objects.
-    stocks["Google"] = Stock("Google", 100.0, 0.04, 0.05, 0.0);
-    stocks["Amazon"] = Stock("Amazon", 200.0, 0.045, 0.07, 0.0);
-    stocks["Tesla"] = Stock("Tesla", 300.0, 0.055, 0.1, 0.0);
-    stocks["Volkswagen"] = Stock("Volkswagen", 500.0, 0.09, 0.2, 0.0);
-    stocks["Adidas"] = Stock("Adidas", 40.0, 0.1, 0.25, 0.0);
-    stocks["Apple"] = Stock("Apple", 320.0, 0.03, 0.13, 0.0);
-    stocks["Hellofresh"] = Stock("Hellofresh", 80.0, 0.065, 0.12, 0.0);
-    stocks["Disney"] = Stock("Disney", 150.0, 0.07, 0.14, 0.0);
-    stocks["Airbus"] = Stock("Airbus", 700.0, 0.075, 0.16, 0.0);
-    stocks["Nestle"] = Stock("Nestle", 290.0, 0.095, 0.22, 0.0);
-}
+// Use the nlohmann JSON namespace for convenience
+using json = nlohmann::json;
 
-std::vector<Stock> StockMarket::getStocks() const {  // This method returns all the stocks in the stocks map. It loops through the map and pushes each stock into a vector to return.
-    std::vector<Stock> stockList;
-    for (const auto &[name, stock] : stocks) {
-        stockList.push_back(stock);
+StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::string &jsonFilePath) :
+    _time_step{timeStep},
+    _simulation_length{simulationLength}
+{
+    // Load stock data from JSON file
+    std::ifstream jsonFile(jsonFilePath);
+    if (!jsonFile.is_open()) {
+        throw std::runtime_error("Failed to open JSON file: " + jsonFilePath);
     }
-    return stockList;
+
+    json jsonData;
+    try {
+        jsonFile >> jsonData; // Parse the JSON file
+    } catch (const json::parse_error &e) {
+        throw std::runtime_error("JSON parsing error: " + std::string(e.what()));
+    }
+
+    // Validate and populate stocks
+    for (const auto &stockEntry: jsonData) {
+        try {
+            validateStockData(stockEntry);
+
+            std::string name      = stockEntry["name"];
+            double initialPrice   = stockEntry["initial_price"];
+            double expectedReturn = stockEntry["expected_return"];
+            double standardDev    = stockEntry["standard_dev"];
+
+            _stocks[name] = Stock(name, initialPrice, expectedReturn, standardDev);
+        } catch (const std::exception &e) {
+            std::cerr << "Invalid stock data: " << e.what() << std::endl;
+        }
+    }
+
+    jsonFile.close();
 }
 
-double StockMarket::getStockPrice(std::string_view stockName) const { // This method looks up a stock by its name and returns the price of the stock. If the stock isn't found, it throws an exception.
-    auto it = stocks.find(std::string(stockName));
-    if (it != stocks.end()) {
+void StockMarket::validateStockData(const json &stockEntry)
+{
+    if (!stockEntry.contains("name") || !stockEntry["name"].is_string()) {
+        throw std::invalid_argument("Stock entry is missing 'name' or it is not a string.");
+    }
+
+    if (!stockEntry.contains("initial_price") || !stockEntry["initial_price"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'initial_price' or it is not a number.");
+    }
+
+    if (!stockEntry.contains("expected_return") || !stockEntry["expected_return"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'expected_return' or it is not a number.");
+    }
+
+    if (!stockEntry.contains("standard_dev") || !stockEntry["standard_dev"].is_number()) {
+        throw std::invalid_argument("Stock entry is missing 'standard_dev' or it is not a number.");
+    }
+}
+
+Stock &StockMarket::getStock(std::string_view stock_name)
+{
+    std::string stock_name_(stock_name);
+    auto it = _stocks.find(stock_name_);
+    if (it != _stocks.end()) {
+        return it->second;
+    }
+    throw std::runtime_error("Stock not found: " + std::string(stock_name));
+}
+
+void StockMarket::setSimulationLength(unsigned new_simulation_length) noexcept
+{
+    _simulation_length = new_simulation_length;
+}
+
+std::vector<const Stock *> StockMarket::getStocks() const
+{
+    std::vector<const Stock *> stock_list;
+    for (const auto &[name, stock]: _stocks) {
+        stock_list.push_back(&stock); // Store the address of each stock
+    }
+    return stock_list;
+}
+
+double StockMarket::getStockPrice(std::string_view stockName) const noexcept
+{
+    auto it = _stocks.find(std::string(stockName));
+    if (it != _stocks.end()) {
         return it->second.getPrice();
     }
-    throw std::runtime_error("Stock not found: " + std::string(stockName));
+    return 0.0;
 }
 
-/*
-
-This method below (simulateMarket) simulates the stock market over the specified number of time steps.
-It uses Geometric Brownian Motion (GBM) to update stock prices based on their expected return (mu), volatility (sigma), and a random shock (randomShock).
-The stock prices are updated after each time step, and the simulation runs for the entire length of the simulation (simulationLength).
-
-*/
-
-void StockMarket::simulateMarket() {
+void StockMarket::simulateMarket()
+{
     std::default_random_engine generator(std::random_device{}());
-
-    for (int t = 0; t < simulationLength; ++t) {
-        for (auto &[name, stock] : stocks) {
-            // Update stock price using GBM formula
-            stock.updatePrice(timeStep, generator);
+    for (unsigned time_step = 0; time_step < _simulation_length; ++time_step) {
+        for (auto &[name, stock]: _stocks) {
+            if (time_step == 1) {
+                stock.setOrderVolume(0.0);
+                stock.setBuyExecuted(false);
+                stock.setSellExecuted(false);
+            }
+            stock.updatePrice(_time_step, generator);
         }
     }
 }
 
-void StockMarket::printPerformance() {
-    for (auto &[name, stock] : stocks) {
-        std::cout << "trend_" << name << ": [";
-        for (double price: stock.getPriceTimeSeries()) {
-            std::cout << price << ", ";
-        }
-        std::cout << "]" << std::endl;
+void StockMarket::outputPerformance()
+{
+    std::ofstream out_file("../output/market_performance.csv");
+    if (not out_file.is_open()) {
+        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
+        return;
     }
+
+    std::size_t max_sim_length = _stocks.begin()->second.getPriceTimeSeries().size();
+
+    std::vector<std::vector<double>> history(_stocks.size());
+
+    // Copy data into history & write header row
+    unsigned i{0};
+    for (const auto &[name, stock]: _stocks) {
+        history.at(i) = stock.getPriceTimeSeries();
+        ++i;
+
+        out_file << name << ",";
+    }
+    out_file.seekp(-1, std::ios_base::cur);
+    out_file << "\n";
+
+    // Write data into .csv
+    for (unsigned i{0}; i < max_sim_length; ++i) {
+        for (unsigned j{0}; j < _stocks.size(); ++j) {
+            out_file << history.at(j).at(i) << ",";
+        }
+        out_file.seekp(-1, std::ios_base::cur);
+        out_file << "\n";
+    }
+
+    out_file.close();
 }

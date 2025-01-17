@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['simulatebehavior_88',['simulateBehavior',['../classStock.html#a1fa128029726468cb9593995198fd5f9',1,'Stock']]],
-  ['simulatemarket_89',['simulateMarket',['../classStockMarket.html#a872b5d8b68141587cf9649f72057d7ac',1,'StockMarket']]],
-  ['stock_90',['Stock',['../classStock.html#a2cd65ae8e9dc9a648e02a400d7dbac78',1,'Stock']]],
-  ['stockmarket_91',['StockMarket',['../classStockMarket.html#a8505bd458095729822b7369d67c837f1',1,'StockMarket']]],
-  ['strategy_92',['Strategy',['../classStrategy.html#a4c952e0ccc5f3359d01fcceee3b9e967',1,'Strategy::Strategy()=default'],['../classStrategy.html#ae24b059ec6257fed7cc3adb5751e1415',1,'Strategy::Strategy(const Strategy &amp;other)=default'],['../classStrategy.html#a9092ff54b5dbe89814e8ad779d22fe59',1,'Strategy::Strategy(Strategy &amp;&amp;move) noexcept=default']]]
+  ['pickstocks_112',['pickStocks',['../classHighRiskStrategy.html#ad3676a7298f50579111fc829acdf8bb5',1,'HighRiskStrategy::pickStocks()'],['../classLowRiskStrategy.html#a773c7b88880c0cc96afe936e61f82262',1,'LowRiskStrategy::pickStocks()'],['../classStrategy.html#a630bf2b9f0a82d5f939c8c77aef7d700',1,'Strategy::pickStocks()']]],
+  ['printwalletinfo_113',['printWalletInfo',['../classWallet.html#a05fc87f67c82689ebef43169e30d1dd3',1,'Wallet']]],
+  ['purchasestocks_114',['purchaseStocks',['../classStrategy.html#ac7b5ccd737452b57a71a064a62841922',1,'Strategy']]],
+  ['purchasestocksbyrisk_115',['purchaseStocksByRisk',['../classStrategy.html#a844e932e0c0717d812ee3b653ac7f7a6',1,'Strategy']]]
 ];

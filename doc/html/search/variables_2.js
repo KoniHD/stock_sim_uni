@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['market_97',['market',['../classWallet.html#a89a41a2134cb61046ffae22cf74ff601',1,'Wallet']]]
+  ['buyexecuted_144',['buyExecuted',['../classStock.html#aecd2973a84b75099156b1637ac03ab4e',1,'Stock']]]
 ];

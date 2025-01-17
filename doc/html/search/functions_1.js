@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['evaluateresults_78',['evaluateResults',['../classWallet.html#a1143304d4b55e7b9c354a620474bbf0a',1,'Wallet']]]
+  ['buystocks_93',['buyStocks',['../classWallet.html#a34c04a1dc681350eafdecf78df1dd9e5',1,'Wallet']]]
 ];

@@ -1,88 +1,68 @@
-#include "../include/HighRiskStrategy.h"
+#include "HighRiskStrategy.h"
 
+#include "Stock.h"
+#include "StockMarket.h"
+#include "Strategy.h"
+
+#include <array>
+#include <iostream>
+#include <string>
+#include <unordered_map>
 #include <vector>
 
 #define LOW_RISK_PERCENTAGE  0.2
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.5
 
-/**
- * @brief Composes a high-risk portfolio of stocks.
- * @param stockMarket The stock market to pick stocks from.
- * @return The stock portfolio.
- *
- * This strategy picks 20% low-risk stocks, 30% mid-risk stocks and 50% high-risk stocks. This share is based on the
- * total available funds. Per risk category, the value is distributed equally among the stocks. By this the number of
- * stocks in the portoflio is dericed.
- */
-std::unordered_map<std::string, int> HighRiskStrategy::pickStocks(double totalFunds, const StockMarket &stockMarket) {
-    std::unordered_map<std::string, int> portfolio;
+auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMarket) const noexcept
+        -> std::unordered_map<std::string, unsigned>
+{
+    // Use the updated groupStocks return type
+    const std::array<std::vector<const Stock *>, 3> grouped_stocks = groupStocks(stockMarket);
 
-    std::vector<Stock> stocks = stockMarket.getStocks();
-    std::vector<Stock> lowRiskStocks;
-    std::vector<Stock> midRiskStocks;
-    std::vector<Stock> highRiskStocks;
-    for (const Stock &stock: stocks) {
-        switch (assessStockRisk(stock)) {
-            case StockRisk::LOW_RISK_STOCK:
-                lowRiskStocks.push_back(stock);
-                break;
-            case StockRisk::MID_RISK_STOCK:
-                midRiskStocks.push_back(stock);
-                break;
-            default:
-                highRiskStocks.push_back(stock);
-                break;
+    std::array<double, 3> weights = {LOW_RISK_PERCENTAGE, MID_RISK_PERCENTAGE, HIGH_RISK_PERCENTAGE};
+
+    if (grouped_stocks.at(StockRisk::LOW_RISK_STOCK).empty())
+        weights.at(0) = 0.0;
+    if (grouped_stocks.at(StockRisk::MID_RISK_STOCK).empty())
+        weights.at(1) = 0.0;
+    if (grouped_stocks.at(StockRisk::HIGH_RISK_STOCK).empty()) {
+        std::cerr << "Currently there are no stocks considered high risk listed at the stock market." << std::endl
+                  << "Abort purchase!" << std::endl;
+        return {};
+    }
+
+    double total_weight = weights.at(0) + weights.at(1) + weights.at(2);
+    for (double &weight: weights) {
+        weight /= total_weight;
+    }
+
+    // Create a portfolio
+    std::unordered_map<std::string, unsigned> portfolio;
+
+    for (std::size_t i = 0; i < grouped_stocks.size(); ++i) {
+        if (!grouped_stocks[i].empty()) {
+            double partial_funds = total_funds * weights[i];
+
+            // Copy or process stocks
+            std::vector<Stock> stocks_copy;
+            for (const Stock *stock_ptr: grouped_stocks[i]) {
+                stocks_copy.push_back(*stock_ptr); // Dereference pointer to copy Stock
+            }
+
+            // Purchase stocks for the current risk group
+            auto risk_portfolio = purchaseStocks(total_funds, partial_funds, stocks_copy);
+            portfolio.merge(risk_portfolio);
         }
     }
 
-    double lowRiskFundsPerShare{0.0f};
-    double midRiskFundsPerShare{0.0f};
-    double highRiskFundsPerShare{0.0f};
-    if (midRiskStocks.empty() && highRiskStocks.empty()) {
-        // All stocks are low-risk, so we can't distribute the funds as intended.
-        int test             = lowRiskStocks.size();
-        lowRiskFundsPerShare = totalFunds / test;
-    } else if (lowRiskStocks.empty() && highRiskStocks.empty()) {
-        // Only mid-risk stocks are available
-        midRiskFundsPerShare = totalFunds / static_cast<double>(midRiskStocks.size());
-    } else if (lowRiskStocks.empty() && midRiskStocks.empty()) {
-        // Only high-risk stocks are available
-        highRiskFundsPerShare = totalFunds / static_cast<double>(highRiskStocks.size());
-    } else if (highRiskStocks.empty()) {
-        // low-risk and mid-risk stocks are available, but no high-risk stocks
-        double lowRiskPercentage = LOW_RISK_PERCENTAGE / (LOW_RISK_PERCENTAGE + MID_RISK_PERCENTAGE);
-        double midRiskPercentage = MID_RISK_PERCENTAGE / (LOW_RISK_PERCENTAGE + MID_RISK_PERCENTAGE);
-        lowRiskFundsPerShare     = (totalFunds * lowRiskPercentage) / static_cast<double>(lowRiskStocks.size());
-        midRiskFundsPerShare     = (totalFunds * midRiskPercentage) / static_cast<double>(midRiskStocks.size());
-    } else if (midRiskStocks.empty()) {
-        // low-risk and high-risk stocks are available, but no mid-risk stocks
-        double lowRiskPercentage  = LOW_RISK_PERCENTAGE / (LOW_RISK_PERCENTAGE + HIGH_RISK_PERCENTAGE);
-        double highRiskPercentage = HIGH_RISK_PERCENTAGE / (LOW_RISK_PERCENTAGE + HIGH_RISK_PERCENTAGE);
-        lowRiskFundsPerShare      = (totalFunds * lowRiskPercentage) / static_cast<double>(lowRiskStocks.size());
-        highRiskFundsPerShare     = (totalFunds * highRiskPercentage) / static_cast<double>(highRiskStocks.size());
-    } else if (lowRiskStocks.empty()) {
-        // mid-risk and high-risk stocks are available, but no low-risk stocks
-        double midRiskPercentage  = MID_RISK_PERCENTAGE / (MID_RISK_PERCENTAGE + HIGH_RISK_PERCENTAGE);
-        double highRiskPercentage = HIGH_RISK_PERCENTAGE / (MID_RISK_PERCENTAGE + HIGH_RISK_PERCENTAGE);
-        midRiskFundsPerShare      = (totalFunds * midRiskPercentage) / static_cast<double>(midRiskStocks.size());
-        highRiskFundsPerShare     = (totalFunds * highRiskPercentage) / static_cast<double>(highRiskStocks.size());
-    } else {
-        // All risk categories are available
-        lowRiskFundsPerShare  = (totalFunds * LOW_RISK_PERCENTAGE) / static_cast<double>(lowRiskStocks.size());
-        midRiskFundsPerShare  = (totalFunds * MID_RISK_PERCENTAGE) / static_cast<double>(midRiskStocks.size());
-        highRiskFundsPerShare = (totalFunds * HIGH_RISK_PERCENTAGE) / static_cast<double>(highRiskStocks.size());
-    }
 
-    for (const Stock &stock: lowRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(lowRiskFundsPerShare / stock.getPrice()));
+    // Prioritize low-risk stocks with remaining funds
+    std::vector<Stock> high_risk_stocks_copy;
+    for (const Stock *stock_ptr: grouped_stocks.at(StockRisk::HIGH_RISK_STOCK)) {
+        high_risk_stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy
     }
-    for (const Stock &stock: midRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(midRiskFundsPerShare / stock.getPrice()));
-    }
-    for (const Stock &stock: highRiskStocks) {
-        portfolio.emplace(stock.getName(), static_cast<int>(highRiskFundsPerShare / stock.getPrice()));
-    }
+    portfolio.merge(purchaseStocks(total_funds, total_funds, high_risk_stocks_copy));
 
     return portfolio;
 }

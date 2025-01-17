@@ -96,39 +96,77 @@ Collaboration diagram for Stock:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStock__coll__graph.png" border="0" usemap="#aStock_coll__map" alt="Collaboration graph"/></div>
 <map name="aStock_coll__map" id="aStock_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,168,200"/>
+<area shape="rect" title=" " alt="" coords="5,5,179,361"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2cd65ae8e9dc9a648e02a400d7dbac78"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a2cd65ae8e9dc9a648e02a400d7dbac78">Stock</a> (double <a class="el" href="classStock.html#a9bcbba2919328a7cf0a266212e2ae437">Price</a>, double <a class="el" href="classStock.html#a115170ad5fe62683b079863145f7ab0d">expectedReturn</a>, double <a class="el" href="classStock.html#a6355d6afdff0177fee65decea2698b6e">variance</a>, double <a class="el" href="classStock.html#a9434736f099b6df72ea450e0c1fca5c1">priceChange</a>)</td></tr>
-<tr class="separator:a2cd65ae8e9dc9a648e02a400d7dbac78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a536dcb997b181717e450f42ceafd2a22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a536dcb997b181717e450f42ceafd2a22">Stock</a> (std::string <a class="el" href="classStock.html#a8b79c44538a5f8845a17e537798719e4">name</a>, double <a class="el" href="classStock.html#a61137326975b96efd8d08eb473ae9386">price</a>, double <a class="el" href="classStock.html#a115170ad5fe62683b079863145f7ab0d">expectedReturn</a>, double <a class="el" href="classStock.html#afae3cffac38917aff3097cd1f28e35af">standardDev</a>, double <a class="el" href="classStock.html#afccd850daa9ecabfac3bfdce1be0a82d">availableStocks</a>=1e9)</td></tr>
+<tr class="separator:a536dcb997b181717e450f42ceafd2a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adddc4282213b3174a4299cca5a30117c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#adddc4282213b3174a4299cca5a30117c">Stock</a> ()</td></tr>
+<tr class="separator:adddc4282213b3174a4299cca5a30117c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ae326fbde0889e50711c2ff7be3c8e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a5ae326fbde0889e50711c2ff7be3c8e6">getPrice</a> () const</td></tr>
 <tr class="separator:a5ae326fbde0889e50711c2ff7be3c8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6398c2105d9ff64871c83a1e8934e8a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#ac6398c2105d9ff64871c83a1e8934e8a">getVariance</a> () const</td></tr>
-<tr class="separator:ac6398c2105d9ff64871c83a1e8934e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0669505a338c33f63d1dbd7b3a88a52"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#ac0669505a338c33f63d1dbd7b3a88a52">getExpectedReturn</a> () const</td></tr>
+<tr class="separator:ac0669505a338c33f63d1dbd7b3a88a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca0eaf97c40b632ce055f84493695219"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aca0eaf97c40b632ce055f84493695219">getStandardDev</a> () const noexcept</td></tr>
+<tr class="separator:aca0eaf97c40b632ce055f84493695219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3fd770d4a41d9940bc844355ae291be"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#ae3fd770d4a41d9940bc844355ae291be">getName</a> () const</td></tr>
 <tr class="separator:ae3fd770d4a41d9940bc844355ae291be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa128029726468cb9593995198fd5f9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a1fa128029726468cb9593995198fd5f9">simulateBehavior</a> ()</td></tr>
-<tr class="separator:a1fa128029726468cb9593995198fd5f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed823cd8f85ad26fca64e54809eeb95b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aed823cd8f85ad26fca64e54809eeb95b">getPriceTimeSeries</a> () const</td></tr>
+<tr class="separator:aed823cd8f85ad26fca64e54809eeb95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89a824e919b228f3e798db28cfd4c402"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a89a824e919b228f3e798db28cfd4c402">getSellExecuted</a> () const</td></tr>
+<tr class="separator:a89a824e919b228f3e798db28cfd4c402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d21ec60534f42fd47618bd38335c789"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a9d21ec60534f42fd47618bd38335c789">getBuyExecuted</a> () const</td></tr>
+<tr class="separator:a9d21ec60534f42fd47618bd38335c789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68a29c5b8cca67eaaa6ef4bb40cefa64"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a68a29c5b8cca67eaaa6ef4bb40cefa64">getOrderVolume</a> () const noexcept</td></tr>
+<tr class="separator:a68a29c5b8cca67eaaa6ef4bb40cefa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76e8f403b3137860e64857842f7a392d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a76e8f403b3137860e64857842f7a392d">saveCurrentPrice</a> (double <a class="el" href="classStock.html#a61137326975b96efd8d08eb473ae9386">price</a>)</td></tr>
+<tr class="separator:a76e8f403b3137860e64857842f7a392d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5518d598b47d4892b84aa5c82278c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aaf5518d598b47d4892b84aa5c82278c5">setPrice</a> (double <a class="el" href="classStock.html#a61137326975b96efd8d08eb473ae9386">price</a>)</td></tr>
+<tr class="separator:aaf5518d598b47d4892b84aa5c82278c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d3cb7065fefa726befea8078191c72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a84d3cb7065fefa726befea8078191c72">setExpectedReturn</a> (double <a class="el" href="classStock.html#a115170ad5fe62683b079863145f7ab0d">expectedReturn</a>)</td></tr>
+<tr class="separator:a84d3cb7065fefa726befea8078191c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12feefabe1ccadfdf3f6d1e8314b080e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a12feefabe1ccadfdf3f6d1e8314b080e">setStandardDev</a> (double <a class="el" href="classStock.html#afae3cffac38917aff3097cd1f28e35af">standardDev</a>)</td></tr>
+<tr class="separator:a12feefabe1ccadfdf3f6d1e8314b080e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeed5c0e4595b4d0744c5ece50879a753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aeed5c0e4595b4d0744c5ece50879a753">setName</a> (std::string_view <a class="el" href="classStock.html#a8b79c44538a5f8845a17e537798719e4">name</a>)</td></tr>
+<tr class="separator:aeed5c0e4595b4d0744c5ece50879a753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4e9d36c439910251458f20f3c16526"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a0a4e9d36c439910251458f20f3c16526">setSellExecuted</a> (bool state)</td></tr>
+<tr class="separator:a0a4e9d36c439910251458f20f3c16526"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad56ef78995ebd4444a3e024547b94d63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#ad56ef78995ebd4444a3e024547b94d63">setBuyExecuted</a> (bool state)</td></tr>
+<tr class="separator:ad56ef78995ebd4444a3e024547b94d63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed94b9de9287081bc36c1de614d9b62c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aed94b9de9287081bc36c1de614d9b62c">setOrderVolume</a> (double <a class="el" href="classStock.html#aad6a043d796b0e742e44eba0c220d5cb">orderVolume</a>)</td></tr>
+<tr class="separator:aed94b9de9287081bc36c1de614d9b62c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e76346b67f99c59aba64fbaa5b15d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a5e76346b67f99c59aba64fbaa5b15d62">updatePrice</a> (const double &amp;timeStep, std::default_random_engine &amp;generator)</td></tr>
+<tr class="separator:a5e76346b67f99c59aba64fbaa5b15d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a9bcbba2919328a7cf0a266212e2ae437"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a9bcbba2919328a7cf0a266212e2ae437">Price</a></td></tr>
-<tr class="separator:a9bcbba2919328a7cf0a266212e2ae437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a115170ad5fe62683b079863145f7ab0d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a115170ad5fe62683b079863145f7ab0d">expectedReturn</a></td></tr>
-<tr class="separator:a115170ad5fe62683b079863145f7ab0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6355d6afdff0177fee65decea2698b6e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a6355d6afdff0177fee65decea2698b6e">variance</a></td></tr>
-<tr class="separator:a6355d6afdff0177fee65decea2698b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9434736f099b6df72ea450e0c1fca5c1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a9434736f099b6df72ea450e0c1fca5c1">priceChange</a></td></tr>
-<tr class="separator:a9434736f099b6df72ea450e0c1fca5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b79c44538a5f8845a17e537798719e4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a8b79c44538a5f8845a17e537798719e4">name</a></td></tr>
 <tr class="separator:a8b79c44538a5f8845a17e537798719e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61137326975b96efd8d08eb473ae9386"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a61137326975b96efd8d08eb473ae9386">price</a></td></tr>
+<tr class="separator:a61137326975b96efd8d08eb473ae9386"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115170ad5fe62683b079863145f7ab0d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a115170ad5fe62683b079863145f7ab0d">expectedReturn</a></td></tr>
+<tr class="separator:a115170ad5fe62683b079863145f7ab0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae3cffac38917aff3097cd1f28e35af"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#afae3cffac38917aff3097cd1f28e35af">standardDev</a></td></tr>
+<tr class="separator:afae3cffac38917aff3097cd1f28e35af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e6a1f9422f13b9e42501b48d40a1a04"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a7e6a1f9422f13b9e42501b48d40a1a04">priceTimeSeries</a></td></tr>
+<tr class="separator:a7e6a1f9422f13b9e42501b48d40a1a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afccd850daa9ecabfac3bfdce1be0a82d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#afccd850daa9ecabfac3bfdce1be0a82d">availableStocks</a></td></tr>
+<tr class="separator:afccd850daa9ecabfac3bfdce1be0a82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af63be3e4839a7795c424861bf5c53f81"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#af63be3e4839a7795c424861bf5c53f81">marketCap</a></td></tr>
+<tr class="separator:af63be3e4839a7795c424861bf5c53f81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a9e2cec345329b56e5cea0c935f1d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#a05a9e2cec345329b56e5cea0c935f1d2">sellExecuted</a></td></tr>
+<tr class="separator:a05a9e2cec345329b56e5cea0c935f1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecd2973a84b75099156b1637ac03ab4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aecd2973a84b75099156b1637ac03ab4e">buyExecuted</a></td></tr>
+<tr class="separator:aecd2973a84b75099156b1637ac03ab4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6a043d796b0e742e44eba0c220d5cb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStock.html#aad6a043d796b0e742e44eba0c220d5cb">orderVolume</a></td></tr>
+<tr class="separator:aad6a043d796b0e742e44eba0c220d5cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2cd65ae8e9dc9a648e02a400d7dbac78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cd65ae8e9dc9a648e02a400d7dbac78">&#9670;&nbsp;</a></span>Stock()</h2>
+<a id="a536dcb997b181717e450f42ceafd2a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536dcb997b181717e450f42ceafd2a22">&#9670;&nbsp;</a></span>Stock() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,8 +174,14 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">Stock::Stock </td>
           <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>Price</em>, </td>
+          <td class="paramname"><em>price</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -149,13 +193,13 @@ Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>variance</em>, </td>
+          <td class="paramname"><em>standardDev</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>priceChange</em>&#160;</td>
+          <td class="paramname"><em>availableStocks</em> = <code>1e9</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -167,7 +211,58 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="adddc4282213b3174a4299cca5a30117c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adddc4282213b3174a4299cca5a30117c">&#9670;&nbsp;</a></span>Stock() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Stock::Stock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9d21ec60534f42fd47618bd38335c789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d21ec60534f42fd47618bd38335c789">&#9670;&nbsp;</a></span>getBuyExecuted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Stock::getBuyExecuted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0669505a338c33f63d1dbd7b3a88a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0669505a338c33f63d1dbd7b3a88a52">&#9670;&nbsp;</a></span>getExpectedReturn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::getExpectedReturn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae3fd770d4a41d9940bc844355ae291be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3fd770d4a41d9940bc844355ae291be">&#9670;&nbsp;</a></span>getName()</h2>
 
@@ -181,6 +276,31 @@ Private Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68a29c5b8cca67eaaa6ef4bb40cefa64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68a29c5b8cca67eaaa6ef4bb40cefa64">&#9670;&nbsp;</a></span>getOrderVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::getOrderVolume </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -202,14 +322,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ac6398c2105d9ff64871c83a1e8934e8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6398c2105d9ff64871c83a1e8934e8a">&#9670;&nbsp;</a></span>getVariance()</h2>
+<a id="aed823cd8f85ad26fca64e54809eeb95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed823cd8f85ad26fca64e54809eeb95b">&#9670;&nbsp;</a></span>getPriceTimeSeries()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double Stock::getVariance </td>
+          <td class="memname">std::vector&lt;double&gt; Stock::getPriceTimeSeries </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -219,16 +339,59 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a1fa128029726468cb9593995198fd5f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa128029726468cb9593995198fd5f9">&#9670;&nbsp;</a></span>simulateBehavior()</h2>
+<a id="a89a824e919b228f3e798db28cfd4c402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a824e919b228f3e798db28cfd4c402">&#9670;&nbsp;</a></span>getSellExecuted()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double Stock::simulateBehavior </td>
+          <td class="memname">bool Stock::getSellExecuted </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca0eaf97c40b632ce055f84493695219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca0eaf97c40b632ce055f84493695219">&#9670;&nbsp;</a></span>getStandardDev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::getStandardDev </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76e8f403b3137860e64857842f7a392d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e8f403b3137860e64857842f7a392d">&#9670;&nbsp;</a></span>saveCurrentPrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::saveCurrentPrice </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>price</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -236,7 +399,205 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad56ef78995ebd4444a3e024547b94d63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad56ef78995ebd4444a3e024547b94d63">&#9670;&nbsp;</a></span>setBuyExecuted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setBuyExecuted </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84d3cb7065fefa726befea8078191c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d3cb7065fefa726befea8078191c72">&#9670;&nbsp;</a></span>setExpectedReturn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setExpectedReturn </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>expectedReturn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeed5c0e4595b4d0744c5ece50879a753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeed5c0e4595b4d0744c5ece50879a753">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setName </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed94b9de9287081bc36c1de614d9b62c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed94b9de9287081bc36c1de614d9b62c">&#9670;&nbsp;</a></span>setOrderVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setOrderVolume </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>orderVolume</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf5518d598b47d4892b84aa5c82278c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf5518d598b47d4892b84aa5c82278c5">&#9670;&nbsp;</a></span>setPrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setPrice </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>price</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a4e9d36c439910251458f20f3c16526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4e9d36c439910251458f20f3c16526">&#9670;&nbsp;</a></span>setSellExecuted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setSellExecuted </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a12feefabe1ccadfdf3f6d1e8314b080e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12feefabe1ccadfdf3f6d1e8314b080e">&#9670;&nbsp;</a></span>setStandardDev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::setStandardDev </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>standardDev</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5e76346b67f99c59aba64fbaa5b15d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e76346b67f99c59aba64fbaa5b15d62">&#9670;&nbsp;</a></span>updatePrice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Stock::updatePrice </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramname"><em>timeStep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::default_random_engine &amp;&#160;</td>
+          <td class="paramname"><em>generator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="afccd850daa9ecabfac3bfdce1be0a82d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afccd850daa9ecabfac3bfdce1be0a82d">&#9670;&nbsp;</a></span>availableStocks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::availableStocks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecd2973a84b75099156b1637ac03ab4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecd2973a84b75099156b1637ac03ab4e">&#9670;&nbsp;</a></span>buyExecuted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Stock::buyExecuted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a115170ad5fe62683b079863145f7ab0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a115170ad5fe62683b079863145f7ab0d">&#9670;&nbsp;</a></span>expectedReturn</h2>
 
@@ -248,6 +609,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">double Stock::expectedReturn</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af63be3e4839a7795c424861bf5c53f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af63be3e4839a7795c424861bf5c53f81">&#9670;&nbsp;</a></span>marketCap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::marketCap</td>
         </tr>
       </table>
   </td>
@@ -281,8 +664,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9bcbba2919328a7cf0a266212e2ae437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bcbba2919328a7cf0a266212e2ae437">&#9670;&nbsp;</a></span>Price</h2>
+<a id="aad6a043d796b0e742e44eba0c220d5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad6a043d796b0e742e44eba0c220d5cb">&#9670;&nbsp;</a></span>orderVolume</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,7 +674,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Stock::Price</td>
+          <td class="memname">double Stock::orderVolume</td>
         </tr>
       </table>
   </td>
@@ -303,8 +686,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9434736f099b6df72ea450e0c1fca5c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9434736f099b6df72ea450e0c1fca5c1">&#9670;&nbsp;</a></span>priceChange</h2>
+<a id="a61137326975b96efd8d08eb473ae9386"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61137326975b96efd8d08eb473ae9386">&#9670;&nbsp;</a></span>price</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +696,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Stock::priceChange</td>
+          <td class="memname">double Stock::price</td>
         </tr>
       </table>
   </td>
@@ -325,8 +708,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6355d6afdff0177fee65decea2698b6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6355d6afdff0177fee65decea2698b6e">&#9670;&nbsp;</a></span>variance</h2>
+<a id="a7e6a1f9422f13b9e42501b48d40a1a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e6a1f9422f13b9e42501b48d40a1a04">&#9670;&nbsp;</a></span>priceTimeSeries</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,7 +718,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Stock::variance</td>
+          <td class="memname">std::vector&lt;double&gt; Stock::priceTimeSeries</td>
         </tr>
       </table>
   </td>
@@ -347,9 +730,52 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="a05a9e2cec345329b56e5cea0c935f1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a9e2cec345329b56e5cea0c935f1d2">&#9670;&nbsp;</a></span>sellExecuted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Stock::sellExecuted</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afae3cffac38917aff3097cd1f28e35af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae3cffac38917aff3097cd1f28e35af">&#9670;&nbsp;</a></span>standardDev</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Stock::standardDev</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="Stock_8h_source.html">Stock.h</a></li>
-<li><a class="el" href="Stock_8cpp.html">Stock.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

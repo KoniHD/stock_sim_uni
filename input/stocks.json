@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Google",
+        "initial_price": 100.0,
+        "expected_return": 0.04,
+        "standard_dev": 0.05
+    },
+    {
+        "name": "Amazon",
+        "initial_price": 200.0,
+        "expected_return": 0.045,
+        "standard_dev": 0.07
+    },
+    {
+        "name": "Tesla",
+        "initial_price": 300.0,
+        "expected_return": 0.055,
+        "standard_dev": 0.1
+    },
+    {
+        "name": "Volkswagen",
+        "initial_price": 500.0,
+        "expected_return": 0.09,
+        "standard_dev": 0.2
+    },
+    {
+        "name": "Adidas",
+        "initial_price": 40.0,
+        "expected_return": 0.1,
+        "standard_dev": 0.25
+    },
+    {
+        "name": "Apple",
+        "initial_price": 320.0,
+        "expected_return": 0.055,
+        "standard_dev": 0.13
+    },
+    {
+        "name": "Hellofresh",
+        "initial_price": 80.0,
+        "expected_return": 0.065,
+        "standard_dev": 0.12
+    },
+    {
+        "name": "Disney",
+        "initial_price": 150.0,
+        "expected_return": 0.07,
+        "standard_dev": 0.14
+    },
+    {
+        "name": "Airbus",
+        "initial_price": 700.0,
+        "expected_return": 0.075,
+        "standard_dev": 0.16
+    },
+    {
+        "name": "Nestle",
+        "initial_price": 290.0,
+        "expected_return": 0.095,
+        "standard_dev": 0.22
+    }
+]

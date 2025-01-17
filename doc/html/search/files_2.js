@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['idea_2emd_66',['idea.md',['../idea_8md.html',1,'']]]
+  ['lowriskstrategy_2eh_86',['LowRiskStrategy.h',['../LowRiskStrategy_8h.html',1,'']]]
 ];

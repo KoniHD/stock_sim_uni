@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['operator_3d_30',['operator=',['../classStrategy.html#ab3261137d82ffea3614af2172dd3f91b',1,'Strategy::operator=(const Strategy &amp;other)=default'],['../classStrategy.html#af63c9d0d5cf225c708deab895f91f695',1,'Strategy::operator=(Strategy &amp;&amp;move) noexcept=default']]]
+  ['marketcap_42',['marketCap',['../classStock.html#af63be3e4839a7795c424861bf5c53f81',1,'Stock']]],
+  ['mid_5frisk_5fstock_43',['MID_RISK_STOCK',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca859ed2b6cfe884a14bbafe5edabf9f86',1,'Strategy.h']]]
 ];

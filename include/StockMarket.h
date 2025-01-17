@@ -2,6 +2,7 @@
 #define STOCKMARKET_H
 
 
+#include "json.hpp"
 #include "Stock.h"
 
 #include <string>
@@ -10,23 +11,37 @@
 #include <vector>
 
 
+using json = nlohmann::json;
+
 class StockMarket {
-    float timeStep; // timestep = 1.0 is equivalent to yearly steps; timestep = 1.0/12.0 is equivalent to monthly steps
-    int simulationLength;
-    std::unordered_map<std::string, Stock> stocks; // Map of stock names to Stock objects
+    double _time_step;
+    unsigned _simulation_length;
+    std::unordered_map<std::string, Stock> _stocks;
 
 public:
-    StockMarket() = default;
-    StockMarket(float timeStep, int simulationLength);
+    StockMarket() = delete;
+    StockMarket(double timeStep, unsigned simulationLength, const std::string &jsonFilePath);
 
-    std::vector<Stock>
-    getStocks() const; // Retrieve all stocks in the market .getStocks() returns a list of all stocks in the market.
-    double
-    getStockPrice(std::string_view stockName) const; // getStockPrice() retrieves the price of a stock by its name.
 
-    void simulateMarket(); // simulateMarket() performs the simulation of stock prices over time using a stochastic
-                           // model, here a Geometric Brownian Motion
-    void printPerformance();
+    Stock &getStock(std::string_view);
+    std::vector<const Stock *> getStocks() const;
+
+    double getStockPrice(std::string_view stockName) const noexcept;
+
+    void setSimulationLength(unsigned new_simulation_length) noexcept;
+
+    /**
+     * @brief Update prices iteratively for the given simulation length.
+     *
+     * The method generates the price series for all stocks in the stock market by iterating over the given simulation
+     * length and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the
+     * attributes OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding
+     * stock are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those
+     * values are being reset again.
+     */
+    void simulateMarket();
+    void outputPerformance();
+    void validateStockData(const json &stockEntry);
 };
 
 

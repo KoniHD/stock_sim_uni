@@ -11,7 +11,7 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 
 # require C++20, don't allow falling back to older version of standard
-set(CXX_STANDARD_REQUIRED OFF)
+set(CXX_STANDARD_REQUIRED ON)
 
 # disable C++ extensions
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -38,6 +38,9 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 endif()
 
+# Create output dir for saving stockmarket results
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
+
 set(EXECUTABLE_NAME "stockmarket")
 
 add_executable(${EXECUTABLE_NAME}
@@ -45,16 +48,18 @@ add_executable(${EXECUTABLE_NAME}
 )
 
 
-target_include_directories(${EXECUTABLE_NAME} PUBLIC 
-                "include"
+target_include_directories(${EXECUTABLE_NAME}
+    PUBLIC 
+        "include"
 )
 
-target_sources(${EXECUTABLE_NAME} PUBLIC
-                src/HighRiskStrategy.cpp
-                src/LowRiskStrategy.cpp
-                src/Stock.cpp
-                src/StockMarket.cpp
-                src/Strategy.cpp
-                src/Wallet.cpp
-                
+target_sources(${EXECUTABLE_NAME}
+    PUBLIC
+        src/HighRiskStrategy.cpp
+        src/LowRiskStrategy.cpp
+        src/Stock.cpp
+        src/StockMarket.cpp
+        src/Strategy.cpp
+        src/Wallet.cpp
+        
 )
