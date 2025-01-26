@@ -4,7 +4,10 @@ project("Stockmarket Simulation")
 
 # try to prevent in-source builds
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
-    message(FATAL_ERROR "In-source builds are not allowed. Please create a separate 'build' directory and build in there.")
+  message(
+    FATAL_ERROR
+      "In-source builds are not allowed. Please create a separate 'build' directory and build in there."
+  )
 endif()
 
 # set default c++ standard for compile targets
@@ -41,25 +44,27 @@ endif()
 # Create output dir for saving stockmarket results
 file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
 
-set(EXECUTABLE_NAME "stockmarket")
+# Add executable target
+add_executable(stockmarket src/client.cpp)
 
-add_executable(${EXECUTABLE_NAME}
-    src/client.cpp
+set(SRC_DIR 
+    src/HighRiskStrategy.cpp 
+    src/LowRiskStrategy.cpp 
+    src/Stock.cpp
+    src/StockMarket.cpp
+    src/Strategy.cpp 
+    src/Wallet.cpp
 )
 
+target_include_directories(stockmarket PUBLIC "include")
 
-target_include_directories(${EXECUTABLE_NAME}
-    PUBLIC 
-        "include"
-)
+target_sources(stockmarket PUBLIC ${SRC_DIR})
 
-target_sources(${EXECUTABLE_NAME}
-    PUBLIC
-        src/HighRiskStrategy.cpp
-        src/LowRiskStrategy.cpp
-        src/Stock.cpp
-        src/StockMarket.cpp
-        src/Strategy.cpp
-        src/Wallet.cpp
-        
-)
+# Add profiling target
+add_executable(profiling tests/profiling.cpp)
+
+target_include_directories(profiling PUBLIC "include")
+
+target_sources(profiling PUBLIC ${SRC_DIR})
+
+target_compile_options(profiling PRIVATE -pg)
