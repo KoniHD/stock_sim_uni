@@ -57,7 +57,8 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
     }
 
 
-    // Prioritize low-risk stocks with remaining funds
+    // Buy stocks in order to invest all funds possible
+    // Prioritize high-risk stocks with remaining funds
     std::vector<Stock> high_risk_stocks_copy;
     for (const Stock *stock_ptr: grouped_stocks.at(StockRisk::HIGH_RISK_STOCK)) {
         high_risk_stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy
