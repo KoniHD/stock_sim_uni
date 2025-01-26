@@ -63,9 +63,9 @@ int main()
 
     size_t i{0};
     for (const Wallet &wallet: wallets) {
-        std::cout << std::endl
-                  << "-Stats for wallet No." << std::to_string(++i) << " :" << wallet.getPortfolioValue()
-                  << wallet.getFunds() << std::endl;
+        std::cout << std::endl << "-Stats for wallet No." << std::to_string(++i) << " :" << std::endl;
+        wallet.getPortfolioValue();
+        wallet.getFunds();
     }
 
     market->outputPerformance();

@@ -40,13 +40,13 @@ auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMa
     // Create a portfolio
     std::unordered_map<std::string, unsigned> portfolio;
 
-    for (std::size_t i = 0; i < grouped_stocks.size(); ++i) {
-        if (!grouped_stocks[i].empty()) {
-            double partial_funds = total_funds * weights[i];
+    for (size_t i = 0; i < grouped_stocks.size(); ++i) {
+        if (!grouped_stocks.at(i).empty()) {
+            double partial_funds = total_funds * weights.at(i);
 
             // Create a copy of the stocks from pointers
             std::vector<Stock> stocks_copy;
-            for (const Stock *stock_ptr: grouped_stocks[i]) {
+            for (const Stock *stock_ptr: grouped_stocks.at(i)) {
                 stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy
             }
 

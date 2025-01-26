@@ -10,6 +10,12 @@
 #include <vector>
 
 // Constructor
+Stock::Stock() :
+    price{0.0},
+    expectedReturn{0.0},
+    standardDev{0.0}
+{}
+
 Stock::Stock(std::string name, double price, double expectedReturn, double standardDev, double availableStocks) :
     name{std::move(name)},
     price{price},
