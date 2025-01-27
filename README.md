@@ -118,6 +118,10 @@ python3 src/plot_price_history.py
     - If an order is excecuted, the relation between the order volume and the available stocks is used to weigh the temporal impact on the statistical parameters 
 - Simulation is implemented with monthly simulation time steps
 
+## Sprint 3
+
+::include{file=performance.md}
+
 ## Final remarks
 
 - We used GCC Version 13.2 for successful compilation but any compiler supporting C++20 should work.
