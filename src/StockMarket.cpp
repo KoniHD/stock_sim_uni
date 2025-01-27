@@ -52,6 +52,19 @@ StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::
     }
 
     jsonFile.close();
+
+    // Write header row to output file and delete previous contents
+    std::ofstream out_file("../output/market_performance.csv", std::ios_base::trunc);
+    if (not out_file.is_open()) {
+        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
+        return;
+    }
+    for (const auto &[name, stock]: _stocks) {
+        out_file << name << ",";
+    }
+    out_file.seekp(-1, std::ios_base::cur);
+    out_file << "\n";
+    out_file.close();
 }
 
 void StockMarket::validateStockData(const json &stockEntry)
@@ -108,6 +121,12 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
 
 void StockMarket::simulateMarket()
 {
+    std::ofstream out_file("../output/market_performance.csv", std::ios_base::app);
+    if (not out_file.is_open()) {
+        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
+        return;
+    }
+
     std::default_random_engine generator(std::random_device{}());
     for (unsigned time_step = 0; time_step < _simulation_length; ++time_step) {
         for (auto &[name, stock]: _stocks) {
@@ -117,10 +136,17 @@ void StockMarket::simulateMarket()
                 stock.setSellExecuted(false);
             }
             stock.updatePrice(_time_step, generator);
+            // TODO write new price to file.
         }
+        // Delete the last comma and add a newline after each timestep
+        out_file.seekp(-1, std::ios_base::cur);
+        out_file << "\n";
     }
+
+    out_file.close();
 }
 
+// FIXME This method should be obsolete after the update of the simulateMarket method.
 void StockMarket::outputPerformance()
 {
     std::ofstream out_file("../output/market_performance.csv");
