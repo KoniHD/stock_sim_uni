@@ -120,7 +120,7 @@ python3 src/plot_price_history.py
 
 ## Sprint 3
 
-::include{file=performance.md}
+::include{file=Performance.md}
 
 ## Final remarks
 
