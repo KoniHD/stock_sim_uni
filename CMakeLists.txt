@@ -67,4 +67,8 @@ target_include_directories(profiling PUBLIC "include")
 
 target_sources(profiling PUBLIC ${SRC_DIR})
 
-target_compile_options(profiling PRIVATE -pg)
+target_compile_options(profiling
+    PRIVATE
+        -pg
+        # -O3 # uncomment this line to enable optimizations
+)
