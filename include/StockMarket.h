@@ -11,13 +11,14 @@
 #include <vector>
 
 
-
 using json = nlohmann::json;
 
 class StockMarket {
     double _time_step;
     unsigned _simulation_length;
     std::unordered_map<std::string, Stock> _stocks;
+
+    void validateStockData(const json &stockEntry);
 
 public:
     StockMarket() = delete;
@@ -41,8 +42,6 @@ public:
      * values are being reset again.
      */
     void simulateMarket();
-    void outputPerformance();
-    void validateStockData(const json &stockEntry);
 };
 
 
