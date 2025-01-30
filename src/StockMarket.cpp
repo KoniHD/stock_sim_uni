@@ -65,7 +65,7 @@ StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::
     out_file.seekp(-1, std::ios_base::cur);
     out_file << "\n";
 
-    for (const auto &[name, stock] : _stocks) {
+    for (const auto &[name, stock]: _stocks) {
         out_file << stock.getPrice() << ",";
     }
     out_file.seekp(-1, std::ios_base::cur);
@@ -126,10 +126,10 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
     return 0.0;
 }
 
-
 void StockMarket::simulateMarket()
 {
-    std::ofstream out_file("../output/market_performance.csv", std::ios_base::app);
+    std::ofstream out_file("../output/market_performance.csv",
+                           std::ios_base::in | std::ios_base::out | std::ios_base::ate);
     if (!out_file.is_open()) {
         std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
         return;
@@ -138,7 +138,7 @@ void StockMarket::simulateMarket()
     std::default_random_engine generator(std::random_device{}());
 
     for (unsigned time_step = 0; time_step < _simulation_length; ++time_step) {
-        for (auto &[name, stock] : _stocks) {
+        for (auto &[name, stock]: _stocks) {
             if (time_step == 1) {
                 stock.setOrderVolume(0.0);
                 stock.setBuyExecuted(false);

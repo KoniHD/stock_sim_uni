@@ -68,7 +68,5 @@ int main()
         wallet.getFunds();
     }
 
-    market->outputPerformance();
-
     return 0;
 }

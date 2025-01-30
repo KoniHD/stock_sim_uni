@@ -11,6 +11,7 @@
 #include <vector>
 
 
+
 using json = nlohmann::json;
 
 class StockMarket {
