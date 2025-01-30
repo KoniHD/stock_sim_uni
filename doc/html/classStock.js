@@ -1,16 +1,14 @@
 var classStock =
 [
-    [ "Stock", "classStock.html#a536dcb997b181717e450f42ceafd2a22", null ],
     [ "Stock", "classStock.html#adddc4282213b3174a4299cca5a30117c", null ],
+    [ "Stock", "classStock.html#a536dcb997b181717e450f42ceafd2a22", null ],
     [ "getBuyExecuted", "classStock.html#a9d21ec60534f42fd47618bd38335c789", null ],
     [ "getExpectedReturn", "classStock.html#ac0669505a338c33f63d1dbd7b3a88a52", null ],
     [ "getName", "classStock.html#ae3fd770d4a41d9940bc844355ae291be", null ],
     [ "getOrderVolume", "classStock.html#a68a29c5b8cca67eaaa6ef4bb40cefa64", null ],
     [ "getPrice", "classStock.html#a5ae326fbde0889e50711c2ff7be3c8e6", null ],
-    [ "getPriceTimeSeries", "classStock.html#aed823cd8f85ad26fca64e54809eeb95b", null ],
     [ "getSellExecuted", "classStock.html#a89a824e919b228f3e798db28cfd4c402", null ],
     [ "getStandardDev", "classStock.html#aca0eaf97c40b632ce055f84493695219", null ],
-    [ "saveCurrentPrice", "classStock.html#a76e8f403b3137860e64857842f7a392d", null ],
     [ "setBuyExecuted", "classStock.html#ad56ef78995ebd4444a3e024547b94d63", null ],
     [ "setExpectedReturn", "classStock.html#a84d3cb7065fefa726befea8078191c72", null ],
     [ "setName", "classStock.html#aeed5c0e4595b4d0744c5ece50879a753", null ],
@@ -26,7 +24,6 @@ var classStock =
     [ "name", "classStock.html#a8b79c44538a5f8845a17e537798719e4", null ],
     [ "orderVolume", "classStock.html#aad6a043d796b0e742e44eba0c220d5cb", null ],
     [ "price", "classStock.html#a61137326975b96efd8d08eb473ae9386", null ],
-    [ "priceTimeSeries", "classStock.html#a7e6a1f9422f13b9e42501b48d40a1a04", null ],
     [ "sellExecuted", "classStock.html#a05a9e2cec345329b56e5cea0c935f1d2", null ],
     [ "standardDev", "classStock.html#afae3cffac38917aff3097cd1f28e35af", null ]
 ];

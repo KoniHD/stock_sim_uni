@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lowriskstrategy_79',['LowRiskStrategy',['../classLowRiskStrategy.html',1,'']]]
+  ['lowriskstrategy_77',['LowRiskStrategy',['../classLowRiskStrategy.html',1,'']]]
 ];
