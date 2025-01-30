@@ -21,7 +21,6 @@ Stock::Stock(std::string name, double price, double expectedReturn, double stand
     price{price},
     expectedReturn{expectedReturn},
     standardDev{standardDev},
-    priceTimeSeries({price}),
     availableStocks{availableStocks},
     marketCap{availableStocks * price},
     sellExecuted{false},
@@ -47,8 +46,6 @@ double Stock::getStandardDev() const noexcept { return standardDev; }
 
 std::string_view Stock::getName() const { return name; }
 
-std::vector<double> Stock::getPriceTimeSeries() const { return priceTimeSeries; }
-
 bool Stock::getSellExecuted() const { return sellExecuted; }
 
 bool Stock::getBuyExecuted() const { return buyExecuted; }
@@ -56,7 +53,6 @@ bool Stock::getBuyExecuted() const { return buyExecuted; }
 double Stock::getOrderVolume() const noexcept { return orderVolume; }
 
 // Setters
-void Stock::saveCurrentPrice(double price) { priceTimeSeries.push_back(price); }
 
 void Stock::setPrice(double price) { this->price = price; }
 
@@ -108,5 +104,4 @@ void Stock::updatePrice(const double &timeStep, std::default_random_engine &gene
     price               = price + price * ((expectedReturn + tradeImpactExp) * timeStep +
                              randomNumber * standardDev * tradeImpactStandardDev * sqrt(timeStep));
     price               = std::max(price, 0.01);
-    priceTimeSeries.push_back(price);
 }

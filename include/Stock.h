@@ -12,7 +12,6 @@ class Stock {
     double price;
     double expectedReturn;
     double standardDev;
-    std::vector<double> priceTimeSeries;
     double availableStocks;
     double marketCap;
     bool sellExecuted;
@@ -29,13 +28,11 @@ public:
     double getExpectedReturn() const;
     [[nodiscard]] double getStandardDev() const noexcept;
     std::string_view getName() const;
-    std::vector<double> getPriceTimeSeries() const;
     bool getSellExecuted() const;
     bool getBuyExecuted() const;
     double getOrderVolume() const noexcept;
 
     // setters
-    void saveCurrentPrice(double price);
     void setPrice(double price);
     void setExpectedReturn(double expectedReturn);
     void setStandardDev(double standardDev);
