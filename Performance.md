@@ -100,4 +100,4 @@ However we believe that there is no improvement to this function anymore that is
 
 We achieved a performance improvement of **20.3 %** just by improving our methods.
 We don't see any other method with similar improvment potential except turning on compiler optimizations `-O3` which brings the runtime down to an average of *0.212s*.
-Feel free to test this by uncommenting the corresponding line in `CMakeLists.txt`
+Feel free to test this by uncommenting the corresponding line 73 in `CMakeLists.txt`
