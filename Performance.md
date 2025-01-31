@@ -17,6 +17,7 @@
 In order to profil the performance of the program a seperate executable is create: `tests/profiling.cpp`. The purpose of this seperate file is to stress-test all classes whithout requiring user input like the `src/client.cpp` file does, since that conflicts with profiling.
 Using CMake to create the executable it can be run from the build folder:
 ```bash
+./profiling
 gprof ./profiling
 ```
 If you want to examine the output we recommend piping the profiling into a .txt: `gprof ./profiling > ../output/profiling.txt`. \
@@ -57,7 +58,7 @@ The measurements are carried out with an i7-6700HQ @ 2.60 GHz and 16GB RAM. No e
 ./profiling  0,40s user 0,23s system 41% cpu 1,522 total
 ./profiling  0,43s user 0,23s system 45% cpu 1,471 total
 ```
-Average runtime: **43.4s**
+Average runtime: **0.434s**
 
 ### 2. Absolute time of `./profiling` after modification
 
@@ -69,9 +70,9 @@ Average runtime: **43.4s**
 ./profiling  0,35s user 0,10s system 50% cpu 0,894 total
 ```
 
-Average runtime: **34.6s**
+Average runtime: **0.346s**
 
-Improvements: **~8.8s**
+Improvements: ~0.088s equivalent to an improvement of **20.3 %**
 
 ### 3. Discussion of profiler output
 
@@ -96,6 +97,6 @@ However we believe that there is no improvement to this function anymore that is
 
 ## Summary Performance Improvement
 
-We achieved a performance improvement of **~8.8s** just by improving our methods.
-We don't see any other method with similar improvment potential except turning on compiler optimizations `-O3` which brings the runtime down to an average of *21.2s*.
+We achieved a performance improvement of **20.3 %** just by improving our methods.
+We don't see any other method with similar improvment potential except turning on compiler optimizations `-O3` which brings the runtime down to an average of *0.212s*.
 Feel free to test this by uncommenting the corresponding line in `CMakeLists.txt`

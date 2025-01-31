@@ -84,11 +84,9 @@ void Stock::updatePrice(const double &timeStep, std::default_random_engine &gene
     if (buyExecuted == true) {
         tradeImpactExp         = 100 * standardDev * orderVolume / availableStocks; // 100 is empirical value
         tradeImpactStandardDev = 150 * orderVolume / availableStocks; // 150 is empirical value
-        buyExecuted            = false;
     } else if (sellExecuted == true) {
         tradeImpactExp         = -100 * standardDev * orderVolume / availableStocks;
         tradeImpactStandardDev = 150 * orderVolume / availableStocks;
-        sellExecuted           = false;
     }
 
     double randomNumber = drawRandomNumber(generator);
