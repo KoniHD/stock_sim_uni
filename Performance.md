@@ -21,6 +21,7 @@ Using CMake to create the executable it can be run from the build folder:
 gprof ./profiling
 ```
 If you want to examine the output we recommend piping the profiling into a .txt: `gprof ./profiling > ../output/profiling.txt`. \
+The resulting .txt file can be found in the output directory afterwards.
 Additionally we also used the command `time ./profiling` to measure the execution time.
 
 ## Performance Improvements
