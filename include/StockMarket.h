@@ -18,6 +18,8 @@ class StockMarket {
     unsigned _simulation_length;
     std::unordered_map<std::string, Stock> _stocks;
 
+    void validateStockData(const json &stockEntry);
+
 public:
     StockMarket() = delete;
     StockMarket(double timeStep, unsigned simulationLength, const std::string &jsonFilePath);
@@ -40,8 +42,6 @@ public:
      * values are being reset again.
      */
     void simulateMarket();
-    void outputPerformance();
-    void validateStockData(const json &stockEntry);
 };
 
 

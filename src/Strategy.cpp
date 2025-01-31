@@ -9,7 +9,6 @@
 #include <cstddef>
 #include <string>
 #include <unordered_map>
-#include <utility>
 #include <vector>
 
 #define LOW_RISK_BOUND 0.1
@@ -28,8 +27,8 @@ StockRisk assessStockRisk(const Stock &stock) noexcept
     return HIGH_RISK_STOCK;
 }
 
-auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
-                              const std::vector<Stock> &stocks) noexcept -> std::unordered_map<std::string, unsigned>
+auto Strategy::purchaseStocks(double &total_funds, double partial_funds, const std::vector<Stock> &stocks) noexcept
+        -> std::unordered_map<std::string, unsigned>
 {
     if (stocks.empty())
         return {};
@@ -39,7 +38,7 @@ auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
 
     unsigned amount_of_stock{0};
     Stock cheapest_stock{"Not cheap", DBL_MAX, 0.0, 0.0, 0.0};
-    for (const Stock &stock : stocks) {
+    for (const Stock &stock: stocks) {
         double stock_price = stock.getPrice();
         if (stock_price < cheapest_stock.getPrice())
             cheapest_stock = stock;
@@ -56,13 +55,13 @@ auto Strategy::purchaseStocks(double &total_funds, double partial_funds,
     return portfolio;
 }
 
-auto Strategy::groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<const Stock*>, 3>
+auto Strategy::groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<const Stock *>, 3>
 {
-    std::array<std::vector<const Stock*>, 3> grouped_stocks;
+    std::array<std::vector<const Stock *>, 3> grouped_stocks;
 
     // Updated to work with pointers from market.getStocks()
-    const std::vector<const Stock*> stocks = market.getStocks();
-    for (const Stock *stock : stocks) {
+    const std::vector<const Stock *> stocks = market.getStocks();
+    for (const Stock *stock: stocks) {
         StockRisk risklevel{assessStockRisk(*stock)}; // Dereference pointer to access Stock
         grouped_stocks.at(risklevel).push_back(stock); // Add pointer to the appropriate group
     }

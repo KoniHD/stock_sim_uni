@@ -43,7 +43,7 @@ void Wallet::evaluateResults()
     _portfolio_value = total;
 }
 
-bool Wallet::buyStocks( Stock &stock, unsigned amount)
+bool Wallet::buyStocks(Stock &stock, unsigned amount)
 {
     double funds_needed = stock.getPrice() * amount;
     if (funds_needed > _cash_position) {
@@ -88,8 +88,8 @@ void Wallet::printWalletInfo() const
     }
 
     // Evaluating the portfolio performance relative to the initial funds.s
-    //double performance = (portfolio_value / _funds - 1.0) * 100.0;
-    double performance = ((portfolio_value + _cash_position) /( _funds + _added_cash) - 1.0) * 100.0;
+    // double performance = (portfolio_value / _funds - 1.0) * 100.0;
+    double performance = ((portfolio_value + _cash_position) / (_funds + _added_cash) - 1.0) * 100.0;
     std::cout << std::endl << "Total portfolio value in wallet is : " << portfolio_value;
     if (performance > 0.0) {
         std::cout << "$, up by " << std::round(performance * 100.0) / 100.0 << "%" << std::endl;

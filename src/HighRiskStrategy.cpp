@@ -40,13 +40,13 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
     // Create a portfolio
     std::unordered_map<std::string, unsigned> portfolio;
 
-    for (std::size_t i = 0; i < grouped_stocks.size(); ++i) {
-        if (!grouped_stocks[i].empty()) {
-            double partial_funds = total_funds * weights[i];
+    for (size_t i = 0; i < grouped_stocks.size(); ++i) {
+        if (!grouped_stocks.at(i).empty()) {
+            double partial_funds = total_funds * weights.at(i);
 
             // Copy or process stocks
             std::vector<Stock> stocks_copy;
-            for (const Stock *stock_ptr: grouped_stocks[i]) {
+            for (const Stock *stock_ptr: grouped_stocks.at(i)) {
                 stocks_copy.push_back(*stock_ptr); // Dereference pointer to copy Stock
             }
 
@@ -57,7 +57,8 @@ auto HighRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockM
     }
 
 
-    // Prioritize low-risk stocks with remaining funds
+    // Buy stocks in order to invest all funds possible
+    // Prioritize high-risk stocks with remaining funds
     std::vector<Stock> high_risk_stocks_copy;
     for (const Stock *stock_ptr: grouped_stocks.at(StockRisk::HIGH_RISK_STOCK)) {
         high_risk_stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy

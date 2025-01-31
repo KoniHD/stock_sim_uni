@@ -1,5 +1,19 @@
 # Group-07
 
+- [Group-07](#group-07)
+  - [Helpful for the project](#helpful-for-the-project)
+  - [Build and run the code](#build-and-run-the-code)
+    - [Option 1 (strongly recommended)](#option-1-strongly-recommended)
+    - [Option 2 Run CMake manually](#option-2-run-cmake-manually)
+    - [Option 3 Manual compile command (strongly discuraged)](#option-3-manual-compile-command-strongly-discuraged)
+    - [Plot simulation](#plot-simulation)
+  - [Remarks for implementation (mostly Sprint 1)](#remarks-for-implementation-mostly-sprint-1)
+  - [Details for Sprint 2](#details-for-sprint-2)
+  - [Sprint 3](#sprint-3)
+  - [Final remarks](#final-remarks)
+  - [Optional ideas (not implemented):](#optional-ideas-not-implemented)
+
+
 Our group project implements the [Stockmarket simulation idea](https://gitlab.lrz.de/tum-i05/public/advprog-project-ideas/-/tree/master/Trading-stock-market-simulation?ref_type=heads). The description can also be found again in [idea.md](https://gitlab.lrz.de/advprog2024/group-07/-/blob/sprint1/idea.md)
 
 ## Helpful for the project
@@ -13,9 +27,9 @@ group-07
 |----output     // directory for stocktimesteps (gets created at build)
 |----res        // miscelaneous resources: UML-class diagram
 |----src        // .cpp files -> actual code xD
-|----tests      // unfinished test directory
+|----tests      // test directory
 ```
--> Only `src` and `input` should be relevant for the review.
+-> Only `tests/profiling` should be relevant for the review.
 
 
 ## Build and run the code
@@ -117,6 +131,12 @@ python3 src/plot_price_history.py
     - Since small sales should hardly have an impact unlike large orders, the available amount of each stock was introduced
     - If an order is excecuted, the relation between the order volume and the available stocks is used to weigh the temporal impact on the statistical parameters 
 - Simulation is implemented with monthly simulation time steps
+
+## Sprint 3
+
+If the link below does not work as intented please have a look in `Performance.md` for the results of our sprint3!
+
+::include{file=Performance.md}
 
 ## Final remarks
 

@@ -52,6 +52,26 @@ StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::
     }
 
     jsonFile.close();
+
+    // Write header row and initial prices to output file and delete previous contents
+    std::ofstream out_file("../output/market_performance.csv", std::ios_base::trunc);
+    if (not out_file.is_open()) {
+        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
+        return;
+    }
+    for (const auto &[name, stock]: _stocks) {
+        out_file << name << ",";
+    }
+    out_file.seekp(-1, std::ios_base::cur);
+    out_file << "\n";
+
+    for (const auto &[name, stock]: _stocks) {
+        out_file << stock.getPrice() << ",";
+    }
+    out_file.seekp(-1, std::ios_base::cur);
+    out_file << "\n";
+
+    out_file.close();
 }
 
 void StockMarket::validateStockData(const json &stockEntry)
@@ -108,7 +128,15 @@ double StockMarket::getStockPrice(std::string_view stockName) const noexcept
 
 void StockMarket::simulateMarket()
 {
+    std::ofstream out_file("../output/market_performance.csv",
+                           std::ios_base::in | std::ios_base::out | std::ios_base::ate);
+    if (!out_file.is_open()) {
+        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
+        return;
+    }
+
     std::default_random_engine generator(std::random_device{}());
+
     for (unsigned time_step = 0; time_step < _simulation_length; ++time_step) {
         for (auto &[name, stock]: _stocks) {
             if (time_step == 1) {
@@ -116,39 +144,12 @@ void StockMarket::simulateMarket()
                 stock.setBuyExecuted(false);
                 stock.setSellExecuted(false);
             }
+
             stock.updatePrice(_time_step, generator);
+            out_file << stock.getPrice() << ",";
         }
-    }
-}
 
-void StockMarket::outputPerformance()
-{
-    std::ofstream out_file("../output/market_performance.csv");
-    if (not out_file.is_open()) {
-        std::cerr << "Failed to open output/ directory for .csv output file!" << std::endl;
-        return;
-    }
-
-    std::size_t max_sim_length = _stocks.begin()->second.getPriceTimeSeries().size();
-
-    std::vector<std::vector<double>> history(_stocks.size());
-
-    // Copy data into history & write header row
-    unsigned i{0};
-    for (const auto &[name, stock]: _stocks) {
-        history.at(i) = stock.getPriceTimeSeries();
-        ++i;
-
-        out_file << name << ",";
-    }
-    out_file.seekp(-1, std::ios_base::cur);
-    out_file << "\n";
-
-    // Write data into .csv
-    for (unsigned i{0}; i < max_sim_length; ++i) {
-        for (unsigned j{0}; j < _stocks.size(); ++j) {
-            out_file << history.at(j).at(i) << ",";
-        }
+        // Remove last comma and add newline
         out_file.seekp(-1, std::ios_base::cur);
         out_file << "\n";
     }

@@ -241,7 +241,6 @@ int main()
         std::cout << "You made a profit / loss of: " << wallet.getPortfolioValue() - wallet.getFunds() << std::endl;
     }
 
-    market->outputPerformance();
 
     std::cout << std::endl
               << "NOTE: Additionally an individual stock performance is saved in output/market_performance.csv"
