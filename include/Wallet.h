@@ -34,9 +34,9 @@ class Wallet {
     std::shared_ptr<StockMarket> _market;
 
     /**
-    * @brief This variable keeps track of the cash added during the simulation, such that it is considered in the
-    * performance calculation.
-    */
+     * @brief This variable keeps track of the cash added during the simulation, such that it is considered in the
+     * performance calculation.
+     */
     double _added_cash;
 
     /**
@@ -89,15 +89,15 @@ public:
     bool buyStocks(Stock &stock, unsigned amount);
 
     /**
-    * @brief Allow the user to sell a specified Stock.
-    * @param stock The Stock to sell
-    * @param amount The amount of @ref Stock "Stocks" to be sold
-    * @return Whether the selling was succesful.
-    *
-    * The method attempts to sell @ref Stock "Stocks" (specified by @p amount) and add the money to the
-    * @ref _cash_position. If there are not enough stocks in the wallet, an error is printed and
-    * no @ref Stock "Stocks" are sold.
-    */
+     * @brief Allow the user to sell a specified Stock.
+     * @param stock The Stock to sell
+     * @param amount The amount of @ref Stock "Stocks" to be sold
+     * @return Whether the selling was succesful.
+     *
+     * The method attempts to sell @ref Stock "Stocks" (specified by @p amount) and add the money to the
+     * @ref _cash_position. If there are not enough stocks in the wallet, an error is printed and
+     * no @ref Stock "Stocks" are sold.
+     */
     bool sellStocks(Stock &stock, unsigned amount);
 
 
@@ -118,11 +118,11 @@ public:
     void evaluateResults();
 
     /**
-    * @brief Add money to your cashposition
-    * @param new_cash The amount of cash that should be added to the wallet's cashposition
-    *
-    * This function allows you to add money to your cashposition during the simumlation.
-    */
+     * @brief Add money to your cashposition
+     * @param new_cash The amount of cash that should be added to the wallet's cashposition
+     *
+     * This function allows you to add money to your cashposition during the simumlation.
+     */
     void addToCashposition(double new_cash);
 };
 

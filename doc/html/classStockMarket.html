@@ -96,7 +96,7 @@ Collaboration diagram for StockMarket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classStockMarket__coll__graph.png" border="0" usemap="#aStockMarket_coll__map" alt="Collaboration graph"/></div>
 <map name="aStockMarket_coll__map" id="aStockMarket_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,177,215"/>
+<area shape="rect" title=" " alt="" coords="5,5,187,229"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -104,15 +104,18 @@ Collaboration diagram for StockMarket:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7ecdc095ff3c6b5576cfa7a543f69d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#af7ecdc095ff3c6b5576cfa7a543f69d5">StockMarket</a> ()=delete</td></tr>
 <tr class="separator:af7ecdc095ff3c6b5576cfa7a543f69d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a952cfac2812994cd4fae3bd12c8aada7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a952cfac2812994cd4fae3bd12c8aada7">StockMarket</a> (double timeStep, int simulationLength, const std::string &amp;jsonFilePath)</td></tr>
-<tr class="separator:a952cfac2812994cd4fae3bd12c8aada7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88cf765a310be21ac0f4d8c813b4989d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStock.html">Stock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a88cf765a310be21ac0f4d8c813b4989d">getStock</a> (std::string_view) noexcept</td></tr>
-<tr class="separator:a88cf765a310be21ac0f4d8c813b4989d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99abf93b7db519dcc5656e29d72edeb1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classStock.html">Stock</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a99abf93b7db519dcc5656e29d72edeb1">getStocks</a> () const</td></tr>
-<tr class="separator:a99abf93b7db519dcc5656e29d72edeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18c0dcd46a823a615dc32303718f9723"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a18c0dcd46a823a615dc32303718f9723">StockMarket</a> (double timeStep, unsigned simulationLength, const std::string &amp;jsonFilePath)</td></tr>
+<tr class="separator:a18c0dcd46a823a615dc32303718f9723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9677346ac62ef107839d77bc73cd7809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classStock.html">Stock</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a9677346ac62ef107839d77bc73cd7809">getStock</a> (std::string_view)</td></tr>
+<tr class="separator:a9677346ac62ef107839d77bc73cd7809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0f00216fad674d92bdf90c2d1172dc3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; const <a class="el" href="classStock.html">Stock</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#af0f00216fad674d92bdf90c2d1172dc3">getStocks</a> () const</td></tr>
+<tr class="separator:af0f00216fad674d92bdf90c2d1172dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ff3f05e2b66d53ec86a7c37906ea3c0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a2ff3f05e2b66d53ec86a7c37906ea3c0">getStockPrice</a> (std::string_view stockName) const noexcept</td></tr>
 <tr class="separator:a2ff3f05e2b66d53ec86a7c37906ea3c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1487cf4f54ac063543ab1f64417e9cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a1487cf4f54ac063543ab1f64417e9cbd">setSimulationLength</a> (unsigned new_simulation_length) noexcept</td></tr>
+<tr class="separator:a1487cf4f54ac063543ab1f64417e9cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a872b5d8b68141587cf9649f72057d7ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a872b5d8b68141587cf9649f72057d7ac">simulateMarket</a> ()</td></tr>
+<tr class="memdesc:a872b5d8b68141587cf9649f72057d7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update prices iteratively for the given simulation length.  <a href="classStockMarket.html#a872b5d8b68141587cf9649f72057d7ac">More...</a><br /></td></tr>
 <tr class="separator:a872b5d8b68141587cf9649f72057d7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e99a33361e70a229d4a2dc70435910b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a3e99a33361e70a229d4a2dc70435910b">outputPerformance</a> ()</td></tr>
 <tr class="separator:a3e99a33361e70a229d4a2dc70435910b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,8 +126,8 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a75105ca045830ae08b320fa9fb643282"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a75105ca045830ae08b320fa9fb643282">_time_step</a></td></tr>
 <tr class="separator:a75105ca045830ae08b320fa9fb643282"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27e394a6f29f551c7804d191a82d3030"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a27e394a6f29f551c7804d191a82d3030">_simulation_length</a></td></tr>
-<tr class="separator:a27e394a6f29f551c7804d191a82d3030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a387bd74741d2097b6b196b851f0e6645"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a387bd74741d2097b6b196b851f0e6645">_simulation_length</a></td></tr>
+<tr class="separator:a387bd74741d2097b6b196b851f0e6645"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bd6035d166e4a184edd828645621acd"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classStock.html">Stock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStockMarket.html#a0bd6035d166e4a184edd828645621acd">_stocks</a></td></tr>
 <tr class="separator:a0bd6035d166e4a184edd828645621acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -154,8 +157,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a952cfac2812994cd4fae3bd12c8aada7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a952cfac2812994cd4fae3bd12c8aada7">&#9670;&nbsp;</a></span>StockMarket() <span class="overload">[2/2]</span></h2>
+<a id="a18c0dcd46a823a615dc32303718f9723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c0dcd46a823a615dc32303718f9723">&#9670;&nbsp;</a></span>StockMarket() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +172,7 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">unsigned&#160;</td>
           <td class="paramname"><em>simulationLength</em>, </td>
         </tr>
         <tr>
@@ -189,14 +192,11 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a88cf765a310be21ac0f4d8c813b4989d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88cf765a310be21ac0f4d8c813b4989d">&#9670;&nbsp;</a></span>getStock()</h2>
+<a id="a9677346ac62ef107839d77bc73cd7809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9677346ac62ef107839d77bc73cd7809">&#9670;&nbsp;</a></span>getStock()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classStock.html">Stock</a>&amp; StockMarket::getStock </td>
@@ -206,11 +206,6 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -241,14 +236,14 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a99abf93b7db519dcc5656e29d72edeb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99abf93b7db519dcc5656e29d72edeb1">&#9670;&nbsp;</a></span>getStocks()</h2>
+<a id="af0f00216fad674d92bdf90c2d1172dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f00216fad674d92bdf90c2d1172dc3">&#9670;&nbsp;</a></span>getStocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;const <a class="el" href="classStock.html">Stock</a>*&gt; StockMarket::getStocks </td>
+          <td class="memname">std::vector&lt;const <a class="el" href="classStock.html">Stock</a> *&gt; StockMarket::getStocks </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -275,6 +270,32 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1487cf4f54ac063543ab1f64417e9cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1487cf4f54ac063543ab1f64417e9cbd">&#9670;&nbsp;</a></span>setSimulationLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void StockMarket::setSimulationLength </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>new_simulation_length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a872b5d8b68141587cf9649f72057d7ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a872b5d8b68141587cf9649f72057d7ac">&#9670;&nbsp;</a></span>simulateMarket()</h2>
 
@@ -289,6 +310,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update prices iteratively for the given simulation length. </p>
+<p>The method generates the price series for all stocks in the stock market by iterating over the given simulation length and all stocks in the market. If a trade had been excecuted, the updatePrice method will change the attributes OrderVolume and buyExcecuted or sellExecuted such that the statistical values of the corresponding stock are being altered (e.g. higher expectedReturn and standardDev in case of a buy). After one timestep, those values are being reset again. </p>
 
 </div>
 </div>
@@ -311,8 +335,8 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a27e394a6f29f551c7804d191a82d3030"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27e394a6f29f551c7804d191a82d3030">&#9670;&nbsp;</a></span>_simulation_length</h2>
+<a id="a387bd74741d2097b6b196b851f0e6645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a387bd74741d2097b6b196b851f0e6645">&#9670;&nbsp;</a></span>_simulation_length</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,7 +345,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int StockMarket::_simulation_length</td>
+          <td class="memname">unsigned StockMarket::_simulation_length</td>
         </tr>
       </table>
   </td>
