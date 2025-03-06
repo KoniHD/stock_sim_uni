@@ -1,6 +1,6 @@
 # Project: Simulate trading in a stock market
 
-Idea contributed by Andrea De Girolamo @andreadegirolamo99 and Michael Pio Basile @nagual98.
+Idea contributed by Andrea De Girolamo [@andreadegirolamo99](https://github.com/andreadegirolamo99) and Michael Pio Basile [@nagual98](https://github.com/nagual98).
 
 ## General project description
 

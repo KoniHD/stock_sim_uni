@@ -1,7 +1,7 @@
 # Contributing
 
-The project idea comes from: @nagual98 & @andreadegirolamo99 \
-Team members during the semester: @EdemDenkey & @sarpergurbuz. \
+The project idea comes from: [@nagual98](https://github.com/nagual98) & [@andreadegirolamo99](https://github.com/andreadegirolamo99) \
+Team members during the semester: [@EdemDenkey](https://github.com/EdemDenkey) & [@sarpergurbuz](https://github.com/sarpergurbuz). \
 We worked to gether until Release v0.0.1 or commit 1bffdf258fcdc5fd6574a668b9470533684fa334.
 
 This project is meant to showcase my personal C++20 knowledge. Therefore everything past 1bffdf258fcdc5fd6574a668b9470533684fa334 will be my own doing. Continuing work done by my team mates will be in their own repos.
