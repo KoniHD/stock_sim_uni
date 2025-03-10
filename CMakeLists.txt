@@ -60,20 +60,22 @@ target_include_directories(stockmarket PUBLIC "include")
 
 target_sources(stockmarket PUBLIC ${SRC_DIR})
 
-# Add profiling target
+# Add profiling target using GNU Profiler
 add_executable(profiling tests/profiling.cpp)
 
 target_include_directories(profiling PUBLIC "include")
 
 target_sources(profiling PUBLIC ${SRC_DIR})
 
-target_compile_options(profiling
-    PRIVATE
-        -pg
-        # -O3 # uncomment this line to enable optimizations
-)
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    target_compile_options(profiling
+        PRIVATE
+            -pg
+            # -O3 # uncomment this line to enable optimizations
+    )
 
-target_link_options(profiling
-    PRIVATE
-        -pg
-)   
+    target_link_options(profiling
+        PRIVATE
+            -pg
+    )   
+endif()
