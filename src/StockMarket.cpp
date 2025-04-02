@@ -45,7 +45,7 @@ StockMarket::StockMarket(double timeStep, unsigned simulationLength, const std::
             double expectedReturn = stockEntry["expected_return"];
             double standardDev    = stockEntry["standard_dev"];
 
-            _stocks[name] = Stock(name, initialPrice, expectedReturn, standardDev);
+            _stocks.emplace(name, Stock(name, initialPrice, expectedReturn, standardDev));
         } catch (const std::exception &e) {
             std::cerr << "Invalid stock data: " << e.what() << std::endl;
         }

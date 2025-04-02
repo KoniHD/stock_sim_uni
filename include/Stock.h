@@ -20,23 +20,15 @@ class Stock {
 
 public:
     // constructor
-    Stock();
+    Stock() = delete;
     Stock(std::string name, double price, double expectedReturn, double standardDev, double availableStocks = 1e9);
 
     // getters
-    double getPrice() const;
-    double getExpectedReturn() const;
+    [[nodiscard]] double getPrice() const;
     [[nodiscard]] double getStandardDev() const noexcept;
-    std::string_view getName() const;
-    bool getSellExecuted() const;
-    bool getBuyExecuted() const;
-    double getOrderVolume() const noexcept;
+    [[nodiscard]] std::string_view getName() const;
 
     // setters
-    void setPrice(double price);
-    void setExpectedReturn(double expectedReturn);
-    void setStandardDev(double standardDev);
-    void setName(std::string_view name);
     void setSellExecuted(bool state);
     void setBuyExecuted(bool state);
     void setOrderVolume(double orderVolume);

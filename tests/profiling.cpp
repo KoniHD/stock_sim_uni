@@ -44,10 +44,7 @@ int main()
 
     market->setSimulationLength(5'000);
 
-    Stock google;
-    if (wallets.at(0).containsStock("Google")) {
-        google = market->getStock("Google");
-    }
+    Stock google = market->getStock("Google");
     wallets.at(0).sellStocks(google, 1);
 
     market->simulateMarket();
