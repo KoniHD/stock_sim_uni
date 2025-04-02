@@ -1,0 +1,7 @@
+digraph "Wallet"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Wallet\n|- _funds\l- _cash_position\l- _portfolio_value\l- _strategy\l- _market\l- _added_cash\l- _portfolio\l|+ Wallet()\l+ Wallet()\l+ containsStock()\l+ getFunds()\l+ getPortfolioValue()\l+ buyStocks()\l+ sellStocks()\l+ printWalletInfo()\l+ evaluateResults()\l+ addToCashposition()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+}
