@@ -39,13 +39,20 @@ jobs:
       - name: Generate documentation
         run: doxygen Doxyfile
 
+      - name: Setup SSH for deploy key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
       - name: Commit documentation
         run: |
           git config --global user.name "KoniHD"
           git config --global user.email "konstantin.zeck+github@gmail.com"
           git add docs/
           git commit -m "Automatically update documentation" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/KoniHD/stock_sim_uni.git main
+          git push git@github.com:KoniHD/stock_sim_uni.git main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
