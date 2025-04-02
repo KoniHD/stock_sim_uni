@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.28)
 
-project("Stockmarket Simulation")
+project("Stockmarket Simulation"
+    VERSION 0.1
+    DESCRIPTION "A stockmarket simulation based on Monte Carlo Simulation with GBM"
+    HOMEPAGE_URL https://konihd.github.io/stock_sim_uni/
+)
 
 # try to prevent in-source builds
 if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
@@ -10,13 +14,9 @@ if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
   )
 endif()
 
-# set default c++ standard for compile targets
+# Language settings
 set(CMAKE_CXX_STANDARD 20)
-
-# require C++20, don't allow falling back to older version of standard
 set(CXX_STANDARD_REQUIRED ON)
-
-# disable C++ extensions
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -48,34 +48,16 @@ file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
 add_executable(stockmarket src/client.cpp)
 
 set(SRC_DIR 
-    src/HighRiskStrategy.cpp 
-    src/LowRiskStrategy.cpp 
-    src/Stock.cpp
-    src/StockMarket.cpp
-    src/Strategy.cpp 
-    src/Wallet.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/HighRiskStrategy.cpp 
+    ${CMAKE_CURRENT_LIST_DIR}/src/LowRiskStrategy.cpp 
+    ${CMAKE_CURRENT_LIST_DIR}/src/Stock.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/StockMarket.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/src/Strategy.cpp 
+    ${CMAKE_CURRENT_LIST_DIR}/src/Wallet.cpp
 )
 
 target_include_directories(stockmarket PUBLIC "include")
 
 target_sources(stockmarket PUBLIC ${SRC_DIR})
 
-# Add profiling target using GNU Profiler
-add_executable(profiling tests/profiling.cpp)
-
-target_include_directories(profiling PUBLIC "include")
-
-target_sources(profiling PUBLIC ${SRC_DIR})
-
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
-    target_compile_options(profiling
-        PRIVATE
-            -pg
-            # -O3 # uncomment this line to enable optimizations
-    )
-
-    target_link_options(profiling
-        PRIVATE
-            -pg
-    )   
-endif()
+add_subdirectory(tests EXCLUDE_FROM_ALL)
