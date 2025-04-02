@@ -1,0 +1,7 @@
+digraph "Stock"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{Stock\n|- name\l- price\l- expectedReturn\l- standardDev\l- availableStocks\l- marketCap\l- sellExecuted\l- buyExecuted\l- orderVolume\l|+ Stock()\l+ Stock()\l+ getPrice()\l+ getExpectedReturn()\l+ getStandardDev()\l+ getName()\l+ getSellExecuted()\l+ getBuyExecuted()\l+ getOrderVolume()\l+ setPrice()\land 7 more...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+}

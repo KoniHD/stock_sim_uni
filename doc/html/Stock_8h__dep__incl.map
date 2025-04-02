@@ -1,8 +1,0 @@
-<map id="Stock.h" name="Stock.h">
-<area shape="rect" id="node1" title=" " alt="" coords="259,5,329,32"/>
-<area shape="rect" id="node2" href="$StockMarket_8h.html" title=" " alt="" coords="142,80,257,107"/>
-<area shape="rect" id="node5" href="$Strategy_8h.html" title=" " alt="" coords="203,155,289,181"/>
-<area shape="rect" id="node6" href="$Wallet_8h.html" title=" " alt="" coords="341,229,415,256"/>
-<area shape="rect" id="node3" href="$HighRiskStrategy_8h.html" title=" " alt="" coords="5,229,151,256"/>
-<area shape="rect" id="node4" href="$LowRiskStrategy_8h.html" title=" " alt="" coords="175,229,317,256"/>
-</map>
