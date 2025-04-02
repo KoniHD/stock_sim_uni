@@ -11,6 +11,8 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(doctest)
 
+include(doctest)
+
 add_executable(stockmarket_tests
     ${SRC_DIR}
     unit_tests.cpp
@@ -25,6 +27,8 @@ target_link_libraries(stockmarket_tests
     PRIVATE
         doctest::doctest
 )
+
+doctest_discover_tests(stockmarket_tests)
 
 ###############################################################################
 # Adding profiling target
