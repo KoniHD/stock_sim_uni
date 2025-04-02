@@ -5,8 +5,14 @@ name: CMake on multiple platforms
 on:
   push:
     branches: [ "main", "sprint4" ]
+    paths:
+      - "include/**"
+      - "src/**"
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "include/**"
+      - "src/**"
 
 jobs:
   build:
