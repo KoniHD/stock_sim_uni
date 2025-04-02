@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['stock_77',['Stock',['../classStock.html',1,'']]],
-  ['stockmarket_78',['StockMarket',['../classStockMarket.html',1,'']]],
-  ['strategy_79',['Strategy',['../classStrategy.html',1,'']]]
+  ['stock_0',['Stock',['../classStock.html',1,'']]],
+  ['stockmarket_1',['StockMarket',['../classStockMarket.html',1,'']]],
+  ['strategy_2',['Strategy',['../classStrategy.html',1,'']]]
 ];

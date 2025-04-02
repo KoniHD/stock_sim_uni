@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['highriskstrategy_2eh_81',['HighRiskStrategy.h',['../HighRiskStrategy_8h.html',1,'']]]
+  ['highriskstrategy_2eh_0',['HighRiskStrategy.h',['../HighRiskStrategy_8h.html',1,'']]]
 ];

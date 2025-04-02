@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['high_5frisk_5fstock_32',['HIGH_RISK_STOCK',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca22db47e269f245d8bee7a4cf01cfa248',1,'Strategy.h']]],
-  ['highriskstrategy_33',['HighRiskStrategy',['../classHighRiskStrategy.html',1,'']]],
-  ['highriskstrategy_2eh_34',['HighRiskStrategy.h',['../HighRiskStrategy_8h.html',1,'']]]
+  ['class_20implementation_0',['Example of possible class implementation',['../md_idea.html#autotoc_md9',1,'']]],
+  ['containsstock_1',['containsStock',['../classWallet.html#a0c5340af7efe7bea56d9c2b86bec1957',1,'Wallet']]],
+  ['count_2',['COUNT',['../Strategy_8h.html#a20547a588ff38b7e9ef38f2a4f2fd52ca2addb49878f50c95dc669e5fdbd130a2',1,'Strategy.h']]]
 ];
