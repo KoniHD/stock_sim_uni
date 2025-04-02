@@ -14,7 +14,7 @@
 #define MID_RISK_PERCENTAGE  0.3
 #define HIGH_RISK_PERCENTAGE 0.2
 
-auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMarket) const noexcept
+auto LowRiskStrategy::pickStocks(double &invested_funds, const StockMarket &stockMarket) const noexcept
         -> std::unordered_map<std::string, unsigned>
 {
     // Use the updated groupStocks return type
@@ -42,7 +42,7 @@ auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMa
 
     for (size_t i = 0; i < grouped_stocks.size(); ++i) {
         if (!grouped_stocks.at(i).empty()) {
-            double partial_funds = total_funds * weights.at(i);
+            double partial_invested_funds = invested_funds * weights.at(i);
 
             // Create a copy of the stocks from pointers
             std::vector<Stock> stocks_copy;
@@ -51,7 +51,7 @@ auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMa
             }
 
             // Purchase stocks for the current risk group
-            auto risk_portfolio = purchaseStocks(total_funds, partial_funds, stocks_copy);
+            auto risk_portfolio = purchaseStocks(invested_funds, partial_invested_funds, stocks_copy);
             portfolio.merge(risk_portfolio);
         }
     }
@@ -62,7 +62,7 @@ auto LowRiskStrategy::pickStocks(double &total_funds, const StockMarket &stockMa
     for (const Stock *stock_ptr: grouped_stocks.at(StockRisk::LOW_RISK_STOCK)) {
         low_risk_stocks_copy.push_back(*stock_ptr); // Dereference pointer to create a copy
     }
-    portfolio.merge(purchaseStocks(total_funds, total_funds, low_risk_stocks_copy));
+    portfolio.merge(purchaseStocks(invested_funds, invested_funds, low_risk_stocks_copy));
 
     return portfolio;
 }

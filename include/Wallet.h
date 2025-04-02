@@ -12,7 +12,18 @@
 
 class Wallet {
 
-    double _funds; // FIXME should this variable be instead used as _invested_funds?
+    /**
+     * @brief Variable that keeps track of the total money invested
+     *
+     * This variable keeps track of the total money invested into the portofilio when initially creating it. Choosing to
+     * add cache will also increase this varibale. When selling stocks, this variable will not be updated. This variable
+     * is used in the end to evaluate the performance of the portfolio.
+     */
+    double _invested_funds;
+
+    /**
+     * @brief Current cash in the portfolio which is not invested.
+     */
     double _cash_position;
 
     /**
@@ -34,12 +45,6 @@ class Wallet {
     std::shared_ptr<StockMarket> _market;
 
     /**
-     * @brief This variable keeps track of the cash added during the simulation, such that it is considered in the
-     * performance calculation.
-     */
-    double _added_cash;
-
-    /**
      * @brief The portfolio of @ref Stock "Stocks" owned by the Wallet.
      */
     std::unordered_map<std::string, unsigned> _portfolio;
@@ -51,9 +56,10 @@ public:
     /**
      * @brief Construct a new Wallet object.
      *
-     * The constructor initializes the @ref _funds and @ref _cash_position with @p funds and @ref _portfolio_value is
-     * initially set to 0 but updated when the portflio is assembled using the @p strategy. The @ref _strategy is
-     * moved to be owned by the Wallet. The @p market is the StockMarket at which the Wallet operates. Since multiple
+     * The constructor initializes the @ref _invested_funds and @ref _cash_position with @p funds and @ref
+     * _portfolio_value is initially set to 0 but updated when the portflio is assembled using the @p strategy. The @ref
+     * _strategy is moved to be owned by the Wallet. The @p market is the StockMarket at which the Wallet operates.
+     * Since multiple
      * @ref Wallet "Wallets" can operator on this StockMarket, @ref _market is a shared_ptr.
      */
     Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market);
@@ -66,10 +72,10 @@ public:
     bool containsStock(std::string_view stock_name) const noexcept;
 
     /**
-     * @brief Get the @ref _funds of the Wallet.
-     * @return The @ref _funds of the Wallet.
+     * @brief Get the @ref _invested_funds of the Wallet.
+     * @return The @ref _invested_funds of the Wallet.
      */
-    [[nodiscard]] double getFunds() const;
+    [[nodiscard]] double getInvestedFunds() const;
 
     /**
      * @brief Get the @ref _portfolio_value of the Wallet.
