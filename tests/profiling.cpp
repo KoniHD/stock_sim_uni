@@ -27,7 +27,7 @@
 int main()
 {
 
-    std::shared_ptr<StockMarket> market = std::make_shared<StockMarket>(1.0 / 12.0, 10'000, "../input/stocks.json");
+    std::shared_ptr<StockMarket> market = std::make_shared<StockMarket>(1.0 / 12.0, 10'000, "../../input/stocks.json");
 
     std::vector<Wallet> wallets;
     wallets.emplace_back(3000, std::make_unique<LowRiskStrategy>(), market);
@@ -63,9 +63,9 @@ int main()
 
     size_t i{0};
     for (const Wallet &wallet: wallets) {
-        std::cout << std::endl << "-Stats for wallet No." << std::to_string(++i) << " :" << std::endl;
-        wallet.getPortfolioValue();
-        wallet.getFunds();
+        std::cout << std::endl << "-Stats for wallet No." << std::to_string(++i) << " :\n";
+        std::cout << "Portfolio value: " << wallet.getPortfolioValue() << "\n";
+        std::cout << "Invested Funds: " << wallet.getInvestedFunds() << std::endl;
     }
 
     return 0;
