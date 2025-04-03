@@ -24,10 +24,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  documentation:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -38,6 +35,16 @@ jobs:
 
       - name: Generate documentation
         run: doxygen Doxyfile
+
+  deploy:
+    needs: documentation
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup SSH for deploy key
         run: |

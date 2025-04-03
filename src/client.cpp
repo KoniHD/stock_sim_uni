@@ -236,9 +236,10 @@ int main()
     size_t i{0};
     for (const Wallet &wallet: wallets) {
         std::cout << std::endl << "-Stats for wallet No." << std::to_string(++i) << " :" << std::endl;
-        std::cout << "You started the simulation with: " << wallet.getFunds() << std::endl;
+        std::cout << "You started the simulation with: " << wallet.getInvestedFunds() << std::endl;
         std::cout << "After the simulation your portfolio is worth: " << wallet.getPortfolioValue() << std::endl;
-        std::cout << "You made a profit / loss of: " << wallet.getPortfolioValue() - wallet.getFunds() << std::endl;
+        std::cout << "You made a profit / loss of: " << wallet.getPortfolioValue() - wallet.getInvestedFunds()
+                  << std::endl;
     }
 
 

@@ -41,12 +41,12 @@ class Strategy {
 protected:
     /**
      * @brief Purchases @ref Stock "Stocks" based on available @p partial_funds and Stock prices.
-     * @param total_funds Reference to the @p total_funds available.
+     * @param invested_funds Reference to the @p invested_funds available.
      * @param partial_funds Funds allocated for purchasing @ref Stock "Stocks".
      * @param stocks Vector of available @ref Stock "Stocks".
      * @return A map of Stock names to the number of shares purchased.
      */
-    [[nodiscard]] static auto purchaseStocks(double &total_funds, double partial_funds,
+    [[nodiscard]] static auto purchaseStocks(double &invested_funds, double partial_funds,
                                              const std::vector<Stock> &stocks) noexcept
             -> std::unordered_map<std::string, unsigned>;
 
@@ -60,14 +60,15 @@ protected:
      * "Stock Risk" level.
 
      */
-    [[nodiscard]] static auto groupStocks(const StockMarket &market) noexcept -> std::array<std::vector<const Stock*>, 3>;
+    [[nodiscard]] static auto groupStocks(const StockMarket &market) noexcept
+            -> std::array<std::vector<const Stock *>, 3>;
 
 
     /**
      * @brief Method attempts to buy as many @ref Stock "Stocks" for each @ref
-     * StockRisk "stock risk" as possible with the given @p total_funds.
-     * @param total_funds Total available funds across all @ref StockRisk "stock
-     * risk" levels. @p total_funds will also be spent (i.e. the variable
+     * StockRisk "stock risk" as possible with the given @p invested_funds.
+     * @param invested_funds Total available funds across all @ref StockRisk "stock
+     * risk" levels. @p invested_funds will also be spent (i.e. the variable
      * decreases).
      * @param grouped_stocks Predetermined container of @ref StockGroups.
      * @param risk_percentage Array specifying how much [0] @ref LOW_RISK_STOCK
@@ -83,9 +84,10 @@ protected:
      * attemted to buy the cheapest Stock in the @ref StockRisk "stock risk
      * category".
      */
-    [[nodiscard]] static auto purchaseStocksByRisk(
-            double &total_funds, const std::array<std::vector<Stock>, 3> &grouped_stocks,
-            std::array<double, 3> risk_percentage) noexcept -> std::unordered_map<std::string, unsigned>;
+    [[nodiscard]] static auto purchaseStocksByRisk(double &invested_funds,
+                                                   const std::array<std::vector<Stock>, 3> &grouped_stocks,
+                                                   std::array<double, 3> risk_percentage) noexcept
+            -> std::unordered_map<std::string, unsigned>;
 
 public:
     Strategy()                                    = default;
@@ -102,7 +104,7 @@ public:
      * HighRiskStrategy.
      * @return The portfolio of @ref Stock "Stocks".
      */
-    [[nodiscard]] virtual auto pickStocks(double &total_funds, const StockMarket &stockMarket) const noexcept
+    [[nodiscard]] virtual auto pickStocks(double &invested_funds, const StockMarket &stockMarket) const noexcept
             -> std::unordered_map<std::string, unsigned> = 0;
 };
 

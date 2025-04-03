@@ -27,7 +27,7 @@ StockRisk assessStockRisk(const Stock &stock) noexcept
     return HIGH_RISK_STOCK;
 }
 
-auto Strategy::purchaseStocks(double &total_funds, double partial_funds, const std::vector<Stock> &stocks) noexcept
+auto Strategy::purchaseStocks(double &invested_funds, double partial_funds, const std::vector<Stock> &stocks) noexcept
         -> std::unordered_map<std::string, unsigned>
 {
     if (stocks.empty())
@@ -45,12 +45,12 @@ auto Strategy::purchaseStocks(double &total_funds, double partial_funds, const s
 
         amount_of_stock = static_cast<unsigned>(std::trunc(funds_per_share / stock_price));
         portfolio.emplace(stock.getName(), amount_of_stock);
-        total_funds -= amount_of_stock * stock_price;
+        invested_funds -= amount_of_stock * stock_price;
         partial_funds -= amount_of_stock * stock_price;
     }
     amount_of_stock = static_cast<unsigned>(std::trunc(partial_funds / cheapest_stock.getPrice()));
     portfolio.at(std::string(cheapest_stock.getName())) += amount_of_stock;
-    total_funds -= amount_of_stock * cheapest_stock.getPrice();
+    invested_funds -= amount_of_stock * cheapest_stock.getPrice();
 
     return portfolio;
 }
@@ -68,7 +68,7 @@ auto Strategy::groupStocks(const StockMarket &market) noexcept -> std::array<std
     return grouped_stocks;
 }
 
-auto Strategy::purchaseStocksByRisk(double &total_funds, const std::array<std::vector<Stock>, 3> &grouped_stocks,
+auto Strategy::purchaseStocksByRisk(double &invested_funds, const std::array<std::vector<Stock>, 3> &grouped_stocks,
                                     std::array<double, 3> risk_percentage) noexcept
         -> std::unordered_map<std::string, unsigned>
 {
@@ -76,8 +76,8 @@ auto Strategy::purchaseStocksByRisk(double &total_funds, const std::array<std::v
 
     for (std::size_t i{0}; i < grouped_stocks.size(); ++i) {
         if (not grouped_stocks.at(i).empty()) {
-            double partial_funds{total_funds * risk_percentage.at(i)};
-            portfolio.merge(purchaseStocks(total_funds, partial_funds, grouped_stocks.at(i)));
+            double partial_invested_funds{invested_funds * risk_percentage.at(i)};
+            portfolio.merge(purchaseStocks(invested_funds, partial_invested_funds, grouped_stocks.at(i)));
         }
     }
 

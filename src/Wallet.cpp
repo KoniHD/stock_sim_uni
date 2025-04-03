@@ -12,12 +12,11 @@
 #include <utility>
 
 Wallet::Wallet(double funds, std::unique_ptr<Strategy> strategy, std::shared_ptr<StockMarket> market) :
-    _funds{funds},
+    _invested_funds{funds},
     _cash_position{funds},
     _portfolio_value{0.0},
     _strategy{std::move(strategy)},
-    _market{market},
-    _added_cash{0.0}
+    _market{market}
 {
     _portfolio = _strategy->pickStocks(_cash_position, *_market);
     evaluateResults();
@@ -30,7 +29,7 @@ bool Wallet::containsStock(std::string_view stock_name) const noexcept
     return it != _portfolio.end();
 }
 
-double Wallet::getFunds() const { return _funds; }
+double Wallet::getInvestedFunds() const { return _invested_funds; }
 
 double Wallet::getPortfolioValue() const { return _portfolio_value; }
 
@@ -88,8 +87,8 @@ void Wallet::printWalletInfo() const
     }
 
     // Evaluating the portfolio performance relative to the initial funds.s
-    // double performance = (portfolio_value / _funds - 1.0) * 100.0;
-    double performance = ((portfolio_value + _cash_position) / (_funds + _added_cash) - 1.0) * 100.0;
+    // double performance = (portfolio_value / _invested_funds - 1.0) * 100.0;
+    double performance = ((portfolio_value + _cash_position) / (_invested_funds) -1.0) * 100.0;
     std::cout << std::endl << "Total portfolio value in wallet is : " << portfolio_value;
     if (performance > 0.0) {
         std::cout << "$, up by " << std::round(performance * 100.0) / 100.0 << "%" << std::endl;
@@ -100,6 +99,6 @@ void Wallet::printWalletInfo() const
 
 void Wallet::addToCashposition(double new_cash)
 {
-    this->_cash_position += new_cash;
-    this->_added_cash += new_cash;
+    _cash_position += new_cash;
+    _invested_funds += new_cash;
 }

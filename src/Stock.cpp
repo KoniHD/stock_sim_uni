@@ -9,23 +9,13 @@
 #include <utility>
 #include <vector>
 
-// Constructor
-Stock::Stock() :
-    price{0.0},
-    expectedReturn{0.0},
-    standardDev{0.0}
-{}
-
 Stock::Stock(std::string name, double price, double expectedReturn, double standardDev, double availableStocks) :
     name{std::move(name)},
     price{price},
     expectedReturn{expectedReturn},
     standardDev{standardDev},
     availableStocks{availableStocks},
-    marketCap{availableStocks * price},
-    sellExecuted{false},
-    buyExecuted{false},
-    orderVolume{0.0}
+    marketCap{availableStocks * price}
 {
     if (price < 0)
         throw std::invalid_argument("Price must be non-negative");
@@ -40,28 +30,11 @@ Stock::Stock(std::string name, double price, double expectedReturn, double stand
 // Getters
 double Stock::getPrice() const { return price; }
 
-double Stock::getExpectedReturn() const { return expectedReturn; }
-
 double Stock::getStandardDev() const noexcept { return standardDev; }
 
 std::string_view Stock::getName() const { return name; }
 
-bool Stock::getSellExecuted() const { return sellExecuted; }
-
-bool Stock::getBuyExecuted() const { return buyExecuted; }
-
-double Stock::getOrderVolume() const noexcept { return orderVolume; }
-
 // Setters
-
-void Stock::setPrice(double price) { this->price = price; }
-
-void Stock::setExpectedReturn(double expectedReturn) { this->expectedReturn = expectedReturn; }
-
-void Stock::setStandardDev(double standardDev) { this->standardDev = standardDev; }
-
-void Stock::setName(std::string_view name) { this->name = name; }
-
 void Stock::setSellExecuted(bool state) { this->sellExecuted = state; }
 
 void Stock::setBuyExecuted(bool state) { this->buyExecuted = state; }
