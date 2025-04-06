@@ -15,7 +15,7 @@ FetchContent_MakeAvailable(doctest)
 
 if(doctest_SOURCE_DIR)
     message(STATUS "Doctest not populated -> Downloaded from github")
-    set(DOCTEST_INCLUDE_DIR ${doctest_SOURCE_DIR}/doctest CACHE INTERNAL "Path to include folder for doctest")
+    set(DOCTEST_INCLUDE_DIR ${doctest_SOURCE_DIR} CACHE INTERNAL "Path to include folder for doctest")
     include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
 else()
     message(STATUS "Doctest already populated (found locally)")
