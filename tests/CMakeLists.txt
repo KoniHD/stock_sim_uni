@@ -45,6 +45,11 @@ add_executable(profiling
     profiling.cpp
 )
 
+set_target_properties(profiling
+    PROPERTIES
+        EXCLUDE_FROM_ALL TRUE
+)
+
 target_include_directories(profiling
     PRIVATE
         ${CMAKE_SOURCE_DIR}/include

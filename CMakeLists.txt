@@ -62,4 +62,4 @@ target_include_directories(stockmarket PUBLIC "include")
 
 target_sources(stockmarket PUBLIC ${SRC_DIR})
 
-add_subdirectory(tests EXCLUDE_FROM_ALL)
+add_subdirectory(tests)
