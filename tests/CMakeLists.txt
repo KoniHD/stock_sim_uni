@@ -7,11 +7,20 @@ include(FetchContent)
 FetchContent_Declare(
     doctest
     GIT_REPOSITORY https://github.com/doctest/doctest.git
-    FIND_PACKAGE_ARGS
+    SOURCE_SUBDIR don-t_add_subdirectory    # don't implicitly perform add_subdirectory(doctest_SOURCE_DIR)
+    EXCLUDE_FROM_ALL                        # don't include doctest in the default build
+    FIND_PACKAGE_ARGS QUIET
 )
 FetchContent_MakeAvailable(doctest)
 
-include(doctest)
+if(doctest_SOURCE_DIR)
+    message(STATUS "Doctest not populated -> Downloaded from github")
+    set(DOCTEST_INCLUDE_DIR ${doctest_SOURCE_DIR}/doctest CACHE INTERNAL "Path to include folder for doctest")
+    include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
+else()
+    message(STATUS "Doctest already populated (found locally)")
+    include(doctest)
+endif()
 
 add_executable(stockmarket_tests
     ${SRC_DIR}
@@ -21,11 +30,7 @@ add_executable(stockmarket_tests
 target_include_directories(stockmarket_tests
     PRIVATE
         ${CMAKE_SOURCE_DIR}/include
-)
-
-target_link_libraries(stockmarket_tests
-    PRIVATE
-        doctest::doctest
+        ${DOCTEST_INCLUDE_DIR}
 )
 
 doctest_discover_tests(stockmarket_tests)
