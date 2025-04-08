@@ -15,7 +15,7 @@ FetchContent_MakeAvailable(doctest)
 
 if(doctest_SOURCE_DIR)
     message(STATUS "Doctest not populated -> Downloaded from github")
-    set(DOCTEST_INCLUDE_DIR ${doctest_SOURCE_DIR} CACHE INTERNAL "Path to include folder for doctest")
+    set(doctest_INCLUDE_DIR ${doctest_SOURCE_DIR} CACHE INTERNAL "Path to include folder for doctest")
     include(${doctest_SOURCE_DIR}/scripts/cmake/doctest.cmake)
 else()
     message(STATUS "Doctest already populated (found locally)")
@@ -24,13 +24,19 @@ endif()
 
 add_executable(stockmarket_tests
     ${SRC_DIR}
-    unit_tests.cpp
+    test_main.cpp
+    test_HighRiskStrategy.cpp
+    test_LowRiskStrategy.cpp
+    test_Stock.cpp
+    test_StockMarket.cpp
+    test_Strategy.cpp
+    test_Wallet.cpp
 )
 
 target_include_directories(stockmarket_tests
     PRIVATE
         ${CMAKE_SOURCE_DIR}/include
-        ${DOCTEST_INCLUDE_DIR}
+        ${doctest_INCLUDE_DIR}
 )
 
 doctest_discover_tests(stockmarket_tests)
