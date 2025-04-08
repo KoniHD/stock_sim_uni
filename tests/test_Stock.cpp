@@ -3,6 +3,7 @@
 #include <doctest/doctest.h>
 #include <random>
 #include <string>
+#include <string_view>
 
 TEST_CASE("Stock construction and initialization")
 {
@@ -18,7 +19,7 @@ TEST_CASE("Stock construction and initialization")
 
         Stock stock(name, price, expected_return, standard_dev, available_stocks);
 
-        CHECK_EQ(stock.getName(), name);
+        CHECK_EQ(stock.getName(), std::string_view(name));
         CHECK_EQ(stock.getPrice(), price);
         CHECK_EQ(stock.getStandardDev(), standard_dev);
     }
@@ -32,7 +33,7 @@ TEST_CASE("Stock getters")
     double standard_dev    = 0.18;
     Stock stock(name, price, expected_return, standard_dev);
 
-    SUBCASE("getName returns correct value") { CHECK_EQ(stock.getName(), name); }
+    SUBCASE("getName returns correct value") { CHECK_EQ(stock.getName(), std::string_view(name)); }
 
     SUBCASE("getPrice returns correct value") { CHECK_EQ(stock.getPrice(), price); }
 
