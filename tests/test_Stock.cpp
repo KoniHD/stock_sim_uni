@@ -1,6 +1,7 @@
 #include "Stock.h"
 
 #include <doctest/doctest.h>
+#include <ostream>
 #include <random>
 #include <string>
 #include <string_view>
